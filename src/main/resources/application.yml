@@ -1,0 +1,38 @@
+server:
+  port: 8077
+  servlet:
+    context-path: /czy
+mybatis:
+  type-aliases-package: com.yiwei.ywt.*.model.*
+  mapper-locations: classpath*:mybatis/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 300
+spring:
+  profiles:
+    active: dev  # 声明需要加载子配置文件
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 5
+      auto-commit: true
+      pool-name: Datasource
+      idle-timeout: 30000
+      connection-timeout: 30000
+      connection-test-query: select 1
+      data-source-properties:
+        dataSource.cachePrepStmts: true
+        dataSource.prepStmtCacheSize: 250
+        dataSource.prepStmtCacheSqlLimit: 2048
+        dataSource.useServerPrepStmts: true
+        dataSource.useLocalSessionState: true
+        dataSource.rewriteBatchedStatements: true
+        dataSource.cacheResultSetMetadata: true
+        dataSource.cacheServerConfiguration: true
+        dataSource.elideSetAutoCommits: true
+        dataSource.maintainTimeStats: false
+logging:
+  level:
+    root: debug
