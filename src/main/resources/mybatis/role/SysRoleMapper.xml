@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yiwei.ywt.sys.role.dao.SysRoleMapper">
+    <resultMap id="sysRole" type="com.yiwei.ywt.sys.role.model.SysRole">
+        <result property="id" column="ID" jdbcType="BIGINT"/>
+        <result property="roleName" column="ROLE_NAME" jdbcType="VARCHAR"/>
+        <result property="roleCode" column="ROLE_CODE" jdbcType="VARCHAR"/>
+        <result property="enabled" column="ENABLED" jdbcType="TINYINT"/>
+        <result property="description" column="DESCRIPTION" jdbcType="VARCHAR"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="lastUpdateTime" column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="DEL_FLAG" jdbcType="TINYINT"/>
+        <result property="defaultModuleId" column="DEFAULT_MODULE_ID" jdbcType="BIGINT"/>
+
+        <result property="sysSystem.id" column="SYSTEM_ID" jdbcType="BIGINT"/>
+        <result property="sysSystem.systemName" column="SYSTEM_NAME" jdbcType="VARCHAR"/>
+        <result property="sysSystem.systemAlias" column="SYSTEM_ALIAS" jdbcType="VARCHAR"/>
+        <result property="sysSystem.systemCode" column="SYSTEM_CODE" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <!-- select SysRole by roleCode -->
+    <select id="getEntityByRoleCode" resultMap="sysRole">
+        SELECT
+          T1.ID, T1.ROLE_NAME, T1.DEFAULT_MODULE_ID,T1.ROLE_CODE, T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+          T2.ID AS SYSTEM_ID, T2.SYSTEM_NAME AS SYSTEM_NAME, T2.SYSTEM_ALIAS AS SYSTEM_ALIAS, T2.SYSTEM_CODE AS SYSTEM_CODE
+        FROM
+          T_SYS_ROLE T1
+          LEFT JOIN T_SYS_SYSTEM T2 ON T1.SYSTEM_ID = T2.ID
+        WHERE T1.DEL_FLAG = 0
+          AND T1.ROLE_CODE = #{roleCode,jdbcType=VARCHAR}
+    </select>
+
+    <!-- 分页查询 -->
+    <select id="selectPageList" resultMap="sysRole">
+        SELECT
+          T1.ID, T1.ROLE_NAME, T1.DEFAULT_MODULE_ID,T1.ROLE_CODE, T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+          T2.ID AS SYSTEM_ID, T2.SYSTEM_NAME AS SYSTEM_NAME, T2.SYSTEM_ALIAS AS SYSTEM_ALIAS, T2.SYSTEM_CODE AS SYSTEM_CODE
+        FROM
+          T_SYS_ROLE T1
+          LEFT JOIN T_SYS_SYSTEM T2 ON T1.SYSTEM_ID = T2.ID
+        WHERE T1.DEL_FLAG = 0
+        <if test="searchParams != null ">
+            <if test="searchParams.roleName != null and searchParams.roleName !=''">
+                AND UPPER(ROLE_NAME) LIKE UPPER(CONCAT("%", #{searchParams.roleName, jdbcType=VARCHAR}, "%"))
+            </if>
+            <if test="searchParams.roleCode !=null and searchParams.roleCode !=''">
+                AND UPPER(ROLE_CODE) LIKE UPPER(CONCAT("%", #{searchParams.roleCode, jdbcType=VARCHAR}, "%"))
+            </if>
+            <if test="searchParams.sysSystem != null">
+                <if test="searchParams.sysSystem.id != null">
+                    AND SYSTEM_ID = #{searchParams.sysSystem.id,jdbcType=BIGINT}
+                </if>
+            </if>
+        </if>
+        ORDER BY T1.CREATE_TIME DESC, T1.LAST_UPDATE_TIME DESC
+        LIMIT #{offset, jdbcType=INTEGER},#{limit, jdbcType=INTEGER}
+    </select>
+
+    <!-- 分页查询统计总数 -->
+    <select id="count" resultType="java.lang.Long" parameterType="com.yiwei.ywt.sys.role.model.SysRole">
+        SELECT
+          COUNT(0)
+        FROM
+            T_SYS_ROLE T1
+            LEFT JOIN T_SYS_SYSTEM T2 ON T1.SYSTEM_ID = T2.ID
+        WHERE T1.DEL_FLAG = 0
+        <if test="roleName != null and roleName !=''">
+            AND ROLE_NAME LIKE CONCAT("%", #{roleName, jdbcType=VARCHAR}, "%")
+        </if>
+        <if test="roleCode !=null and roleCode !=''">
+            AND ROLE_CODE = #{roleCode, jdbcType=VARCHAR}
+        </if>
+        <if test="sysSystem != null">
+            <if test="sysSystem.id != null">
+                AND SYSTEM_ID = #{sysSystem.id,jdbcType=BIGINT}
+            </if>
+        </if>
+    </select>
+
+    <!-- add SysRole-->
+    <insert id="insert" parameterType="com.yiwei.ywt.sys.role.model.SysRole" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+          T_SYS_ROLE (ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, SYSTEM_ID,DEFAULT_MODULE_ID, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG)
+        VALUES (#{roleName, jdbcType=VARCHAR}, #{roleCode, jdbcType=VARCHAR}, #{enabled, jdbcType=TINYINT},
+                #{description, jdbcType=VARCHAR}, #{sysSystem.id, jdbcType=BIGINT}, #{defaultModuleId, jdbcType=BIGINT},
+                NOW(), NOW(), 0)
+    </insert>
+
+    <update id="update" parameterType="com.yiwei.ywt.sys.role.model.SysRole">
+        UPDATE
+          T_SYS_ROLE
+        <set>
+            <if test="roleName != null and roleName != ''">ROLE_NAME = #{roleName, jdbcType=VARCHAR},</if>
+            <if test="roleCode != null and roleCode != ''">ROLE_CODE = #{roleCode, jdbcType=VARCHAR},</if>
+            <if test="enabled != null">ENABLED = #{enabled, jdbcType=TINYINT},</if>
+            <if test="description != null">DESCRIPTION = #{description, jdbcType=VARCHAR},</if>
+            <if test="sysSystem != null">
+                <if test="sysSystem.id != null">SYSTEM_ID = #{sysSystem.id, jdbcType=BIGINT},</if>
+            </if>
+            LAST_UPDATE_TIME = NOW()
+        </set>
+        WHERE DEL_FLAG = 0
+          AND ID = #{id, jdbcType=BIGINT}
+    </update>
+
+    <update id="delete">
+        UPDATE
+          T_SYS_ROLE
+        SET
+          DEL_FLAG = 1
+        WHERE DEL_FLAG = 0
+          AND ID = #{id, jdbcType=BIGINT}
+    </update>
+
+    <!-- select SysRole by ID -->
+    <select id="getEntityById" resultMap="sysRole">
+        SELECT
+            T1.ID, T1.ROLE_NAME, T1.DEFAULT_MODULE_ID,T1.ROLE_CODE, T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+            T2.ID AS SYSTEM_ID, T2.SYSTEM_NAME AS SYSTEM_NAME, T2.SYSTEM_ALIAS AS SYSTEM_ALIAS, T2.SYSTEM_CODE AS SYSTEM_CODE
+        FROM
+            T_SYS_ROLE T1
+            LEFT JOIN T_SYS_SYSTEM T2 ON T1.SYSTEM_ID = T2.ID
+        WHERE T1.DEL_FLAG = 0
+          AND T1.ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <!-- select SysRoleList by systemId -->
+    <select id="selectListBySystemId" resultMap="sysRole">
+        SELECT
+          T1.ID, T1.ROLE_NAME,T1.DEFAULT_MODULE_ID, T1.ROLE_CODE, T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+          T2.ID AS SYSTEM_ID, T2.SYSTEM_NAME AS SYSTEM_NAME, T2.SYSTEM_ALIAS AS SYSTEM_ALIAS, T2.SYSTEM_CODE AS SYSTEM_CODE
+        FROM
+          T_SYS_ROLE T1
+          LEFT JOIN T_SYS_SYSTEM T2 ON T1.SYSTEM_ID = T2.ID
+        WHERE T1.DEL_FLAG = 0
+          AND T1.SYSTEM_ID = #{systemId,jdbcType=BIGINT}
+        ORDER BY T1.CREATE_TIME DESC
+    </select>
+    <select id="listAll" resultMap="sysRole">
+        SELECT
+          T1.ID, T1.ROLE_NAME,T1.DEFAULT_MODULE_ID, T1.ROLE_CODE, T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+          T2.ID AS SYSTEM_ID, T2.SYSTEM_NAME AS SYSTEM_NAME, T2.SYSTEM_ALIAS AS SYSTEM_ALIAS, T2.SYSTEM_CODE AS SYSTEM_CODE
+        FROM
+          T_SYS_ROLE T1
+          LEFT JOIN T_SYS_SYSTEM T2 ON T1.SYSTEM_ID = T2.ID
+        WHERE T1.DEL_FLAG = 0
+        ORDER BY T1.CREATE_TIME DESC
+    </select>
+
+    <update id="enableEntity">
+        UPDATE
+        T_SYS_ROLE
+        SET
+        ENABLED = 1
+        WHERE ID = #{id, jdbcType=BIGINT}
+    </update>
+
+    <update id="disableEntity">
+        UPDATE
+        T_SYS_ROLE
+        SET
+        ENABLED = 0
+        WHERE ID = #{id, jdbcType=BIGINT}
+    </update>
+
+
+</mapper>

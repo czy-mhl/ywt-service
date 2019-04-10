@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yiwei.ywt.sys.menu.dao.SysMenuMapper">
+   <!-- <resultMap id="sysMenu" type="com.pseer.cosun.sys.menu.model.SysMenu">
+        <result property="id" column="ID" jdbcType="BIGINT"/>
+        <result property="menuName" column="MENU_NAME" jdbcType="VARCHAR"/>
+        <result property="menuCode" column="MENU_CODE" jdbcType="VARCHAR"/>
+        <result property="menuIcon" column="MENU_ICON" jdbcType="VARCHAR"/>
+        <result property="menuUrl" column="MENU_URL" jdbcType="VARCHAR"/>
+        <result property="requestUri" column="REQUEST_URI" jdbcType="VARCHAR"/>
+        <result property="menuLevel" column="MENU_LEVEL" jdbcType="INTEGER"/>
+        <result property="enabled" column="ENABLED" jdbcType="TINYINT"/>
+        <result property="sortIndex" column="SORT_INDEX" jdbcType="INTEGER"/>
+        <result property="description" column="DESCRIPTION" jdbcType="VARCHAR"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="lastUpdateTime" column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="DEL_FLAG" jdbcType="TINYINT"/>
+        <result property="parentId" column="PARENTID" jdbcType="BIGINT"/>
+
+        <result property="sysSystem.id" column="SYSTEM_ID" jdbcType="BIGINT"/>
+        <result property="sysSystem.systemName" column="SYSTEM_NAME" jdbcType="VARCHAR"/>
+        <result property="sysSystem.systemCode" column="SYSTEM_CODE" jdbcType="VARCHAR"/>
+        <result property="sysModule.id" column="MODULE_ID" jdbcType="BIGINT"/>
+        <result property="sysModule.moduleName" column="MODULE_NAME" jdbcType="VARCHAR"/>
+        <result property="sysModule.moduleCode" column="MODULE_CODE" jdbcType="VARCHAR"/>
+        <result property="parentMenu.id" column="PARENT_ID" jdbcType="BIGINT"/>
+        <result property="parentMenu.menuName" column="PARENT_MENU_NAME" jdbcType="VARCHAR"/>
+        <result property="parentMenu.menuCode" column="PARENT_MENU_CODE" jdbcType="VARCHAR"/>
+
+    </resultMap>
+-->
+   <!-- &lt;!&ndash;查询单条功能信息&ndash;&gt;
+    <select id="getEntityById" resultMap="sysMenu">
+        SELECT
+          T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL, T1.REQUEST_URI, T1.MENU_LEVEL, T1.SORT_INDEX,
+          T1.PARENT_ID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+          T2.ID AS MODULE_ID, T2.MODULE_NAME, T2.MODULE_CODE,
+          T3.ID AS SYSTEM_ID, T3.SYSTEM_NAME, T3.SYSTEM_CODE
+        FROM
+          T_SYS_MENU T1
+          LEFT JOIN T_SYS_MODULE T2 ON T2.ID = T1.MODULE_ID
+          LEFT JOIN T_SYS_SYSTEM T3 ON T3.ID = T1.SYSTEM_ID
+        WHERE T1.DEL_FLAG = 0
+        AND T1.ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    &lt;!&ndash; 根据父菜单ID查询 &ndash;&gt;
+    <select id="selectListByParentId" resultMap="sysMenu">
+        SELECT
+          T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL, T1.REQUEST_URI,T1.MENU_LEVEL, T1.SORT_INDEX,
+          T1.PARENT_ID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+          T2.ID AS MODULE_ID, T2.MODULE_NAME, T2.MODULE_CODE,
+          T3.ID AS SYSTEM_ID, T3.SYSTEM_NAME, T3.SYSTEM_CODE
+        FROM
+          T_SYS_MENU T1
+          LEFT JOIN T_SYS_MODULE T2 ON T2.ID = T1.MODULE_ID
+          LEFT JOIN T_SYS_SYSTEM T3 ON T3.ID = T1.SYSTEM_ID
+        WHERE T1.DEL_FLAG = 0
+          AND T1.PARENT_ID = #{parentId,jdbcType=BIGINT}
+        ORDER BY T1.SORT_INDEX ASC, T1.CREATE_TIME DESC
+    </select>-->
+
+    <!--增加系统菜单-->
+    <insert id="insert" parameterType="com.yiwei.ywt.sys.menu.model.SysMenu">
+        INSERT
+        INTO
+        T_SYS_MENU(
+            MENU_NAME,MENU_CODE,MENU_ICON,MENU_URL,REQUEST_URI,MENU_LEVEL,SORT_INDEX,PARENT_ID,MODULE_ID,SYSTEM_ID,
+        ENABLED,DESCRIPTION,CREATE_TIME,LAST_UPDATE_TIME,DEL_FLAG
+        )
+        VALUES (
+          #{menuName,jdbcType=VARCHAR},
+          #{menuCode,jdbcType=VARCHAR},
+          #{menuIcon,jdbcType=VARCHAR},
+          #{menuUrl,jdbcType=VARCHAR},
+          #{requestUri,jdbcType=VARCHAR},
+          #{menuLevel,jdbcType=INTEGER},
+          #{sortIndex,jdbcType=INTEGER},
+          #{parentMenu.id,jdbcType=BIGINT},
+          #{sysModule.id,jdbcType=BIGINT},
+          #{sysSystem.id,jdbcType=BIGINT},
+          #{enabled,jdbcType=TINYINT},
+          #{description,jdbcType=VARCHAR},
+          NOW(),
+          NOW(),
+          0
+        )
+    </insert>
+    <!--修改系统菜单-->
+    <update id="update" parameterType="com.yiwei.ywt.sys.menu.model.SysMenu">
+        T_SYS_MENU
+        UPDATE
+        <set>
+            <if test="menuName !=null and menuName !=''">MENU_NAME=#{menuName,jdbcType=VARCHAR},</if>
+            <if test="menuCode !=null and menuCode !=''">MENU_CODE=#{menuCode,jdbcType=VARCHAR},</if>
+            <if test="menuIcon !=null and menuIcon !=''">MENU_ICON=#{menuIcon,jdbcType=VARCHAR},</if>
+            <if test="menuLevel !=null ">MENU_LEVEL= #{menuLevel,jdbcType=INTEGER},</if>
+            <if test="sortIndex !=null ">SORT_INDEX=#{sortIndex,jdbcType=INTEGER},</if>
+            <if test="parentMenu !=null">
+              <if test="parentMenu.id !=null">PARENT_ID=#{parentMenu.id,jdbcType=INTEGER},</if>
+            </if>
+            <if test="sysModule !=null">
+              <if test="sysModule.id !=null ">MODULE_ID=#{sysModule.id,jdbcType=INTEGER},</if>
+            </if>
+            <if test="sysSystem !=null">
+              <if test="sysSystem.id !=null ">SYSTEM_ID=#{sysSystem.id,jdbcType=INTEGER},</if>
+            </if>
+            <if test="enabled !=null ">ENABLED=#{enabled,jdbcType=TINYINT},</if>
+            <if test="description !=null and description !=''">DESCRIPTION=#{description,jdbcType=VARCHAR},</if>
+            MENU_URL=#{menuUrl,jdbcType=VARCHAR},
+            LAST_UPDATE_TIME=NOW()
+        </set>
+        WHERE DEL_FLAG = 0
+        AND ID = #{id, jdbcType=BIGINT}
+    </update>
+
+    <!--删除系统菜单-->
+    <update id="delete" >
+        UPDATE
+          T_SYS_MENU
+        SET
+          DEL_FLAG = 1
+        WHERE DEL_FLAG = 0
+        AND ID = #{id, jdbcType=BIGINT}
+    </update>
+
+    <!--<select id="selectListBySystemId" resultMap="sysMenu">
+        SELECT
+            T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL,T1.REQUEST_URI, T1.MENU_LEVEL, T1.SORT_INDEX,
+            T1.PARENT_ID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+            T2.ID AS MODULE_ID, T2.MODULE_NAME, T2.MODULE_CODE,
+            T3.ID AS SYSTEM_ID, T3.SYSTEM_NAME, T3.SYSTEM_CODE
+        FROM
+            T_SYS_MENU T1
+            LEFT JOIN T_SYS_MODULE T2 ON T2.ID = T1.MODULE_ID
+            LEFT JOIN T_SYS_SYSTEM T3 ON T3.ID = T1.SYSTEM_ID
+        WHERE T1.DEL_FLAG = 0
+            <if test="systemId != null">AND T1.SYSTEM_ID = #{systemId,jdbcType=BIGINT}</if>
+            <if test="parentId != null">AND T1.PARENT_ID = #{parentId,jdbcType=BIGINT}</if>
+            <if test="parentId == null">AND T1.PARENT_ID = -1</if>
+            <if test="moduleId != null">AND T1.MODULE_ID = #{moduleId,jdbcType=BIGINT}</if>
+        ORDER BY T1.SORT_INDEX ASC, T1.CREATE_TIME DESC
+    </select>
+
+    <select id="selectListBySystemIdAndMenuIds" resultMap="sysMenu">
+        SELECT
+        T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL, T1.REQUEST_URI, T1.MENU_LEVEL, T1.SORT_INDEX,
+        T1.PARENT_ID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+        T2.ID AS MODULE_ID, T2.MODULE_NAME, T2.MODULE_CODE,
+        T3.ID AS SYSTEM_ID, T3.SYSTEM_NAME, T3.SYSTEM_CODE
+        FROM
+        T_SYS_MENU T1
+        LEFT JOIN T_SYS_MODULE T2 ON T2.ID = T1.MODULE_ID
+        LEFT JOIN T_SYS_SYSTEM T3 ON T3.ID = T1.SYSTEM_ID
+        WHERE T1.DEL_FLAG = 0
+        AND T1.ID IN
+        <foreach item="menuId" collection="menuIdList" open="(" separator="," close=")">
+            #{menuId}
+        </foreach>
+        <if test="systemId != null">AND T1.SYSTEM_ID = #{systemId,jdbcType=BIGINT}</if>
+        <if test="parentId != null">AND T1.PARENT_ID = #{parentId,jdbcType=BIGINT}</if>
+        <if test="parentId == null">AND T1.PARENT_ID = -1</if>
+        <if test="moduleId != null">AND T1.MODULE_ID = #{moduleId,jdbcType=BIGINT}</if>
+        ORDER BY T1.SORT_INDEX ASC, T1.CREATE_TIME DESC
+    </select>
+
+    <select id="selectListBySystemIdAndMenuIds2" resultMap="sysMenu">
+        SELECT
+        T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL, T1.REQUEST_URI, T1.MENU_LEVEL, T1.SORT_INDEX,
+        T1.PARENT_ID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+        T2.ID AS MODULE_ID, T2.MODULE_NAME, T2.MODULE_CODE,
+        T3.ID AS SYSTEM_ID, T3.SYSTEM_NAME, T3.SYSTEM_CODE
+        FROM
+        T_SYS_MENU T1
+        LEFT JOIN T_SYS_MODULE T2 ON T2.ID = T1.MODULE_ID
+        LEFT JOIN T_SYS_SYSTEM T3 ON T3.ID = T1.SYSTEM_ID
+        WHERE T1.DEL_FLAG = 0
+        AND T1.ID IN
+        <foreach item="menuId" collection="menuIdList" open="(" separator="," close=")">
+            #{menuId}
+        </foreach>
+        <if test="systemId != null">AND T1.SYSTEM_ID = #{systemId,jdbcType=BIGINT}</if>
+        <if test="parentId != null">AND T1.PARENT_ID = #{parentId,jdbcType=BIGINT}</if>
+        <if test="parentId == null">AND T1.PARENT_ID = -1</if>
+        <if test="moduleId != null">AND T1.MODULE_ID = #{moduleId,jdbcType=BIGINT}</if>
+        ORDER BY T1.SORT_INDEX ASC, T1.CREATE_TIME DESC
+    </select>
+
+    <select id="getSysMenuListAll" resultMap="sysMenu">
+        SELECT
+            T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL, T1.REQUEST_URI, T1.MENU_LEVEL, T1.SORT_INDEX,
+            T1.PARENT_ID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG
+        FROM
+          T_SYS_MENU T1
+        WHERE T1.DEL_FLAG = 0
+          AND T1.ID NOT IN
+          <foreach item="menuId" collection="menuIdList" open="(" separator="," close=")">
+            #{menuId}
+          </foreach>
+          <if test="systemId != null">AND T1.SYSTEM_ID = #{systemId,jdbcType=BIGINT}</if>
+        ORDER BY T1.SORT_INDEX ASC, T1.CREATE_TIME DESC
+    </select>
+
+    <select id="getEntityByMenuCode" resultMap="sysMenu">
+        SELECT
+            T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL, T1.REQUEST_URI, T1.MENU_LEVEL, T1.SORT_INDEX,
+            T1.PARENT_ID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+            T2.ID AS MODULE_ID, T2.MODULE_NAME, T2.MODULE_CODE,
+            T3.ID AS SYSTEM_ID, T3.SYSTEM_NAME, T3.SYSTEM_CODE
+        FROM
+            T_SYS_MENU T1
+            LEFT JOIN T_SYS_MODULE T2 ON T2.ID = T1.MODULE_ID
+            LEFT JOIN T_SYS_SYSTEM T3 ON T3.ID = T1.SYSTEM_ID
+        WHERE T1.DEL_FLAG = 0
+          AND T1.MENU_CODE = #{menuCode,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectList" resultMap="sysMenu">
+        SELECT
+            T1.ID, T1.MENU_NAME, T1.MENU_CODE, T1.MENU_ICON, T1.MENU_URL,T1.REQUEST_URI, T1.MENU_LEVEL, T1.SORT_INDEX,
+            T1.PARENT_ID, T1.PARENT_ID AS PARENTID,T1.ENABLED, T1.DESCRIPTION, T1.CREATE_TIME, T1.LAST_UPDATE_TIME, T1.DEL_FLAG,
+            T2.ID AS MODULE_ID, T2.MODULE_NAME, T2.MODULE_CODE,
+            T3.ID AS SYSTEM_ID, T3.SYSTEM_NAME, T3.SYSTEM_CODE
+        FROM
+            T_SYS_MENU T1
+            LEFT JOIN T_SYS_MODULE T2 ON T2.ID = T1.MODULE_ID
+            LEFT JOIN T_SYS_SYSTEM T3 ON T3.ID = T1.SYSTEM_ID
+        WHERE T1.DEL_FLAG = 0
+          AND T1.SYSTEM_ID = #{systemId,jdbcType=BIGINT}
+        ORDER BY T1.SORT_INDEX ASC, T1.CREATE_TIME DESC
+    </select>
+
+    <select id="getEntityByMenuAllInfo" resultMap="sysMenu">
+        SELECT
+          T1.ID,
+          T1.MENU_NAME,
+          T1.MENU_CODE,
+          T1.MENU_ICON,
+          T1.MENU_URL,
+          T1.REQUEST_URI,
+          T1.MENU_LEVEL,
+          T1.SORT_INDEX,
+          T1.PARENT_ID AS PARENTID,
+          T1.ENABLED,
+          T1.DESCRIPTION,
+          T1.CREATE_TIME,
+          T1.LAST_UPDATE_TIME,
+          T1.DEL_FLAG
+        FROM
+          T_SYS_MENU T1
+        WHERE T1.DEL_FLAG = 0
+    </select>
+
+    <select id="getEntityByMenuRoleIds" resultMap="sysMenu">
+        SELECT
+            T1.ID,
+            T1.MENU_NAME,
+            T1.MENU_CODE,
+            T1.MENU_ICON,
+            T1.MENU_URL,
+            T1.REQUEST_URI,
+            T1.MENU_LEVEL,
+            T1.SORT_INDEX,
+            T1.PARENT_ID AS PARENTID,
+            T1.ENABLED,
+            T1.DESCRIPTION,
+            T1.CREATE_TIME,
+            T1.LAST_UPDATE_TIME,
+            T1.DEL_FLAG
+        FROM T_SYS_MENU T1
+        INNER JOIN T_SYS_AUTHORITY T2 ON T2.MENU_ID = T1.ID
+        WHERE T1.DEL_FLAG = 0
+          AND T2.ROLE_ID IN
+        <foreach item="roleId" collection="roleIdList" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>-->
+
+</mapper>

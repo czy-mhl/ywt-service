@@ -6,10 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 @SpringBootApplication
 public class YwtApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(YwtApplication.class, args);
-        log.info("后管启动成功");
+        log.info("启动成功");
     }
 
 }

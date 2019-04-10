@@ -1,7 +1,7 @@
 server:
   port: 8077
   servlet:
-    context-path: /czy
+    context-path: /yiwei
 mybatis:
   type-aliases-package: com.yiwei.ywt.*.model.*
   mapper-locations: classpath*:mybatis/**/*.xml
