@@ -1,12 +1,3 @@
-/*
- * Copyright (c) 2016, Seer Tech co. tld. All rights reserved.
- * SEER TECH PROJECT: cherry. Use is subject to license terms.
- *
- *
- *
- *
- *
- */
 package com.yiwei.ywt.framework.model;
 
 import lombok.Data;
