@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: jdbc:p6spy:mysql://127.0.0.1:3306/hanfei?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&nullNamePatternMatchesAll=true
+    url: jdbc:p6spy:mysql://127.0.0.1:3306/ywt?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false&nullNamePatternMatchesAll=true
     password: root
     username: root
   application:
-    name: spring-boot-rabbitmq
+    name: spring-boot-admin
   rabbitmq:
     host: 127.0.0.1
     port: 5672
