@@ -27,28 +27,7 @@ public class SysRole extends BaseEntity implements Serializable {
     private String roleCode;
 
     /**
-     * 是否启用(1=启用，0=禁用)
-     */
-    private Boolean enabled;
-
-    /**
-     * 系统角色描述
-     */
-    private String description;
-
-    /**
-     * 系统ID
-     */
-    private Long systemId;
-
-
-    /**
-     * 删除标记(1=已删除，0=未删除)
-     */
-    private Boolean delFlag;
-
-    /**
      * 默认展示的系统模块菜单
      */
-    private Short defaultModuleId;
+    private String defaultModuleId;
 }

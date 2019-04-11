@@ -22,7 +22,7 @@
           #{parentMenu.id,jdbcType=BIGINT},
           #{sysModule.id,jdbcType=BIGINT},
           #{sysSystem.id,jdbcType=BIGINT},
-          #{enabled,jdbcType=TINYINT},
+          #{enabled,jdbcType=INTEGER},
           #{description,jdbcType=VARCHAR},
           NOW(),
           NOW(),
@@ -48,7 +48,7 @@
             <if test="sysSystem !=null">
               <if test="sysSystem.id !=null ">SYSTEM_ID=#{sysSystem.id,jdbcType=INTEGER},</if>
             </if>
-            <if test="enabled !=null ">ENABLED=#{enabled,jdbcType=TINYINT},</if>
+            <if test="enabled !=null ">ENABLED=#{enabled,jdbcType=INTEGER},</if>
             <if test="description !=null and description !=''">DESCRIPTION=#{description,jdbcType=VARCHAR},</if>
             MENU_URL=#{menuUrl,jdbcType=VARCHAR},
             LAST_UPDATE_TIME=NOW()

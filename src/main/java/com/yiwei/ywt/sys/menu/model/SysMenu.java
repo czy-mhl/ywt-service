@@ -55,11 +55,6 @@ public class SysMenu extends BaseEntity implements Serializable {
     private Long parentId;
 
     /**
-     * 系统ID
-     */
-    private Long systemId;
-
-    /**
      * 模块ID
      */
     private Long moduleId;
@@ -70,29 +65,9 @@ public class SysMenu extends BaseEntity implements Serializable {
     private Integer menuLevel;
 
     /**
-     * 是否启用(1=启用，0=禁用)
-     */
-    private String description;
-
-    /**
-     * 系统菜单名称
-     */
-    private Boolean enabled;
-
-    /**
-     * 删除标记(1=已删除，0=未删除)
-     */
-    private Boolean delFlag;
-
-    /**
      * 是否是末级菜单
      */
-    private Boolean isLastOne;
-
-    /**
-     * 父级菜单
-     */
-    private SysMenu parentMenu;
+    private Integer isLastOne;
 
     /**
      * 子菜单集合

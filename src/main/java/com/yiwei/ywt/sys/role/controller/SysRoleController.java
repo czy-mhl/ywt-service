@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 /**
  * 角色管理控制器</p>
@@ -83,64 +82,6 @@ public class SysRoleController extends BaseController {
         }
     }
 
-    /**
-     * 查询单条角色数据
-     * @param id            角色主键ID
-     * @return  AjaxResponse
-     */
-    @LogAop(menuName = "角色管理",operationDesc = "查询",operationType = "3")
-    @RequestMapping(value = "/getEntityById", method = RequestMethod.GET)
-    public AjaxResponse getEntityById(@RequestParam(value = "id") Long id){
-        try {
-            SysRole sysRole = this.sysRoleService.getEntityById(id);
-            return AjaxResponse.success("ok", sysRole);
-        } catch (Exception e) {
-            LOGGER.error("get SysRole error!", e);
-            return AjaxResponse.error("error", id);
-        }
-    }
-
-    /**
-     * 验证角色编码是否存在
-     * @param roleCode      角色编码
-     * @return
-     */
-    @RequestMapping(value = "/checkRoleCodeIsExist", method = RequestMethod.POST)
-    public boolean checkRoleCodeIsExist(@RequestParam(value = "roleCode") String roleCode) {
-        return this.sysRoleService.checkRoleCodeIsExist(roleCode);
-    }
-
-    /**
-     * 查询角色列表
-     * @param systemId          系统信息ID
-     * @return AjaxResponse
-     */
-    @RequestMapping(value = "/getListBySystemId", method = RequestMethod.GET)
-    public AjaxResponse selectListBySystemId(@RequestParam(value = "systemId") Long systemId){
-        try {
-            List<SysRole> sysRoleList = this.sysRoleService.selectListBySystemId(systemId);
-            return AjaxResponse.success("ok", sysRoleList);
-        } catch (Exception e) {
-            LOGGER.error("select SysRole List error!", e);
-            return AjaxResponse.error("error", systemId);
-        }
-    }
-
-    /**
-     * 查询角色列表
-     * @return AjaxResponse
-     */
-    @LogAop(menuName = "角色管理",operationDesc = "查询",operationType = "3")
-    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
-    public AjaxResponse listAll(){
-        try {
-            List<SysRole> sysRoleList = this.sysRoleService.listAll();
-            return AjaxResponse.success("ok", sysRoleList);
-        } catch (Exception e) {
-            LOGGER.error("select SysRole listAll error!", e);
-            return AjaxResponse.error("error");
-        }
-    }
 
 
     /**
@@ -158,7 +99,6 @@ public class SysRoleController extends BaseController {
             return AjaxResponse.error("error", id);
         }
     }
-
 
     /**
      * 禁用角色信息

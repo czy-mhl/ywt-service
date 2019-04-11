@@ -24,7 +24,7 @@
 2019-04-05 11:07:50.033 | main | DEBUG | org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration |  |  |  |  | Using auto-configuration base package 'com.yiwei.ywt'
 2019-04-05 11:07:50.036 | main | DEBUG | org.apache.ibatis.logging.LogFactory |  |  |  |  | Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
 2019-04-05 11:07:50.039 | main | DEBUG | org.mybatis.spring.mapper.ClassPathMapperScanner |  |  |  |  | Identified candidate component class: file [E:\java_work\target\classes\com\yiwei\ywt\user\dao\SysUserMapper.class]
-2019-04-05 11:07:50.039 | main | DEBUG | org.mybatis.spring.mapper.ClassPathMapperScanner |  |  |  |  | Creating MapperFactoryBean with name 'sysUserMapper' and 'com.yiwei.ywt.user.dao.SysUserMapper' mapperInterface
+2019-04-05 11:07:50.039 | main | DEBUG | org.mybatis.spring.mapper.ClassPathMapperScanner |  |  |  |  | Creating MapperFactoryBean with name 'sysUserMapper' and 'com.yiwei.ywt.sys.user.dao.SysUserMapper' mapperInterface
 2019-04-05 11:07:50.040 | main | DEBUG | org.mybatis.spring.mapper.ClassPathMapperScanner |  |  |  |  | Enabling autowire by type for MapperFactoryBean with name 'sysUserMapper'.
 2019-04-05 11:07:50.046 | main | DEBUG | org.springframework.core.env.PropertySourcesPropertyResolver |  |  |  |  | Found key 'spring.application.admin.enabled' in PropertySource 'configurationProperties' with value of type String
 2019-04-05 11:07:50.183 | main | DEBUG | org.springframework.beans.factory.support.DefaultListableBeanFactory |  |  |  |  | Creating shared instance of singleton bean 'propertySourcesPlaceholderConfigurer'

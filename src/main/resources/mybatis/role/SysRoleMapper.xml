@@ -7,9 +7,9 @@
     <!-- add SysRole-->
     <insert id="insert" parameterType="com.yiwei.ywt.sys.role.model.SysRole" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-          T_SYS_ROLE (ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, SYSTEM_ID,DEFAULT_MODULE_ID, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG)
-        VALUES (#{roleName, jdbcType=VARCHAR}, #{roleCode, jdbcType=VARCHAR}, #{enabled, jdbcType=TINYINT},
-                #{description, jdbcType=VARCHAR}, #{sysSystem.id, jdbcType=BIGINT}, #{defaultModuleId, jdbcType=BIGINT},
+          T_SYS_ROLE (ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, DEFAULT_MODULE_ID, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG)
+        VALUES (#{roleName, jdbcType=VARCHAR}, #{roleCode, jdbcType=VARCHAR}, #{enabled, jdbcType=VARCHAR},
+                #{description, jdbcType=VARCHAR},  #{defaultModuleId, jdbcType=VARCHAR},
                 NOW(), NOW(), 0)
     </insert>
 
@@ -21,9 +21,6 @@
             <if test="roleCode != null and roleCode != ''">ROLE_CODE = #{roleCode, jdbcType=VARCHAR},</if>
             <if test="enabled != null">ENABLED = #{enabled, jdbcType=TINYINT},</if>
             <if test="description != null">DESCRIPTION = #{description, jdbcType=VARCHAR},</if>
-            <if test="sysSystem != null">
-                <if test="sysSystem.id != null">SYSTEM_ID = #{sysSystem.id, jdbcType=BIGINT},</if>
-            </if>
             LAST_UPDATE_TIME = NOW()
         </set>
         WHERE DEL_FLAG = 0
