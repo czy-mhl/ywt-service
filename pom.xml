@@ -11,6 +11,7 @@
     <groupId>com.yiwei</groupId>
     <artifactId>ywt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>ywt</name>
     <description>
         一网通办平台

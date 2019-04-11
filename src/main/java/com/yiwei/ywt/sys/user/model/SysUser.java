@@ -24,6 +24,14 @@ public class SysUser extends BaseEntity implements Serializable {
      */
     private String password;
     /**
+     * 微信OPENID
+     */
+    private String wxOpenId;
+    /**
+     * 推荐码
+     */
+    private String inviteCode;
+    /**
      * 用户名称
      */
     private String name;
@@ -34,16 +42,12 @@ public class SysUser extends BaseEntity implements Serializable {
     /**
      * 角色ID
      */
-    private String roleId;
+    private Long roleId;
     /**
      * 用户类型
      */
     private Integer type;
 
-    /**
-     * 最后登陆ip
-     */
-    private String lastLoginIp;
 
 
 }
