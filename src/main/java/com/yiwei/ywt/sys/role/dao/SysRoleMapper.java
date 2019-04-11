@@ -6,24 +6,16 @@ import com.yiwei.ywt.sys.role.model.SysRole;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
 
 /**
  * </p>
  *
- * @author liwenjun
+ * @author czy
  * @version 1.0.0
- * @date 2016/11/25 8:37
+ * @date 2019/4/11 8:37
  */
 @Mapper
 public interface SysRoleMapper extends CRUDMapper<SysRole> {
-
-    SysRole getEntityByRoleCode(@Param(value = "roleCode") String roleCode);
-
-    List<SysRole> selectListBySystemId(@Param(value = "systemId") Long systemId);
-
-    List<SysRole> listAll();
-
     //  启用角色信息
     int enableEntity(@Param("id") Long id);
     //  禁用角色信息
