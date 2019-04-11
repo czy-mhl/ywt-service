@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yiwei.ywt.sys.user.dao.SysUserMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.user.model.SysUser">
+        <id column="ID" property="id" />
+        <result column="MOBILE" property="mobile" />
+        <result column="PASSWORD" property="password" />
+        <result column="WX_OPEN_ID" property="wxOpenId" />
+        <result column="INVITE_CODE" property="inviteCode" />
+        <result column="NAME" property="name" />
+        <result column="ROLE_NAME" property="roleName" />
+        <result column="ROLE_ID" property="roleId" />
+        <result column="TYPE" property="type" />
+        <result column="ENABLED" property="enabled" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" />
+        <result column="DEL_FLAG" property="delFlag" />
+        <result column="DESCRIPTION" property="description" />
+    </resultMap>
 
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID AS id, MOBILE AS mobile, PASSWORD AS password, WX_OPEN_ID AS wxOpenId, INVITE_CODE AS inviteCode, NAME AS name, ROLE_NAME AS roleName, ROLE_ID AS roleId, TYPE AS type, ENABLED AS enabled, CREATE_TIME AS createTime, LAST_UPDATE_TIME AS lastUpdateTime, DEL_FLAG AS delFlag, DESCRIPTION AS description
+    </sql>
+
+    <insert id="addUser">
+        insert into t_sys_user(
+          MOBILE, PASSWORD, WX_OPEN_ID, INVITE_CODE, NAME, ROLE_NAME, ROLE_ID, TYPE, ENABLED, CREATE_TIME, DEL_FLAG, DESCRIPTION
+        ) values (
+          #{mobile},
+          #{password},
+          #{wxOpenId},
+          #{inviteCode},
+          #{name},
+          #{roleName},
+          #{roleId},
+          #{type},
+          #{enabled},
+          now(),
+          #{delFlag},
+          #{description}
+        )
+    </insert>
 </mapper>
