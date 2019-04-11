@@ -10,3 +10,7 @@ spring:
     port: 5672
     username: guest
     password: guest
+
+# 应用的完整访问地址
+project:
+  url: http://xxx.xx/
