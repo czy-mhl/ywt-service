@@ -6,6 +6,8 @@ import com.yiwei.ywt.framework.dao.CRUDMapper;
 import com.yiwei.ywt.sys.menu.model.SysMenu;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 
 /**
  * 系统菜单 dao接口类</p>
@@ -16,6 +18,8 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface SysMenuMapper extends CRUDMapper<SysMenu> {
+
+    List<SysMenu> selectMenuByParentId (Long parentId);
 
 
 }

@@ -30,4 +30,8 @@ public class SysRole extends BaseEntity implements Serializable {
      * 默认展示的系统模块菜单
      */
     private String defaultModuleId;
+    /**
+     * 角色拥有的菜单
+     */
+    private String roleMenus;
 }

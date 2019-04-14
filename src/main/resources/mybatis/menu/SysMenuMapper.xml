@@ -79,10 +79,20 @@
     <!--删除系统菜单-->
     <update id="delete" >
         UPDATE
-          T_SYS_MENU
+           t_menu
         SET
           DEL_FLAG = 1
         WHERE DEL_FLAG = 0
         AND ID = #{id, jdbcType=BIGINT}
     </update>
+    <!--根据parentId获取菜单-->
+    <select id="selectMenuByParentId" resultType="com.yiwei.ywt.sys.menu.model.SysMenu">
+        select *
+        from t_menu
+        where
+          PARENT_ID = #{parentId,jdbcType=BIGINT}
+          and ENABLED = 1
+          and DEL_FLAG = 0
+        order by SORT_INDEX
+    </select>
 </mapper>

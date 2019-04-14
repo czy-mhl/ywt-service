@@ -1,10 +1,8 @@
 package com.yiwei.ywt.sys.menu.service;
 
-
-
-
-
 import com.yiwei.ywt.sys.menu.model.SysMenu;
+
+import java.util.List;
 
 
 public interface SysMenuService {
@@ -29,6 +27,18 @@ public interface SysMenuService {
      * @return
      */
     boolean deleteEntityMenu(Long id);
+
+    /**
+     * 获取菜单列表
+     * @return
+     */
+    List<SysMenu> selectMenuList();
+    /**
+     * 根据角色id获取菜单列表
+     * @param roleId                角色ID
+     * @return
+     */
+    List<SysMenu> selectMenuListByRoleId(Long roleId);
 
 
 

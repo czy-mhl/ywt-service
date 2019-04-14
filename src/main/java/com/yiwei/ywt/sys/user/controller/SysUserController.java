@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/sys/user")
 @Slf4j
 public class SysUserController {
     @Resource
@@ -20,7 +20,6 @@ public class SysUserController {
 
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    @ResponseBody
     public AjaxResponse userRegister(@RequestBody Map<String, String> params) {
         try {
             String phone = params.get("phone");

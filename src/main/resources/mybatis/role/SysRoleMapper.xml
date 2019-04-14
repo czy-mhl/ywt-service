@@ -7,29 +7,31 @@
     <!-- add SysRole-->
     <insert id="insert" parameterType="com.yiwei.ywt.sys.role.model.SysRole" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-          T_SYS_ROLE (ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, DEFAULT_MODULE_ID, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG)
+          T_ROLE (ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, DEFAULT_MODULE_ID, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG,ROLE_MENUS)
         VALUES (#{roleName, jdbcType=VARCHAR}, #{roleCode, jdbcType=VARCHAR}, #{enabled, jdbcType=VARCHAR},
                 #{description, jdbcType=VARCHAR},  #{defaultModuleId, jdbcType=VARCHAR},
-                NOW(), NOW(), 0)
+                NOW(), NOW(), 0,#{roleMenus, jdbcType=VARCHAR})
     </insert>
 
     <update id="update" parameterType="com.yiwei.ywt.sys.role.model.SysRole">
         UPDATE
-          T_SYS_ROLE
+          T_ROLE
         <set>
             <if test="roleName != null and roleName != ''">ROLE_NAME = #{roleName, jdbcType=VARCHAR},</if>
             <if test="roleCode != null and roleCode != ''">ROLE_CODE = #{roleCode, jdbcType=VARCHAR},</if>
             <if test="enabled != null">ENABLED = #{enabled, jdbcType=TINYINT},</if>
             <if test="description != null">DESCRIPTION = #{description, jdbcType=VARCHAR},</if>
+            <if test="roleMenus != null">ROLE_MENUS = #{roleMenus, jdbcType=VARCHAR},</if>
             LAST_UPDATE_TIME = NOW()
         </set>
         WHERE DEL_FLAG = 0
+          AND ENABLED = 1
           AND ID = #{id, jdbcType=BIGINT}
     </update>
 
     <update id="delete">
         UPDATE
-          T_SYS_ROLE
+          T_ROLE
         SET
           DEL_FLAG = 1
         WHERE DEL_FLAG = 0
@@ -38,7 +40,7 @@
 
     <update id="enableEntity">
         UPDATE
-        T_SYS_ROLE
+        T_ROLE
         SET
         ENABLED = 1
         WHERE ID = #{id, jdbcType=BIGINT}
@@ -46,11 +48,20 @@
 
     <update id="disableEntity">
         UPDATE
-        T_SYS_ROLE
+        T_ROLE
         SET
         ENABLED = 0
         WHERE ID = #{id, jdbcType=BIGINT}
     </update>
+    <select id="getEntityById" resultType="com.yiwei.ywt.sys.role.model.SysRole">
+        select *
+        from T_ROLE
+        where
+          DEL_FLAG = 0
+          AND  ENABLED = 1
+          AND ID = #{id, jdbcType=BIGINT}
+
+    </select>
 
 
 </mapper>

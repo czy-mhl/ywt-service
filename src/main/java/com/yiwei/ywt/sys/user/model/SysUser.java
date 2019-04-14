@@ -1,9 +1,11 @@
 package com.yiwei.ywt.sys.user.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
+import com.yiwei.ywt.sys.menu.model.SysMenu;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 系统用户 实体类</p>
@@ -47,6 +49,10 @@ public class SysUser extends BaseEntity implements Serializable {
      * 用户类型
      */
     private Integer type;
+    /**
+     * 子菜单集合
+     */
+    private List<SysMenu> subMenuList;
 
 
 

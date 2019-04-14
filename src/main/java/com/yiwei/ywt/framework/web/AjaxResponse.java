@@ -21,7 +21,7 @@ public class AjaxResponse implements Serializable {
     /**
      * 操作失败.
      */
-    public final static String ERROR = "99999";
+    public final static String ERROR = "11111";
 
     /**
      * 添加数据实体失败.
@@ -37,6 +37,11 @@ public class AjaxResponse implements Serializable {
      * 删除数据实体失败.
      */
     public static final String FAILURE_DEL_ENTITY = "10003";
+
+    /**
+     * 查询数据失败.
+     */
+    public static final String FAILURE_SELECT_ENTITY = "10004";
 
     /**
      * 响应结果编码.

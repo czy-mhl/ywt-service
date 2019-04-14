@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
 /**
  * 菜单管理控制器</p>
  *
@@ -18,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/04/14 21:19
  */
 @RestController
-@RequestMapping(value = "/menu")
+@RequestMapping(value = "/sys/menu")
 @Slf4j
 public class SysMenuController {
     @Autowired
@@ -72,6 +75,37 @@ public class SysMenuController {
         }
     }
 
+    /**
+     * 主页菜单加载
+     * @param
+     * @return AjaxResponse
+     */
+    @RequestMapping(value = "/selectAllList", method = RequestMethod.POST)
+    public AjaxResponse selectAllList() {
+        try{
+            List<SysMenu> sysMenuList = this.sysMenuService.selectMenuList();
+            return null == sysMenuList ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY, "error") : AjaxResponse.success("ok",sysMenuList);
+        }catch (Exception e){
+            log.error("select SysMenu error!", e);
+            return AjaxResponse.error("error");
+        }
+    }
+
+    /**
+     * JUES菜单加载
+     * @param
+     * @return AjaxResponse
+     */
+    @RequestMapping(value = "/selectMenuListByRoleId", method = RequestMethod.GET)
+    public AjaxResponse selectMenuListByRoleId() {
+        try{
+            List<SysMenu> sysMenuList = this.sysMenuService.selectMenuListByRoleId(2L);
+            return null == sysMenuList ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY, "error") : AjaxResponse.success("ok",sysMenuList);
+        }catch (Exception e){
+            log.error("select SysMenu error!", e);
+            return AjaxResponse.error("error");
+        }
+    }
 
 
 
