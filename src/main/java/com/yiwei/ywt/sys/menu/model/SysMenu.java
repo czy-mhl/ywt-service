@@ -65,7 +65,7 @@ public class SysMenu extends BaseEntity implements Serializable {
     private Integer menuLevel;
 
     /**
-     * 是否是末级菜单
+     * 是否是末级菜单 0是1否
      */
     private Integer isLastOne;
 

@@ -3,60 +3,79 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yiwei.ywt.sys.menu.dao.SysMenuMapper">
+
+    <sql id="Base_Column_List">
+        ID, MENU_NAME, MENU_CODE, MENU_ICON, MENU_URL, REQUEST_URI, SORT_INDEX, PARENT_ID,
+        MODULE_ID, MENU_LEVEL, IS_LAST_ONE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED,
+        DEL_FLAG
+    </sql>
     <!--增加系统菜单-->
     <insert id="insert" parameterType="com.yiwei.ywt.sys.menu.model.SysMenu">
-        INSERT
-        INTO
-        T_SYS_MENU(
-            MENU_NAME,MENU_CODE,MENU_ICON,MENU_URL,REQUEST_URI,MENU_LEVEL,SORT_INDEX,PARENT_ID,MODULE_ID,SYSTEM_ID,
-        ENABLED,DESCRIPTION,CREATE_TIME,LAST_UPDATE_TIME,DEL_FLAG
-        )
-        VALUES (
-          #{menuName,jdbcType=VARCHAR},
-          #{menuCode,jdbcType=VARCHAR},
-          #{menuIcon,jdbcType=VARCHAR},
-          #{menuUrl,jdbcType=VARCHAR},
-          #{requestUri,jdbcType=VARCHAR},
-          #{menuLevel,jdbcType=INTEGER},
-          #{sortIndex,jdbcType=INTEGER},
-          #{parentMenu.id,jdbcType=BIGINT},
-          #{sysModule.id,jdbcType=BIGINT},
-          #{sysSystem.id,jdbcType=BIGINT},
-          #{enabled,jdbcType=INTEGER},
-          #{description,jdbcType=VARCHAR},
-          NOW(),
-          NOW(),
-          0
-        )
+        insert into t_menu (ID, MENU_NAME, MENU_CODE,
+                            MENU_ICON, MENU_URL, REQUEST_URI,
+                            SORT_INDEX, PARENT_ID, MODULE_ID,
+                            MENU_LEVEL, IS_LAST_ONE, CREATE_TIME,
+                            LAST_UPDATE_TIME, DESCRIPTION, ENABLED,
+                            DEL_FLAG)
+        values (#{id,jdbcType=BIGINT}, #{menuName,jdbcType=VARCHAR}, #{menuCode,jdbcType=VARCHAR},
+                #{menuIcon,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, #{requestUri,jdbcType=VARCHAR},
+                #{sortIndex,jdbcType=INTEGER}, #{parentId,jdbcType=BIGINT}, #{moduleId,jdbcType=BIGINT},
+                #{menuLevel,jdbcType=INTEGER}, #{isLastOne,jdbcType=INTEGER}, now(),
+                now(), #{description,jdbcType=VARCHAR},1,
+                0)
     </insert>
     <!--修改系统菜单-->
     <update id="update" parameterType="com.yiwei.ywt.sys.menu.model.SysMenu">
-        T_SYS_MENU
-        UPDATE
+        update t_menu
         <set>
-            <if test="menuName !=null and menuName !=''">MENU_NAME=#{menuName,jdbcType=VARCHAR},</if>
-            <if test="menuCode !=null and menuCode !=''">MENU_CODE=#{menuCode,jdbcType=VARCHAR},</if>
-            <if test="menuIcon !=null and menuIcon !=''">MENU_ICON=#{menuIcon,jdbcType=VARCHAR},</if>
-            <if test="menuLevel !=null ">MENU_LEVEL= #{menuLevel,jdbcType=INTEGER},</if>
-            <if test="sortIndex !=null ">SORT_INDEX=#{sortIndex,jdbcType=INTEGER},</if>
-            <if test="parentMenu !=null">
-              <if test="parentMenu.id !=null">PARENT_ID=#{parentMenu.id,jdbcType=INTEGER},</if>
+            <if test="menuName != null">
+                MENU_NAME = #{menuName,jdbcType=VARCHAR},
             </if>
-            <if test="sysModule !=null">
-              <if test="sysModule.id !=null ">MODULE_ID=#{sysModule.id,jdbcType=INTEGER},</if>
+            <if test="menuCode != null">
+                MENU_CODE = #{menuCode,jdbcType=VARCHAR},
             </if>
-            <if test="sysSystem !=null">
-              <if test="sysSystem.id !=null ">SYSTEM_ID=#{sysSystem.id,jdbcType=INTEGER},</if>
+            <if test="menuIcon != null">
+                MENU_ICON = #{menuIcon,jdbcType=VARCHAR},
             </if>
-            <if test="enabled !=null ">ENABLED=#{enabled,jdbcType=INTEGER},</if>
-            <if test="description !=null and description !=''">DESCRIPTION=#{description,jdbcType=VARCHAR},</if>
-            MENU_URL=#{menuUrl,jdbcType=VARCHAR},
-            LAST_UPDATE_TIME=NOW()
+            <if test="menuUrl != null">
+                MENU_URL = #{menuUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="requestUri != null">
+                REQUEST_URI = #{requestUri,jdbcType=VARCHAR},
+            </if>
+            <if test="sortIndex != null">
+                SORT_INDEX = #{sortIndex,jdbcType=INTEGER},
+            </if>
+            <if test="parentId != null">
+                PARENT_ID = #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="moduleId != null">
+                MODULE_ID = #{moduleId,jdbcType=BIGINT},
+            </if>
+            <if test="menuLevel != null">
+                MENU_LEVEL = #{menuLevel,jdbcType=INTEGER},
+            </if>
+            <if test="isLastOne != null">
+                IS_LAST_ONE = #{isLastOne,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="description != null">
+                DESCRIPTION = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="enabled != null">
+                ENABLED = #{enabled,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                DEL_FLAG = #{delFlag,jdbcType=INTEGER},
+            </if>
         </set>
-        WHERE DEL_FLAG = 0
-        AND ID = #{id, jdbcType=BIGINT}
+        where ID = #{id,jdbcType=BIGINT}
     </update>
-
     <!--删除系统菜单-->
     <update id="delete" >
         UPDATE
@@ -66,5 +85,4 @@
         WHERE DEL_FLAG = 0
         AND ID = #{id, jdbcType=BIGINT}
     </update>
-
 </mapper>

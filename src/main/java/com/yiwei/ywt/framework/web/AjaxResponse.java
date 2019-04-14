@@ -1,5 +1,8 @@
 package com.yiwei.ywt.framework.web;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +10,8 @@ import java.io.Serializable;
  *
  * Created by czy on 16/9/23.
  */
+@Getter
+@Setter
 public class AjaxResponse implements Serializable {
     /**
      * 操作成功.
@@ -66,65 +71,27 @@ public class AjaxResponse implements Serializable {
      */
     private boolean isAuthorized = true;
 
+    public AjaxResponse(String code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
     public AjaxResponse(String code, String message, Object data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
-
-    public static AjaxResponse success(String message) {
-        return success(message, null);
-    }
-
+    public static AjaxResponse success(String message) { return new AjaxResponse(SUCCESS, message); }
     public static AjaxResponse success(String message, Object data) {
         return new AjaxResponse(SUCCESS, message, data);
     }
 
     public static AjaxResponse error(String message) {
-        return error(message, null);
+        return new AjaxResponse(ERROR, message);
     }
-
     public static AjaxResponse error(String message, Object data) {
         return new AjaxResponse(ERROR, message, data);
     }
 
-    public boolean getIsSessionTimeout() {
-        return isSessionTimeout;
-    }
-
-    public void setIsSessionTimeout(boolean isSessionTimeout) {
-        this.isSessionTimeout = isSessionTimeout;
-    }
-
-    public boolean isAuthorized() {
-        return isAuthorized;
-    }
-
-    public void setAuthorized(boolean authorized) {
-        isAuthorized = authorized;
-    }
 }
