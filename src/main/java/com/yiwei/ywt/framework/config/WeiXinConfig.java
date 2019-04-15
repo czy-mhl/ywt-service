@@ -8,12 +8,12 @@ package com.yiwei.ywt.framework.config;
     /**
      * 开发者ID
      */
-    public static final String APP_ID = "";
+    public static final String APP_ID = "wx6c588707277a04d8";
 
     /**
      * 密钥
      */
-    public static final String APP_SECRET = "";
+    public static final String APP_SECRET = "7f0c6091e7682eea1ec6fbbc25f78cad";
 
     /**
      * 微信获取code地址
