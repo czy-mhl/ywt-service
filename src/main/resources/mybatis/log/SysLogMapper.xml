@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yiwei.ywt.sys.log.mapper.SysLogMapper">
+   <!-- <resultMap id="sysLog" type="com.pseer.cosun.sys.log.model.SysLog">
+        <result property="id" column="ID" jdbcType="BIGINT"/>
+        <result property="requestUri" column="REQUEST_URI" jdbcType="VARCHAR"/>
+        <result property="requestIp" column="REQUEST_IP" jdbcType="VARCHAR"/>
+        <result property="sysUserId" column="SYS_USER_ID" jdbcType="BIGINT"/>
+        <result property="sysUserAccount" column="SYS_USER_ACCOUNT" jdbcType="VARCHAR"/>
+        <result property="operateType" column="OPERATE_TYPE" jdbcType="VARCHAR"/>
+        <result property="operationDesc" column="OPERATION_DESC" jdbcType="VARCHAR"/>
+        <result property="moduleName" column="MODULE_NAME" jdbcType="VARCHAR"/>
+        <result property="moduleCode" column="MODULE_CODE" jdbcType="VARCHAR"/>
+        <result property="methodName" column="METHOD_NAME" jdbcType="VARCHAR"/>
+        <result property="methodCode" column="METHOD_CODE" jdbcType="VARCHAR"/>
+        <result property="operateResult" column="OPERATE_RESULT" jdbcType="TINYINT"/>
+        <result property="logContent" column="LOG_CONTENT" jdbcType="LONGVARCHAR"/>
+        <result property="operateTime" column="OPERATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="DEL_FLAG" jdbcType="TINYINT"/>
+        <result property="menuName" column="MENU_NAME" jdbcType="VARCHAR"/>
+        <result property="moduleContent" column="MODULE_CONTENT" jdbcType="VARCHAR"/>
+        <result property="sysUser.name" column="USER_NAME" jdbcType="VARCHAR"/>
+    </resultMap>-->
+
+    <sql id="baseSql">
+        ID, REQUEST_URI, REQUEST_IP, SYS_USER_ID, SYS_USER_ACCOUNT, OPERATE_TYPE, MODULE_NAME,OPERATION_DESC,
+        MODULE_CODE,METHOD_NAME,METHOD_CODE,OPERATE_RESULT,LOG_CONTENT,OPERATE_TIME,CREATE_TIME,MENU_NAME,MODULE_CONTENT,
+        DEL_FLAG
+    </sql>
+
+    <!--访问用户帐号 操作起始时间 操作结束时间 分页查询-->
+    <select id="selectPageList" resultMap="sysLog" >
+        SELECT
+        T1.ID, T1.REQUEST_URI, T1.REQUEST_IP, T1.SYS_USER_ID, T1.SYS_USER_ACCOUNT, T1.OPERATE_TYPE, T1.MODULE_NAME,T1.OPERATION_DESC,
+        T1.MODULE_CODE,T1.METHOD_NAME,T1.METHOD_CODE,T1.OPERATE_RESULT,T1.LOG_CONTENT,T1.OPERATE_TIME,T1.CREATE_TIME,T1.MENU_NAME,T1.MODULE_CONTENT,
+        T1.DEL_FLAG,T2.NAME AS USER_NAME
+        FROM T_SYS_LOG T1
+        LEFT JOIN T_SYS_USER T2 ON T1.SYS_USER_ID = T2.ID
+        WHERE T1.DEL_FLAG = 0
+        <if test="searchParams !=null ">
+          <if test="searchParams.sysUserAccount !=null and searchParams.sysUserAccount !=''">
+              AND  T1.SYS_USER_ACCOUNT=#{searchParams.sysUserAccount,jdbcType=VARCHAR}
+          </if>
+          <if test="searchParams.operateTimeBefore != null">
+              AND <![CDATA[DATE_FORMAT(T1.OPERATE_TIME,'%Y-%m-%d') >=  DATE_FORMAT(#{searchParams.operateTimeBefore, jdbcType=TIMESTAMP},'%Y-%m-%d')]]>
+          </if>
+          <if test="searchParams.operateTimeAfter != null">
+           AND  <![CDATA[DATE_FORMAT(T1.OPERATE_TIME,'%Y-%m-%d') <=  DATE_FORMAT(#{searchParams.operateTimeAfter, jdbcType=TIMESTAMP},'%Y-%m-%d')]]>
+          </if>
+        </if>
+        ORDER BY T1.OPERATE_TIME DESC
+        LIMIT #{offset,jdbcType=BIGINT},#{limit,jdbcType=BIGINT}
+    </select>
+    <!--查总记录数-->
+    <select id="count" resultType="java.lang.Long" parameterType="com.yiwei.ywt.sys.log.model.SysLog">
+        SELECT
+        COUNT(0)
+        FROM
+          T_SYS_LOG
+        WHERE DEL_FLAG = 0
+          <if test="sysUserAccount !=null and sysUserAccount !=''">AND SYS_USER_ACCOUNT=#{sysUserAccount,jdbcType=VARCHAR}</if>
+          <if test="operateTimeBefore != null"> AND <![CDATA[OPERATE_TIME >= #{operateTimeBefore, jdbcType=TIMESTAMP}]]></if>
+          <if test="operateTimeAfter != null"> AND <![CDATA[OPERATE_TIME <= #{operateTimeAfter, jdbcType=TIMESTAMP}]]></if>
+    </select>
+    <insert id="insert"  parameterType="com.yiwei.ywt.sys.log.model.SysLog">
+        insert into T_SYS_LOG(REQUEST_IP, SYS_USER_ID, SYS_USER_ACCOUNT,MODULE_CONTENT,
+        OPERATE_RESULT,OPERATE_TIME ,OPERATE_TYPE,  CREATE_TIME,OPERATION_DESC,MENU_NAME,
+        DEL_FLAG)   values (
+        #{requestIp,jdbcType=VARCHAR},
+        #{sysUserId,jdbcType=BIGINT},
+        #{sysUserAccount,jdbcType=VARCHAR},
+        #{moduleContent,jdbcType=VARCHAR},
+        #{operateResult,jdbcType=TINYINT},
+        NOW(),
+        #{operateType,jdbcType=VARCHAR},
+        NOW(),
+        #{operationDesc,jdbcType=VARCHAR},
+        #{menuName,jdbcType=VARCHAR},
+        0)
+    </insert>
+
+    <!--查总记录数-->
+    <select id="getLogById" resultType="java.lang.Long">
+        SELECT
+        COUNT(0)
+        FROM
+        T_SYS_LOG
+        WHERE DEL_FLAG = 0 AND
+       SYS_USER_ID = #{id,jdbcType=BIGINT}
+    </select>
+
+
+</mapper>
