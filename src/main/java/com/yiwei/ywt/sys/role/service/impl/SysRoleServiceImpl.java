@@ -2,7 +2,7 @@ package com.yiwei.ywt.sys.role.service.impl;
 
 
 import com.yiwei.ywt.framework.service.BaseService;
-import com.yiwei.ywt.sys.role.dao.SysRoleMapper;
+import com.yiwei.ywt.sys.role.mapper.SysRoleMapper;
 import com.yiwei.ywt.sys.role.model.SysRole;
 import com.yiwei.ywt.sys.role.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;

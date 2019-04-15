@@ -15,7 +15,36 @@ import lombok.Data;
 public class FileErrorInfo extends BaseEntity {
 
     /**
-     *
+     * 户号
      */
+    private String familyCode;
+    /**
+     * 用水地址
+     */
+    private String useWaterAddress;
+    /**
+     * 联系人
+     */
+    private String theLinkman;
+    /**
+     * 手机号
+     */
+    private String mobilePhone;
+    /**
+     * 差错说明附件   多个 url 用 , 号隔开
+     */
+    private String errorDescriptionAccessoryUrl;
+    /**
+     * 证件附件  多个 url 用 , 号隔开
+     */
+    private String papersAccessoryUrl;
+    /**
+     * 其他附件  多个 url 用 , 号隔开
+     */
+    private String otherAccessoryUrl;
+    /**
+     * 验证吗
+     */
+    private String checkCode;
 
 }

@@ -1,13 +1,12 @@
 package com.yiwei.ywt.sys.menu.service.impl;
 
 
-import com.yiwei.ywt.sys.menu.dao.SysMenuMapper;
+import com.yiwei.ywt.sys.menu.mapper.SysMenuMapper;
 import com.yiwei.ywt.sys.menu.model.SysMenu;
 import com.yiwei.ywt.sys.menu.service.SysMenuService;
 
-import com.yiwei.ywt.sys.role.dao.SysRoleMapper;
+import com.yiwei.ywt.sys.role.mapper.SysRoleMapper;
 import com.yiwei.ywt.sys.role.model.SysRole;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

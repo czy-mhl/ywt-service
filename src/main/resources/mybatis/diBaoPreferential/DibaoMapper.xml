@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yiwei.ywt.businessProcess.diBaoPreferential.mapper.DibaoMapper">
+
+    <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.diBaoPreferential.model.DibaoInfo">
+        insert into T_DIBAO_INFO (FAMILT_NAME, FAMILY_CODE, USER_WATER_ADDRESS,
+                            APPLY_TYPE, FAMILY_MAIN_NAME, THE_LINKMAN,
+                            MOBILE_PHONE, IDENTITY_NUMBER, DIBAOTEKUN_URL,
+                            IDENTITY_PICTURE_URL, TENANCY_AGREEMENT_FILE_URL, CREATE_TIME,
+                            LAST_UPDATE_TIME, DESCRIPTION, ENABLED,
+                            DEL_FLAG)
+        values (#{familyName,jdbcType=VARCHAR}, #{familyCode,jdbcType=VARCHAR}, #{useWaterAddress,jdbcType=VARCHAR},
+                #{applyType,jdbcType=INTEGER}, #{familyMainName,jdbcType=VARCHAR}, #{theLinkman,jdbcType=VARCHAR},
+                #{mobilePhone,jdbcType=VARCHAR}, #{identityNumber,jdbcType=VARCHAR}, #{dibaotekunUrl,jdbcType=VARCHAR},
+                #{identityPictureUrl,jdbcType=VARCHAR}, #{tenancyAgreementFileUrl,jdbcType=VARCHAR}, now(),
+                now(), #{description,jdbcType=VARCHAR},1,
+                0)
+    </insert>
+    <select id="checkFamilyCode" resultType="com.yiwei.ywt.businessProcess.diBaoPreferential.model.DibaoInfo">
+        select FAMILY_CODE,USER_WATER_ADDRESS from T_DIBAO_INFO where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR} and DEL_FLAG = 1
+    </select>
+
+</mapper>

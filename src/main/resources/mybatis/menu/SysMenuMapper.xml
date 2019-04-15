@@ -2,22 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.yiwei.ywt.sys.menu.dao.SysMenuMapper">
+<mapper namespace="com.yiwei.ywt.sys.menu.mapper.SysMenuMapper">
 
-    <sql id="Base_Column_List">
-        ID, MENU_NAME, MENU_CODE, MENU_ICON, MENU_URL, REQUEST_URI, SORT_INDEX, PARENT_ID,
-        MODULE_ID, MENU_LEVEL, IS_LAST_ONE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED,
-        DEL_FLAG
-    </sql>
     <!--增加系统菜单-->
     <insert id="insert" parameterType="com.yiwei.ywt.sys.menu.model.SysMenu">
-        insert into t_menu (ID, MENU_NAME, MENU_CODE,
+        insert into t_menu (MENU_NAME, MENU_CODE,
                             MENU_ICON, MENU_URL, REQUEST_URI,
                             SORT_INDEX, PARENT_ID, MODULE_ID,
                             MENU_LEVEL, IS_LAST_ONE, CREATE_TIME,
                             LAST_UPDATE_TIME, DESCRIPTION, ENABLED,
                             DEL_FLAG)
-        values (#{id,jdbcType=BIGINT}, #{menuName,jdbcType=VARCHAR}, #{menuCode,jdbcType=VARCHAR},
+        values ( #{menuName,jdbcType=VARCHAR}, #{menuCode,jdbcType=VARCHAR},
                 #{menuIcon,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, #{requestUri,jdbcType=VARCHAR},
                 #{sortIndex,jdbcType=INTEGER}, #{parentId,jdbcType=BIGINT}, #{moduleId,jdbcType=BIGINT},
                 #{menuLevel,jdbcType=INTEGER}, #{isLastOne,jdbcType=INTEGER}, now(),

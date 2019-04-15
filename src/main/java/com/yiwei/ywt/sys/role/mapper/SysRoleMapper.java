@@ -1,4 +1,4 @@
-package com.yiwei.ywt.sys.role.dao;
+package com.yiwei.ywt.sys.role.mapper;
 
 
 import com.yiwei.ywt.framework.dao.CRUDMapper;

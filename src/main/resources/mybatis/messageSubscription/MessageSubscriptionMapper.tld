@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yiwei.ywt.businessProcess.messageSubscription.mapper.MessageSubscriptionMapper">
+
+<insert id="insert" parameterType="com.yiwei.ywt.businessProcess.messageSubscription.model.MessageSubscriptionInfo">
+    insert into T_FILE_ERROR_INFO (FAMILY_CODE, MOBILE_PHONE,CREATE_TIME,
+    LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+    )
+    values (#{familyCode,jdbcType=VARCHAR},#{mobilePhone,jdbcType=VARCHAR},now(),
+    now(), #{description,jdbcType=VARCHAR},1,0
+    )
+</insert>
+
+</mapper>

@@ -46,7 +46,7 @@ public class DibaoInfo extends BaseEntity {
      */
     private String identityNumber;
     /**
-     * 低保金额领取证或特困供养证原件照片url
+     * 低保金额领取证或特困供养证原件照片url  多个 url 用 , 号隔开
      */
     private String dibaotekunUrl;
     /**
@@ -54,7 +54,7 @@ public class DibaoInfo extends BaseEntity {
      */
     private String identityPictureUrl;
     /**
-     * 保障性住房租房合同 url
+     * 保障性住房租房合同 url  多个 url 用 , 号隔开
      */
     private String tenancyAgreementFileUrl;
 

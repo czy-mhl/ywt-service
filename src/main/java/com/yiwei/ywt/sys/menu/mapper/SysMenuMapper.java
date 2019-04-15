@@ -1,4 +1,4 @@
-package com.yiwei.ywt.sys.menu.dao;
+package com.yiwei.ywt.sys.menu.mapper;
 
 
 

@@ -1,7 +1,7 @@
 package com.yiwei.ywt.sys.user.service.impl;
 
 import com.yiwei.ywt.framework.service.BaseService;
-import com.yiwei.ywt.sys.user.dao.SysUserMapper;
+import com.yiwei.ywt.sys.user.mapper.SysUserMapper;
 import com.yiwei.ywt.sys.user.model.SysUser;
 import com.yiwei.ywt.sys.user.service.SysUserService;
 import org.springframework.stereotype.Service;

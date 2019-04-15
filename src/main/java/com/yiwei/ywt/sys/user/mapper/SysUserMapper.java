@@ -1,4 +1,4 @@
-package com.yiwei.ywt.sys.user.dao;
+package com.yiwei.ywt.sys.user.mapper;
 
 
 import com.yiwei.ywt.sys.user.model.SysUser;

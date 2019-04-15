@@ -1,9 +1,5 @@
 package com.yiwei.ywt;
 
-import com.yiwei.ywt.sys.menu.controller.SysMenuController;
-import com.yiwei.ywt.sys.menu.dao.SysMenuMapper;
-import com.yiwei.ywt.sys.menu.model.SysMenu;
-import com.yiwei.ywt.sys.menu.service.SysMenuService;
 import com.yiwei.ywt.sys.role.controller.SysRoleController;
 import com.yiwei.ywt.sys.role.model.SysRole;
 import org.junit.Test;
