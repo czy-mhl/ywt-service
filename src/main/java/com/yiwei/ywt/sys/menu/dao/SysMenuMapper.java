@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author czy
  * @version 1.0.0
- * @date 2016/11/25 9:36
+ * @date 2019/04/14 9:36
  */
 @Mapper
 public interface SysMenuMapper extends CRUDMapper<SysMenu> {
