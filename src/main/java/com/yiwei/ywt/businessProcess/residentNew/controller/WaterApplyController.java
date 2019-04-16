@@ -1,6 +1,6 @@
-package com.yiwei.ywt.business.controller;
+package com.yiwei.ywt.businessProcess.residentNew.controller;
 
-import com.yiwei.ywt.business.model.WaterApply;
+import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
 import com.yiwei.ywt.framework.utils.ModelUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;

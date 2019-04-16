@@ -1,4 +1,4 @@
-package com.yiwei.ywt.business.model;
+package com.yiwei.ywt.businessProcess.residentNew.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
