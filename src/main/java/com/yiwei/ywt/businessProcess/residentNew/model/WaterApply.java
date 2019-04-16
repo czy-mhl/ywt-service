@@ -7,12 +7,20 @@ import lombok.EqualsAndHashCode;
 /**
  * Description:
  *
- * @author Longe
- * @since 2019.04.15
+ * @author xiang
+ * @since 2019.04.16
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class WaterApply extends BaseEntity {
+    /**
+     * 用户类型
+     */
+    private String customerType;
+    /**
+     * 业务类型
+     */
+    private String businessType;
     /**
      * 业主姓名
      */
@@ -44,17 +52,13 @@ public class WaterApply extends BaseEntity {
     /**
      * 用水性质
      */
-    private String waterUseType;
-    /**
-     * 办理说明
-     */
-    private String description;
+    private String waterType;
     /**
      * 经办人
      */
-    private String manager;
+    private String managerName;
     /**
-     * 经办人手机号
+     * 经办人电话
      */
     private String managerMobile;
     /**
@@ -69,4 +73,9 @@ public class WaterApply extends BaseEntity {
      * 经办人证件图片地址
      */
     private String managerImage;
+    /**
+     * 手机验证码
+     */
+    private String mobileCode;
+
 }
