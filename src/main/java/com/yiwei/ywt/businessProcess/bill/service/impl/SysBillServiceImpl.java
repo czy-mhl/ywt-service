@@ -9,17 +9,15 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-package com.yiwei.ywt.sys.bill.service.impl;
+package com.yiwei.ywt.businessProcess.bill.service.impl;
 
-import com.yiwei.ywt.sys.bill.dao.TUserBillMapper;
-import com.yiwei.ywt.sys.bill.model.TUserBill;
-import com.yiwei.ywt.sys.bill.service.SysBillService;
-import com.yiwei.ywt.sys.user.model.SysUser;
+import com.yiwei.ywt.businessProcess.bill.dao.TUserBillMapper;
+import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
+import com.yiwei.ywt.businessProcess.bill.service.SysBillService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.util.List;
 
 /**

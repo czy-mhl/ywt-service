@@ -1,8 +1,7 @@
-package com.yiwei.ywt.sys.bill.service;
+package com.yiwei.ywt.businessProcess.bill.service;
 
 
-import com.yiwei.ywt.sys.bill.model.TUserBill;
-import com.yiwei.ywt.sys.user.model.SysUser;
+import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
 
 import java.util.List;
 

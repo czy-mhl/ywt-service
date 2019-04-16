@@ -9,21 +9,16 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-package com.yiwei.ywt.sys.bill.contorller;
+package com.yiwei.ywt.businessProcess.bill.contorller;
 
 import com.yiwei.ywt.framework.web.AjaxResponse;
-import com.yiwei.ywt.sys.bill.model.TUserBill;
-import com.yiwei.ywt.sys.bill.service.SysBillService;
+import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
+import com.yiwei.ywt.businessProcess.bill.service.SysBillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * 〈根据UserId查询UserBill〉<br>

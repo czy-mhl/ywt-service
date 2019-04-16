@@ -1,10 +1,6 @@
-package com.yiwei.ywt.sys.bill.model;
+package com.yiwei.ywt.businessProcess.bill.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-
-import java.math.BigDecimal;
-import java.util.Date;
 
 @Data
 public class TUserBill {

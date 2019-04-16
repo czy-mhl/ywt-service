@@ -1,14 +1,10 @@
 package com.yiwei.ywt;
 
-import com.yiwei.ywt.sys.bill.dao.TUserBillMapper;
-import com.yiwei.ywt.sys.bill.model.TUserBill;
-import com.yiwei.ywt.sys.bill.service.SysBillService;
-import com.yiwei.ywt.sys.menu.controller.SysMenuController;
-import com.yiwei.ywt.sys.menu.model.SysMenu;
-import com.yiwei.ywt.sys.menu.service.SysMenuService;
+import com.yiwei.ywt.businessProcess.bill.dao.TUserBillMapper;
+import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
+import com.yiwei.ywt.businessProcess.bill.service.SysBillService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 

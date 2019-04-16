@@ -1,9 +1,8 @@
-package com.yiwei.ywt.sys.bill.dao;
+package com.yiwei.ywt.businessProcess.bill.dao;
 
 import com.yiwei.ywt.framework.dao.CRUDMapper;
-import com.yiwei.ywt.sys.bill.model.TUserBill;
+import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 
