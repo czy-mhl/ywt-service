@@ -26,7 +26,9 @@
         `t_resident_water_new`
         (CUSTOMER_TYPE,BUSINESS_TYPE,OWNER_NAME,AREA,ADDRESS,OWNER_MOBILE,ID_TYPE,
          ID_CARD,OWNER_CERTIFICATENO,WATER_TYPE,MANAGER_NAME,MANAGER_MOBILE,
-         ID_CARD_IMAGE,OWNER_CERTIFICATE_IMAGE,MANAGER_IMAGE,MOBILE_CODE)
+         ID_CARD_IMAGE,OWNER_CERTIFICATE_IMAGE,MANAGER_IMAGE,MOBILE_CODE,
+         CREATE_TIME,LAST_UPDATE_TIME, DESCRIPTION, ENABLED,DEL_FLAG
+         )
          values (#{customerType,jdbcType=VARCHAR},
           #{businessType,jdbcType=VARCHAR},
           #{ownerName,jdbcType=VARCHAR},
@@ -42,7 +44,8 @@
           #{idCardImage,jdbcType=VARCHAR},
           #{ownerCertificateImage,jdbcType=VARCHAR},
           #{managerImage,jdbcType=VARCHAR},
-          #{mobileCode,jdbcType=VARCHAR})
+          #{mobileCode,jdbcType=VARCHAR},
+          now(),now(), #{description,jdbcType=VARCHAR},1,0)
     </insert>
 
 

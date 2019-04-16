@@ -33,7 +33,7 @@
          COMPANY_TYPE, CREDIT_CODE, CORPORATE_REPRESEN_NAME, CORPORATE_REPRESEN_ID_CARD,
          WATER_TYPE, MANAGER_NAME, MANAGER_EMAIL, MANAGER_MOBILE, INVOICE_TYPE,
          BUSINESS_LICENSE_IMAGE, CORPORATE_REPRESEN_ID_CARD_IMAGE, MANAGER_ID_CARD_IMAGE,
-         OTHER_IMAGE, MOBILE_CODE)
+         OTHER_IMAGE, MOBILE_CODE,CREATE_TIME,LAST_UPDATE_TIME, DESCRIPTION, ENABLED,DEL_FLAG)
          values
          (#{customerType,jdbcType=VARCHAR},
           #{businessType,jdbcType=VARCHAR},
@@ -54,7 +54,9 @@
           #{corporateRepresenIdCardImage,jdbcType=VARCHAR},
           #{managerIdCardImage,jdbcType=VARCHAR},
           #{otherImage,jdbcType=VARCHAR},
-          #{mobileCode,jdbcType=VARCHAR})
+          #{mobileCode,jdbcType=VARCHAR},
+          now(),now(), #{description,jdbcType=VARCHAR},1,0
+          )
     </insert>
 
 

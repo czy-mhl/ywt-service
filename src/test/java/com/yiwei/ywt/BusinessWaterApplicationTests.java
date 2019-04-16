@@ -20,13 +20,13 @@ public class BusinessWaterApplicationTests {
     private BusinessWaterService businessWaterService;
 
     /**
-     * 居民用水新装申请
+     * 工商用水新装申请
      */
     @Test
     public void insert() {
         BusinessWater businessWater = new BusinessWater();
-        businessWater.setCustomerType("居民客户");
-        businessWater.setBusinessType("居民用水新装");
+        businessWater.setCustomerType("工商客户");
+        businessWater.setBusinessType("工商用水新装");
         businessWater.setOwnerName("向珂");
         businessWater.setArea("洪山区");
         businessWater.setAddress("易维科技");

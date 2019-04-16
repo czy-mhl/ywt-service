@@ -11,6 +11,7 @@
 
 package com.yiwei.ywt.businessProcess.businessCirclesNew.model;
 
+import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 
 /**
@@ -23,7 +24,7 @@ import lombok.Data;
  */
 
 @Data
-public class BusinessWater {
+public class BusinessWater extends BaseEntity {
     /**
      * 用户类型
      */

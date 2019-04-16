@@ -11,7 +11,7 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 16/04/2019 17:16:25
+ Date: 16/04/2019 17:43:26
 */
 
 SET NAMES utf8mb4;
@@ -43,7 +43,12 @@ CREATE TABLE `t_business_water_new`  (
   `MANAGER_ID_CARD_IMAGE` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '授权委托、经办人有效身份证正、反（护照提供内页）',
   `OTHER_IMAGE` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '其它图片',
   `MOBILE_CODE` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机验证码',
+  `CREATE_TIME` datetime(0) NOT NULL COMMENT '创建时间',
+  `LAST_UPDATE_TIME` datetime(0) NULL DEFAULT NULL COMMENT '数据最后修改时间',
+  `DESCRIPTION` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '系统菜单描述',
+  `ENABLED` int(10) NOT NULL COMMENT '是否启用（1=启用，0=禁用）',
+  `DEL_FLAG` int(10) NOT NULL COMMENT '删除标记',
   PRIMARY KEY (`ID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;

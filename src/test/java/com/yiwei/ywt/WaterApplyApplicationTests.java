@@ -28,8 +28,8 @@ public class WaterApplyApplicationTests {
         WaterApply waterApply = new WaterApply();
         waterApply.setCustomerType("居民客户");
         waterApply.setBusinessType("居民用水新装");
-        waterApply.setOwnerName("向珂");
-        waterApply.setArea("洪山区");
+        waterApply.setOwnerName("张三");
+        waterApply.setArea("武昌区");
         waterApply.setAddress("易维科技");
         waterApply.setOwnerMobile("18972642658");
         waterApply.setIdType("身份证");
