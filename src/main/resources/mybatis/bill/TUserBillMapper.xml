@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiwei.ywt.sys.bill.dao.TUserBillMapper">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.bill.model.TUserBill">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="USER_ID" property="userId" jdbcType="BIGINT"/>
+        <result column="BILL_MONTH" property="billMonth" jdbcType="VARCHAR"/>
+        <result column="LAST_READ" property="lastRead" jdbcType="VARCHAR"/>
+        <result column="THIS_READ" property="thisRead" jdbcType="VARCHAR"/>
+        <result column="LAST_ARRIVAL" property="lastArrival" jdbcType="BIGINT"/>
+        <result column="THIS_ARRIVAL" property="thisArrival" jdbcType="BIGINT"/>
+        <result column="READ_SITUATION" property="readSituation" jdbcType="VARCHAR"/>
+        <result column="WATER_CONSUMPTION" property="waterConsumption" jdbcType="BIGINT"/>
+        <result column="WATER_RATES" property="waterRates" jdbcType="DECIMAL"/>
+        <result column="SEWAGE_CHARGE" property="sewageCharge" jdbcType="DECIMAL"/>
+        <result column="GARBAGE_CHARGE" property="garbageCharge" jdbcType="DECIMAL"/>
+        <result column="PENALTY" property="penalty" jdbcType="DECIMAL"/>
+        <result column="NON_RESIDENT_PRICE" property="nonResidentPrice" jdbcType="DECIMAL"/>
+        <result column="BUSINESS_CIRCLES_PRICE" property="businessCirclesPrice" jdbcType="DECIMAL"/>
+        <result column="MOUTH_TOTAL" property="mouthTotal" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    ID,
+    USER_ID,
+    BILL_MONTH,
+    LAST_READ,
+    THIS_READ,
+    LAST_ARRIVAL,
+    THIS_ARRIVAL,
+    READ_SITUATION,
+    WATER_CONSUMPTION,
+    WATER_RATES,
+    SEWAGE_CHARGE,
+    GARBAGE_CHARGE,
+    PENALTY,
+    NON_RESIDENT_PRICE,
+    BUSINESS_CIRCLES_PRICE,
+    MOUTH_TOTAL
+    </sql>
+
+    <select id="selectByUserId" resultMap="BaseResultMap">
+    select * FROM `t_user_bill` where USER_ID = #{userid}
+    </select>
+
+    <select id="selectBybillMonth" resultMap="BaseResultMap">
+    select * FROM `t_user_bill` where BILL_MONTH = #{billMonth}
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+    select * FROM `t_user_bill` where ID = #{id}
+    </select>
+
+    <insert id="insertUserBill" parameterType="com.yiwei.ywt.sys.bill.model.TUserBill">
+        insert INTO
+        t_user_bill(
+        ID,
+        USER_ID,
+        BILL_MONTH,
+        LAST_READ,
+        THIS_READ,
+        LAST_ARRIVAL,
+        THIS_ARRIVAL,
+        READ_SITUATION,
+        WATER_CONSUMPTION,
+        WATER_RATES,
+        SEWAGE_CHARGE,
+        GARBAGE_CHARGE,
+        PENALTY,
+        NON_RESIDENT_PRICE,
+        BUSINESS_CIRCLES_PRICE,
+        MOUTH_TOTAL)
+        VALUES
+        (
+        #{id},
+        #{userId},
+        #{billMonth},
+        #{lastRead},
+        #{thisRead},
+        #{lastArrival},
+        #{thisArrival},
+        #{readSituation},
+        #{waterConsumption},
+        #{waterRates},
+        #{sewageCharge},
+        #{garbageCharge},
+        #{penalty},
+        #{nonResidentPrice},
+        #{businessCirclesPrice},
+        #{mouthTotal})
+        ON DUPLICATE KEY UPDATE
+        BILL_MONTH = values(BILL_MONTH),
+        LAST_READ=values(LAST_READ),
+        THIS_READ = values(THIS_READ),
+        LAST_ARRIVAL=values(LAST_ARRIVAL),
+        THIS_ARRIVAL = values(THIS_ARRIVAL),
+        READ_SITUATION=values(READ_SITUATION),
+        WATER_CONSUMPTION = values(WATER_CONSUMPTION),
+        WATER_RATES=values(WATER_RATES),
+        SEWAGE_CHARGE = values(SEWAGE_CHARGE),
+        GARBAGE_CHARGE=values(GARBAGE_CHARGE),
+        PENALTY = values(PENALTY),
+        NON_RESIDENT_PRICE = values(NON_RESIDENT_PRICE),
+        BUSINESS_CIRCLES_PRICE = values(BUSINESS_CIRCLES_PRICE),
+        MOUTH_TOTAL = values(MOUTH_TOTAL)
+  </insert>
+
+</mapper>

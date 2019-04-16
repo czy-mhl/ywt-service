@@ -3,20 +3,20 @@
 <mapper namespace="com.yiwei.ywt.sys.user.mapper.SysUserMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.user.model.SysUser">
-        <id column="ID" property="id" />
-        <result column="MOBILE" property="mobile" />
-        <result column="PASSWORD" property="password" />
-        <result column="WX_OPEN_ID" property="wxOpenId" />
-        <result column="INVITE_CODE" property="inviteCode" />
-        <result column="NAME" property="name" />
-        <result column="ROLE_NAME" property="roleName" />
-        <result column="ROLE_ID" property="roleId" />
-        <result column="TYPE" property="type" />
-        <result column="ENABLED" property="enabled" />
-        <result column="CREATE_TIME" property="createTime" />
-        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" />
-        <result column="DEL_FLAG" property="delFlag" />
-        <result column="DESCRIPTION" property="description" />
+        <id column="ID" property="id"/>
+        <result column="MOBILE" property="mobile"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="WX_OPEN_ID" property="wxOpenId"/>
+        <result column="INVITE_CODE" property="inviteCode"/>
+        <result column="NAME" property="name"/>
+        <result column="ROLE_NAME" property="roleName"/>
+        <result column="ROLE_ID" property="roleId"/>
+        <result column="TYPE" property="type"/>
+        <result column="ENABLED" property="enabled"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime"/>
+        <result column="DEL_FLAG" property="delFlag"/>
+        <result column="DESCRIPTION" property="description"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
