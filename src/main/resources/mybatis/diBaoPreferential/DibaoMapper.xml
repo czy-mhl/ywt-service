@@ -19,7 +19,7 @@
                 0)
     </insert>
     <select id="checkFamilyCode" resultType="com.yiwei.ywt.businessProcess.diBaoPreferential.model.DibaoInfo">
-        select FAMILY_CODE,USER_WATER_ADDRESS from T_DIBAO_INFO where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR} and DEL_FLAG = 1
+        select FAMILY_CODE,USER_WATER_ADDRESS from T_DIBAO_INFO where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR} and DEL_FLAG = 0
     </select>
 
 </mapper>

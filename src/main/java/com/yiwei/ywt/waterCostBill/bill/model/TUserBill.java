@@ -1,4 +1,4 @@
-package com.yiwei.ywt.businessProcess.bill.model;
+package com.yiwei.ywt.waterCostBill.bill.model;
 
 import lombok.Data;
 

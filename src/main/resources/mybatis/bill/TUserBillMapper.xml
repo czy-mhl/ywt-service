@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiwei.ywt.businessProcess.bill.dao.TUserBillMapper">
-    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.bill.model.TUserBill">
+<mapper namespace="com.yiwei.ywt.waterCostBill.bill.dao.TUserBillMapper">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.waterCostBill.bill.model.TUserBill">
         <id column="ID" property="id" jdbcType="BIGINT"/>
         <result column="USER_ID" property="userId" jdbcType="BIGINT"/>
         <result column="BILL_MONTH" property="billMonth" jdbcType="VARCHAR"/>
@@ -51,7 +51,7 @@
     select * FROM `t_user_bill` where ID = #{id}
     </select>
 
-    <insert id="insertUserBill" parameterType="com.yiwei.ywt.businessProcess.bill.model.TUserBill">
+    <insert id="insertUserBill" parameterType="com.yiwei.ywt.waterCostBill.bill.model.TUserBill">
         insert INTO
         t_user_bill(
         ID,

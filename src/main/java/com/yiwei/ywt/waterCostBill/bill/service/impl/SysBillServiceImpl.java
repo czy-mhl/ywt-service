@@ -9,11 +9,11 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-package com.yiwei.ywt.businessProcess.bill.service.impl;
+package com.yiwei.ywt.waterCostBill.bill.service.impl;
 
-import com.yiwei.ywt.businessProcess.bill.dao.TUserBillMapper;
-import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
-import com.yiwei.ywt.businessProcess.bill.service.SysBillService;
+import com.yiwei.ywt.waterCostBill.bill.dao.TUserBillMapper;
+import com.yiwei.ywt.waterCostBill.bill.model.TUserBill;
+import com.yiwei.ywt.waterCostBill.bill.service.SysBillService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -9,11 +9,11 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-package com.yiwei.ywt.businessProcess.bill.contorller;
+package com.yiwei.ywt.waterCostBill.bill.contorller;
 
 import com.yiwei.ywt.framework.web.AjaxResponse;
-import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
-import com.yiwei.ywt.businessProcess.bill.service.SysBillService;
+import com.yiwei.ywt.waterCostBill.bill.model.TUserBill;
+import com.yiwei.ywt.waterCostBill.bill.service.SysBillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +41,7 @@ public class SysUserBillController {
      * @param userId
      * @return AjaxResponse
      */
-    @RequestMapping(value = "/waterbill/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/waterbill", method = RequestMethod.GET)
     public AjaxResponse userBill(@RequestBody @PathVariable("userId") Long userId) {
         try {
             List<TUserBill> userBills = this.sysBillService.findByUserId(userId);

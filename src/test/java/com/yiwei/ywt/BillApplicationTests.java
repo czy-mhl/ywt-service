@@ -1,8 +1,8 @@
 package com.yiwei.ywt;
 
-import com.yiwei.ywt.businessProcess.bill.dao.TUserBillMapper;
-import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
-import com.yiwei.ywt.businessProcess.bill.service.SysBillService;
+import com.yiwei.ywt.waterCostBill.bill.dao.TUserBillMapper;
+import com.yiwei.ywt.waterCostBill.bill.model.TUserBill;
+import com.yiwei.ywt.waterCostBill.bill.service.SysBillService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

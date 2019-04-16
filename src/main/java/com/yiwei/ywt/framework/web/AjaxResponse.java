@@ -2,6 +2,7 @@ package com.yiwei.ywt.framework.web;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -12,6 +13,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@ToString
 public class AjaxResponse implements Serializable {
     /**
      * 操作成功.
@@ -42,6 +44,14 @@ public class AjaxResponse implements Serializable {
      * 查询数据失败.
      */
     public static final String FAILURE_SELECT_ENTITY = "10004";
+    /**
+     * 业务办理中,请勿重复申请
+     */
+    public static final String ERROR_INFO = "业务办理中,请勿重复申请";
+    /**
+     * 手机号已经办理了订阅
+     */
+    public static final String ERROR_INFO_PHONE = "手机号已经办理了订阅";
 
     /**
      * 响应结果编码.

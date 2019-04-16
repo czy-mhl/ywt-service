@@ -32,7 +32,7 @@
     </sql>
 
     <!--访问用户帐号 操作起始时间 操作结束时间 分页查询-->
-    <select id="selectPageList" resultMap="sysLog" >
+    <select id="selectPageList" parameterType="com.yiwei.ywt.sys.log.model.SysLog" >
         SELECT
         T1.ID, T1.REQUEST_URI, T1.REQUEST_IP, T1.SYS_USER_ID, T1.SYS_USER_ACCOUNT, T1.OPERATE_TYPE, T1.MODULE_NAME,T1.OPERATION_DESC,
         T1.MODULE_CODE,T1.METHOD_NAME,T1.METHOD_CODE,T1.OPERATE_RESULT,T1.LOG_CONTENT,T1.OPERATE_TIME,T1.CREATE_TIME,T1.MENU_NAME,T1.MODULE_CONTENT,

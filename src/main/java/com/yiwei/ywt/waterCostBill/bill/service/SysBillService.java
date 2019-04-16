@@ -1,7 +1,7 @@
-package com.yiwei.ywt.businessProcess.bill.service;
+package com.yiwei.ywt.waterCostBill.bill.service;
 
 
-import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
+import com.yiwei.ywt.waterCostBill.bill.model.TUserBill;
 
 import java.util.List;
 

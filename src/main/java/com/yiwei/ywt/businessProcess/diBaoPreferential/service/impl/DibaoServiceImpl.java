@@ -3,6 +3,7 @@ package com.yiwei.ywt.businessProcess.diBaoPreferential.service.impl;
 import com.yiwei.ywt.businessProcess.diBaoPreferential.mapper.DibaoMapper;
 import com.yiwei.ywt.businessProcess.diBaoPreferential.model.DibaoInfo;
 import com.yiwei.ywt.businessProcess.diBaoPreferential.service.DibaoService;
+import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /**
@@ -26,7 +27,7 @@ public class DibaoServiceImpl implements DibaoService{
         if(null == dibaoMapper.checkFamilyCode(dibaoInfo.getFamilyCode()))
             return  0 < dibaoMapper.insert(dibaoInfo) ? dibaoInfo : null;
         else
-            throw new RuntimeException("业务办理中 请勿重复申请");
+            throw new RuntimeException(AjaxResponse.ERROR_INFO);
 
     }
 }

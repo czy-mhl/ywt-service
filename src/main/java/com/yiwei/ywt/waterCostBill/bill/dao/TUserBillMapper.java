@@ -1,7 +1,7 @@
-package com.yiwei.ywt.businessProcess.bill.dao;
+package com.yiwei.ywt.waterCostBill.bill.dao;
 
 import com.yiwei.ywt.framework.dao.CRUDMapper;
-import com.yiwei.ywt.businessProcess.bill.model.TUserBill;
+import com.yiwei.ywt.waterCostBill.bill.model.TUserBill;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

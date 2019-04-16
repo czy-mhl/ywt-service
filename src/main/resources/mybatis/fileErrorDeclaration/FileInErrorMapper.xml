@@ -17,4 +17,8 @@
                 )
     </insert>
 
+    <select id="checkFamilyCode" resultType="com.yiwei.ywt.businessProcess.FileErrorDeclaration.model.FileErrorInfo">
+        select FAMILY_CODE,USER_WATER_ADDRESS from T_FILE_ERROR_INFO where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR} and DEL_FLAG = 0
+    </select>
+
 </mapper>
