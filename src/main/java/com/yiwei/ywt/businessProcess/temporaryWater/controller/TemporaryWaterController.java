@@ -24,9 +24,9 @@ public class TemporaryWaterController {
     private TemporaryWaterService temporaryWaterService;
 
     /**
-     * 工商用水新装申请
+     * 临时施工用水
      */
-//    @LogAop(menuName = "工商用水新装",operationDesc = "新增",operationType = "1")
+//    @LogAop(menuName = "临时施工用水",operationDesc = "新增",operationType = "1")
     @RequestMapping(value = "/addEntity", method = RequestMethod.POST)
      public AjaxResponse getTemporarywater(TemporaryWater temporaryWater) {
         try {

@@ -11,7 +11,9 @@
 
 package com.yiwei.ywt.businessProcess.residentNew.mapper;
 
+import com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater;
 import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
+import com.yiwei.ywt.framework.dao.CRUDMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -23,8 +25,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 1.0.0
  */
 @Mapper
-public interface WaterApplyMapper {
-
-    int insert(WaterApply waterApply);
-
+public interface WaterApplyMapper extends CRUDMapper<WaterApply> {
 }

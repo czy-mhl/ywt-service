@@ -12,6 +12,7 @@
 package com.yiwei.ywt.businessProcess.temporaryWater.mapper;
 
 import com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater;
+import com.yiwei.ywt.framework.dao.CRUDMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -23,6 +24,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 1.0.0
  */
 @Mapper
-public interface TemporaryWaterMapper {
-    int insert(TemporaryWater temporaryWater);
+public interface TemporaryWaterMapper extends CRUDMapper<TemporaryWater> {
 }
