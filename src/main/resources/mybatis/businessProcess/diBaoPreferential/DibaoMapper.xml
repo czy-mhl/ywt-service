@@ -3,6 +3,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yiwei.ywt.businessProcess.diBaoPreferential.mapper.DibaoMapper">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.diBaoPreferential.model.DibaoInfo">
+        <id column="ID" jdbcType="BIGINT" property="id" />
+        <result column="FAMILT_NAME" jdbcType="VARCHAR" property="familtName" />
+        <result column="FAMILY_CODE" jdbcType="VARCHAR" property="familyCode" />
+        <result column="USER_WATER_ADDRESS" jdbcType="VARCHAR" property="userWaterAddress" />
+        <result column="APPLY_TYPE" jdbcType="INTEGER" property="applyType" />
+        <result column="FAMILY_MAIN_NAME" jdbcType="VARCHAR" property="familyMainName" />
+        <result column="THE_LINKMAN" jdbcType="VARCHAR" property="theLinkman" />
+        <result column="MOBILE_PHONE" jdbcType="VARCHAR" property="mobilePhone" />
+        <result column="IDENTITY_NUMBER" jdbcType="VARCHAR" property="identityNumber" />
+        <result column="DIBAOTEKUN_URL" jdbcType="VARCHAR" property="dibaotekunUrl" />
+        <result column="IDENTITY_PICTURE_URL" jdbcType="VARCHAR" property="identityPictureUrl" />
+        <result column="TENANCY_AGREEMENT_FILE_URL" jdbcType="VARCHAR" property="tenancyAgreementFileUrl" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+        <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+        <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
+    </resultMap>
 
     <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.diBaoPreferential.model.DibaoInfo">
         insert into T_DIBAO_INFO (FAMILT_NAME, FAMILY_CODE, USER_WATER_ADDRESS,
@@ -18,7 +37,7 @@
                 now(), #{description,jdbcType=VARCHAR},1,
                 0)
     </insert>
-    <select id="checkFamilyCode" resultType="com.yiwei.ywt.businessProcess.diBaoPreferential.model.DibaoInfo">
+    <select id="checkFamilyCode" resultMap="BaseResultMap">
         select FAMILY_CODE,USER_WATER_ADDRESS from T_DIBAO_INFO where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR} and DEL_FLAG = 0
     </select>
 

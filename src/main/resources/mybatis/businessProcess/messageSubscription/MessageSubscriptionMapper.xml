@@ -3,7 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yiwei.ywt.businessProcess.messageSubscription.mapper.MessageSubscriptionMapper">
-
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.messageSubscription.model.MessageSubscriptionInfo">
+        <id column="ID" jdbcType="BIGINT" property="id" />
+        <result column="FAMILY_CODE" jdbcType="VARCHAR" property="familyCode" />
+        <result column="MOBILE_PHONE" jdbcType="VARCHAR" property="mobilePhone" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+        <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+        <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
+    </resultMap>
     <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.messageSubscription.model.MessageSubscriptionInfo">
         insert into T_MESSAGE_SUBSCRIPTION (FAMILY_CODE, MOBILE_PHONE,CREATE_TIME,
         LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
@@ -13,7 +22,7 @@
         )
     </insert>
 
-    <select id="checkMobilePhone" resultType="com.yiwei.ywt.businessProcess.messageSubscription.model.MessageSubscriptionInfo">
+    <select id="checkMobilePhone" resultMap="BaseResultMap">
         select FAMILY_CODE,MOBILE_PHONE from T_MESSAGE_SUBSCRIPTION where MOBILE_PHONE = #{mobilePhone,jdbcType=VARCHAR} and DEL_FLAG = 0
     </select>
 

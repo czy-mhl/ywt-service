@@ -3,7 +3,7 @@ server:
   servlet:
     context-path: /yiwei
 mybatis:
-  type-aliases-package: com.yiwei.ywt.*.model.*
+#  type-aliases-package: com.yiwei.ywt.*.model.*
 #  mapper-locations: classpath*:mybatis/**/**/*.xml
   configuration:
     map-underscore-to-camel-case: true

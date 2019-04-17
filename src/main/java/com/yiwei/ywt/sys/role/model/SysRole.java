@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * 系统角色 实体类</p>
- * 数据库表：T_SYS_ROLE
+ * 数据库表：T_ROLE
  *
  * @author czy
  * @version 1.0.0

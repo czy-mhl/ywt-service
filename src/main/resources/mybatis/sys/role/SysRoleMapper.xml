@@ -3,13 +3,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yiwei.ywt.sys.role.mapper.SysRoleMapper">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.role.model.SysRole">
+        <id column="ID" jdbcType="BIGINT" property="id" />
+        <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+        <result column="ROLE_CODE" jdbcType="VARCHAR" property="roleCode" />
+        <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+        <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+        <result column="ROLE_MENUS" jdbcType="VARCHAR" property="roleMenus" />
+    </resultMap>
 
     <!-- add SysRole-->
     <insert id="insert" parameterType="com.yiwei.ywt.sys.role.model.SysRole" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-          T_ROLE (ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, DEFAULT_MODULE_ID, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG,ROLE_MENUS)
+          T_ROLE (ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG,ROLE_MENUS)
         VALUES (#{roleName, jdbcType=VARCHAR}, #{roleCode, jdbcType=VARCHAR}, #{enabled, jdbcType=VARCHAR},
-                #{description, jdbcType=VARCHAR},  #{defaultModuleId, jdbcType=VARCHAR},
+                #{description, jdbcType=VARCHAR},
                 NOW(), NOW(), 0,#{roleMenus, jdbcType=VARCHAR})
     </insert>
 
@@ -53,8 +64,9 @@
         ENABLED = 0
         WHERE ID = #{id, jdbcType=BIGINT}
     </update>
-    <select id="getEntityById" resultType="com.yiwei.ywt.sys.role.model.SysRole">
-        select *
+
+    <select id="getEntityById" resultMap="BaseResultMap">
+        select ID,ROLE_NAME, ROLE_CODE, ENABLED, DESCRIPTION, CREATE_TIME, LAST_UPDATE_TIME, DEL_FLAG,ROLE_MENUS
         from T_ROLE
         where
           DEL_FLAG = 0

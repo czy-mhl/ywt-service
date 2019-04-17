@@ -28,7 +28,7 @@ public class WaterBillController {
      * @param waterBill
      * @return AjaxResponse
      */
-    @RequestMapping(value = "/waterBillList", method = RequestMethod.POST)
+    @RequestMapping(value = "/waterBillList", method = RequestMethod.GET)
     public AjaxResponse waterBillList(WaterBill waterBill) {
         try {
             List<WaterBill> waterBillList = this.waterBillService.waterBillList(waterBill);
