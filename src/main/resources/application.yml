@@ -4,7 +4,7 @@ server:
     context-path: /yiwei
 mybatis:
   type-aliases-package: com.yiwei.ywt.*.model.*
-  mapper-locations: classpath*:mybatis/**/*.xml
+  mapper-locations: classpath*:mybatis/**/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
