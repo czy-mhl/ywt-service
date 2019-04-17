@@ -18,28 +18,28 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.shenhuaweiye.repository.first.*.mapper", sqlSessionFactoryRef = "firstSqlSessionFactory")
-public class FirstDataSourceConfig {
-    @Bean(name = "firstDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.first")
-    public DataSource firstDataSource() {
+@MapperScan(basePackages = "com.yiwei.ywt.sys.*.mapper", sqlSessionFactoryRef = "sysSqlSessionFactory")
+public class SysDataSourceConfig {
+    @Bean(name = "sysDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.sys")
+    public DataSource sysDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "firstSqlSessionFactory")
+    @Bean(name = "sysSqlSessionFactory")
     @Primary
-    public SqlSessionFactory firstSqlSessionFactory(@Qualifier("firstDataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory sysSqlSessionFactory(@Qualifier("sysDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
 
         bean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/**/*.xml"));
+                new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/sys/**/*.xml"));
         return bean.getObject();
     }
 
-    @Bean("firstSqlSessionTemplate")
+    @Bean("sysSqlSessionTemplate")
     @Primary
-    public SqlSessionTemplate firstSqlSessionTemplate(@Qualifier("firstSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate sysSqlSessionTemplate(@Qualifier("sysSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory);
         return template;
     }
@@ -47,7 +47,7 @@ public class FirstDataSourceConfig {
     /******配置事务管理(多数据源配置多个)********/
 
     @Bean
-    public PlatformTransactionManager bfTransactionManager(@Qualifier("firstDataSource") DataSource prodDataSource) {
+    public PlatformTransactionManager bfTransactionManager(@Qualifier("sysDataSource") DataSource prodDataSource) {
         return new DataSourceTransactionManager(prodDataSource);
     }
 

@@ -18,7 +18,7 @@ public class FileErrorApplyTests {
     @Test
     public void add(){
         FileErrorInfo fileErrorInfo = new FileErrorInfo();
-        fileErrorInfo.setFamilyCode("001");
+        fileErrorInfo.setFamilyCode("002");
         fileErrorInfo.setUseWaterAddress("5555");
         fileErrorInfo.setTheLinkman("czy");
         fileErrorInfo.setMobilePhone("15090972366");

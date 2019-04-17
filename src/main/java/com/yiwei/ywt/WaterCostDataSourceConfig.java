@@ -14,24 +14,24 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.shenhuaweiye.repository.second.*.mapper", sqlSessionFactoryRef = "secondSqlSessionFactory")
-public class SecondDataSourceConfig {
-    @Bean(name = "secondDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.second")
-    public DataSource secondDataSource() {
+@MapperScan(basePackages = "com.yiwei.ywt.waterCost.*.mapper", sqlSessionFactoryRef = "waterCostSqlSessionFactory")
+public class WaterCostDataSourceConfig {
+    @Bean(name = "waterCostDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.watercost")
+    public DataSource waterCostDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "secondSqlSessionFactory")
-    public SqlSessionFactory secondSqlSessionFactory(@Qualifier("secondDataSource") DataSource dataSource) throws Exception {
+    @Bean(name = "waterCostSqlSessionFactory")
+    public SqlSessionFactory waterCostSqlSessionFactory(@Qualifier("waterCostDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:lhWanJing/**/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/waterCost/**/*.xml"));
         return bean.getObject();
     }
 
-    @Bean("secondSqlSessionTemplate")
-    public SqlSessionTemplate secondSqlSessionTemplate(@Qualifier("secondSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    @Bean("waterCostSqlSessionTemplate")
+    public SqlSessionTemplate waterCostSqlSessionTemplate(@Qualifier("waterCostSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory);
         return template;
     }

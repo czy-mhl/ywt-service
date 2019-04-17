@@ -48,7 +48,7 @@ public class WaterBillController {
     @RequestMapping(value = "/billdetails/{billMonth}", method = RequestMethod.GET)
     public AjaxResponse userBill(@RequestBody @PathVariable("billMonth") String billMonth) {
         try {
-            WaterBill userBill = this.sysBillService.findBybillMonth(billMonth);
+            waterBill userBill = this.sysBillService.findBybillMonth(billMonth);
             return null == userBill ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,
                     "error") : AjaxResponse.success("ok",userBill);
         }
@@ -63,8 +63,8 @@ public class WaterBillController {
      * @param userBill
      * @return AjaxResponse
      *//*
-    @RequestMapping(value = "/WaterBill/add", method = RequestMethod.POST)
-    public AjaxResponse userBill(@RequestBody WaterBill userBill) {
+    @RequestMapping(value = "/waterBill/add", method = RequestMethod.POST)
+    public AjaxResponse userBill(@RequestBody waterBill userBill) {
         try {
             sysBillService.insertByTUserBill(userBill);
             return null == userBill ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,

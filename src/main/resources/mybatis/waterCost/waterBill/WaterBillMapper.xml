@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiwei.ywt.waterCost.bill.dao.WaterBillMapper">
+<mapper namespace="com.yiwei.ywt.waterCost.bill.mapper.WaterBillMapper">
     <sql id="Base_Column_List">
         ID,FAMILY_CODE,BILL_MONTH,LAST_READ_DATE,THIS_READ_DATE,LAST_ARRIVAL,THIS_ARRIVAL,READ_SITUATION,
         WATER_CONSUMPTION,WATER_COST,DIRT_WATER_COST,GARBAGE_COST,PENALTY,
@@ -20,7 +20,7 @@
         </if>
     </select>
 
-    <!--<insert id="insertUserBill" parameterType="com.yiwei.ywt.waterCost.bill.model.WaterBill">
+    <!--<insert id="insertUserBill" parameterType="com.yiwei.ywt.waterCost.bill.model.waterBill">
         insert INTO
         t_user_bill(
         ID,USER_ID, BILL_MONTH,LAST_READ,THIS_READ, LAST_ARRIVAL,THIS_ARRIVAL,READ_SITUATION,WATER_CONSUMPTION,

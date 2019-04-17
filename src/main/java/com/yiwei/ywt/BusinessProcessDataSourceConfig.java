@@ -14,24 +14,24 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.shenhuaweiye.repository.thirdly.*.mapper", sqlSessionFactoryRef = "thirdlySqlSessionFactory")
-public class thirdlyDataSourceConfig {
-    @Bean(name = "thirdlyDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.thirdly")
-    public DataSource thirdlyDataSource() {
+@MapperScan(basePackages = "com.yiwei.ywt.businessProcess.*.mapper", sqlSessionFactoryRef = "businessProcessSqlSessionFactory")
+public class BusinessProcessDataSourceConfig {
+    @Bean(name = "businessProcessDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.businessprocess")
+    public DataSource businessProcessDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "thirdlySqlSessionFactory")
-    public SqlSessionFactory thirdlySqlSessionFactory(@Qualifier("thirdlyDataSource") DataSource dataSource) throws Exception {
+    @Bean(name = "businessProcessSqlSessionFactory")
+    public SqlSessionFactory businessProcessSqlSessionFactory(@Qualifier("businessProcessDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:lhZhengZuanJing/**/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/businessProcess/**/*.xml"));
         return bean.getObject();
     }
 
-    @Bean("thirdlySqlSessionTemplate")
-    public SqlSessionTemplate thirdlySqlSessionTemplate(@Qualifier("thirdlySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    @Bean("businessProcessSqlSessionTemplate")
+    public SqlSessionTemplate businessProcessSqlSessionTemplate(@Qualifier("businessProcessSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory);
         return template;
     }

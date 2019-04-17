@@ -4,7 +4,7 @@ import com.yiwei.ywt.businessProcess.messageSubscription.model.MessageSubscripti
 import com.yiwei.ywt.framework.dao.CRUDMapper;
 import org.apache.ibatis.annotations.Mapper;
 /**
- * 短信订阅 dao
+ * 短信订阅 mapper
  * @author czy
  * @version 1.0.0
  * @date 2019/04/16 15:54

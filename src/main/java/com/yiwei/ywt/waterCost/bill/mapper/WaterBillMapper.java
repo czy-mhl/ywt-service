@@ -1,4 +1,4 @@
-package com.yiwei.ywt.waterCost.bill.dao;
+package com.yiwei.ywt.waterCost.bill.mapper;
 
 import com.yiwei.ywt.framework.dao.CRUDMapper;
 import com.yiwei.ywt.waterCost.bill.model.WaterBill;
