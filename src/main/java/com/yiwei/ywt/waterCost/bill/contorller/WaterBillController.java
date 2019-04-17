@@ -1,19 +1,8 @@
-/**
- * Copyright (C), 2015-2019, XXX有限公司
- * FileName: SysUserBillController
- * Author:   XXXXXXX
- * Date:     2019/4/15 11:28
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
-
-package com.yiwei.ywt.waterCostBill.bill.contorller;
+package com.yiwei.ywt.waterCost.bill.contorller;
 
 import com.yiwei.ywt.framework.web.AjaxResponse;
-import com.yiwei.ywt.waterCostBill.bill.model.TUserBill;
-import com.yiwei.ywt.waterCostBill.bill.service.SysBillService;
+import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.service.WaterBillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 〈根据UserId查询UserBill〉<br>
- * 〈〉
- *
+ * 水费账单
  * @author 向珂
  * @create 2019/4/15
  * @since 1.0.0
@@ -31,38 +18,37 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/user")
 @Slf4j
-public class SysUserBillController {
+public class WaterBillController {
 
     @Resource
-    private SysBillService sysBillService;
+    private WaterBillService waterBillService;
 
-    /**
-     * 根据UserId查询UserBill  账单详情
-     * @param userId
+   /**
+     * 水费账单列表
+     * @param waterBill
      * @return AjaxResponse
      */
-    @RequestMapping(value = "/waterbill", method = RequestMethod.GET)
-    public AjaxResponse userBill(@RequestBody @PathVariable("userId") Long userId) {
+    @RequestMapping(value = "/waterBillList", method = RequestMethod.POST)
+    public AjaxResponse waterBillList(WaterBill waterBill) {
         try {
-            List<TUserBill> userBills = this.sysBillService.findByUserId(userId);
-            return null == userBills ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,
-                    "error") : AjaxResponse.success("ok",userBills);
+            List<WaterBill> waterBillList = this.waterBillService.waterBillList(waterBill);
+            return null == waterBillList ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,"error") : AjaxResponse.success("ok",waterBillList);
         }
         catch(Exception e) {
-            log.error("add SysMenu error!", e);
-            return AjaxResponse.error("error", userId);
+            log.error("select waterBill error!", e);
+            return AjaxResponse.error("error", waterBill);
         }
     }
 
-    /**
+    /*/**
      * 根据mouthTotal查询UserBill
      * @param billMonth
      * @return AjaxResponse
-     */
+     *//*
     @RequestMapping(value = "/billdetails/{billMonth}", method = RequestMethod.GET)
     public AjaxResponse userBill(@RequestBody @PathVariable("billMonth") String billMonth) {
         try {
-            TUserBill userBill = this.sysBillService.findBybillMonth(billMonth);
+            WaterBill userBill = this.sysBillService.findBybillMonth(billMonth);
             return null == userBill ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,
                     "error") : AjaxResponse.success("ok",userBill);
         }
@@ -72,13 +58,13 @@ public class SysUserBillController {
         }
     }
 
-    /**
+    *//**
      * 根据TUserBill新增或更新记录
      * @param userBill
      * @return AjaxResponse
-     */
-    @RequestMapping(value = "/bill/add", method = RequestMethod.POST)
-    public AjaxResponse userBill(@RequestBody TUserBill userBill) {
+     *//*
+    @RequestMapping(value = "/WaterBill/add", method = RequestMethod.POST)
+    public AjaxResponse userBill(@RequestBody WaterBill userBill) {
         try {
             sysBillService.insertByTUserBill(userBill);
             return null == userBill ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,
@@ -88,5 +74,5 @@ public class SysUserBillController {
             log.error("add SysMenu error!", e);
             return AjaxResponse.error("error", userBill);
         }
-    }
+    }*/
 }

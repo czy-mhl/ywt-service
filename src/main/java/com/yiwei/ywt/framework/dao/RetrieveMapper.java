@@ -40,6 +40,13 @@ public interface RetrieveMapper<T> {
      * @return  分页结果集合
      */
     List<T> selectPageList(@Param("searchParams") T params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    /**
+     * 查询条件为传进来的对象.
+     *
+     * @param params    查询条件
+     * @return  条件结果集合
+     */
+    List<T> selectListByEntity(@Param("searchParams") T params);
 
     /**
      * 个体对象查询。一般情况是单表语句，查询条件为传进来的对象.

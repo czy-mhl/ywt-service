@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiwei.ywt.waterCost.bill.dao.WaterBillMapper">
+    <sql id="Base_Column_List">
+        ID,FAMILY_CODE,BILL_MONTH,LAST_READ_DATE,THIS_READ_DATE,LAST_ARRIVAL,THIS_ARRIVAL,READ_SITUATION,
+        WATER_CONSUMPTION,WATER_COST,DIRT_WATER_COST,GARBAGE_COST,PENALTY,
+        TOTAL_MONEY,PAYMENT_STATUS,PAYMENT_DATE,PAYMENT_URL,PAYMENT_WAY,USE_WATER_TYPE,WATER_UNIT_PRICE,
+        DIRT_WATER_TYPE,DIRT_WATER_UNIT_PRICE, CREATE_TIME,LAST_UPDATE_TIME, DESCRIPTION, ENABLED,DEL_FLAG
+    </sql>
+    <select id="selectListByEntity" parameterType="com.yiwei.ywt.waterCost.bill.model.WaterBill" resultType="com.yiwei.ywt.waterCost.bill.model.WaterBill">
+        select <include refid="Base_Column_List"/>
+        from T_WATER_BILL
+        where
+        FAMILY_CODE = #{searchParams.familyCode} and DEL_FLAG = 0
+        <if test="searchParams.startBillMonth != null and searchParams.endBillMonth != null">
+            and (BILL_MONTH between #{searchParams.startBillMonth} and #{searchParams.endBillMonth})
+        </if>
+        <if test="searchParams.billMonth != null">
+            and BILL_MONTH = #{searchParams.billMonth}
+        </if>
+    </select>
+
+    <!--<insert id="insertUserBill" parameterType="com.yiwei.ywt.waterCost.bill.model.WaterBill">
+        insert INTO
+        t_user_bill(
+        ID,USER_ID, BILL_MONTH,LAST_READ,THIS_READ, LAST_ARRIVAL,THIS_ARRIVAL,READ_SITUATION,WATER_CONSUMPTION,
+        WATER_RATES,SEWAGE_CHARGE,GARBAGE_CHARGE,PENALTY,NON_RESIDENT_PRICE,BUSINESS_CIRCLES_PRICE,MOUTH_TOTAL)
+        VALUES
+        (#{id},#{userId},#{billMonth},#{lastRead},#{thisRead},#{lastArrival},#{thisArrival},#{readSituation},
+        #{waterConsumption},#{waterRates},#{sewageCharge},#{garbageCharge},#{penalty},#{nonResidentPrice},
+        #{businessCirclesPrice},#{mouthTotal})
+        ON DUPLICATE KEY UPDATE
+        BILL_MONTH = values(BILL_MONTH),
+        LAST_READ=values(LAST_READ),
+        THIS_READ = values(THIS_READ),
+        LAST_ARRIVAL=values(LAST_ARRIVAL),
+        THIS_ARRIVAL = values(THIS_ARRIVAL),
+        READ_SITUATION=values(READ_SITUATION),
+        WATER_CONSUMPTION = values(WATER_CONSUMPTION),
+        WATER_RATES=values(WATER_RATES),
+        SEWAGE_CHARGE = values(SEWAGE_CHARGE),
+        GARBAGE_CHARGE=values(GARBAGE_CHARGE),
+        PENALTY = values(PENALTY),
+        NON_RESIDENT_PRICE = values(NON_RESIDENT_PRICE),
+        BUSINESS_CIRCLES_PRICE = values(BUSINESS_CIRCLES_PRICE),
+        MOUTH_TOTAL = values(MOUTH_TOTAL)
+    </insert>-->
+
+</mapper>
