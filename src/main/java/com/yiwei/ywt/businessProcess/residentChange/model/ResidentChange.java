@@ -3,9 +3,11 @@ package com.yiwei.ywt.businessProcess.residentChange.model;
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 
-
+/**
+ * 居民用水改移装
+ */
 @Data
-public class Change extends BaseEntity {
+public class ResidentChange extends BaseEntity {
     /**
      *户号
      */

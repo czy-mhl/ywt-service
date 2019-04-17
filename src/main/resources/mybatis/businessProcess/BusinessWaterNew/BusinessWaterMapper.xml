@@ -64,7 +64,7 @@
           )
     </insert>
 
-    <select id="selectByCreditCode" resultType="com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater">
+    <select id="selectByCreditCode" resultMap="BaseResultMap">
         select OWNER_NAME,CREDIT_CODE,OWNER_MOBILE from t_business_water_new where CREDIT_CODE = #{creditCode,jdbcType=VARCHAR} and DEL_FLAG = 0
     </select>
 

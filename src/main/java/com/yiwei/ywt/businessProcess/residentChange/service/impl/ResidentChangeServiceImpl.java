@@ -11,11 +11,9 @@
 
 package com.yiwei.ywt.businessProcess.residentChange.service.impl;
 
-import com.yiwei.ywt.businessProcess.residentChange.mapper.ChangeMapper;
-import com.yiwei.ywt.businessProcess.residentChange.model.Change;
-import com.yiwei.ywt.businessProcess.residentChange.service.ChangeService;
-import com.yiwei.ywt.businessProcess.residentTransfer.mapper.TransferMapper;
-import com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer;
+import com.yiwei.ywt.businessProcess.residentChange.mapper.ResidentChangeMapper;
+import com.yiwei.ywt.businessProcess.residentChange.model.ResidentChange;
+import com.yiwei.ywt.businessProcess.residentChange.service.ResidentChangeService;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,21 +29,21 @@ import javax.annotation.Resource;
  * @since 1.0.0
  */
 @Service
-public class ChangeServiceImpl implements ChangeService {
+public class ResidentChangeServiceImpl implements ResidentChangeService {
 
     @Resource
-    private ChangeMapper changeMapper;
+    private ResidentChangeMapper residentChangeMapper;
 
     /**
      * 居民用水改移装
      *
      * @param change
-     * @return Change
+     * @return ResidentChange
      */
     @Transactional(rollbackFor = Exception.class)
-    public Change addEntity(Change change) {
-        if (null == changeMapper.selectByIdCard(change.getIdCard())) {
-            return 0 < changeMapper.insert(change) ? change : null;
+    public ResidentChange addEntity(ResidentChange change) {
+        if (null == residentChangeMapper.selectByIdCard(change.getIdCard())) {
+            return 0 < residentChangeMapper.insert(change) ? change : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);
         }

@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2015-2019, XXX有限公司
- * FileName: ChangeService
+ * FileName: ResidentChangeService
  * Author:   XXXXXXX
  * Date:     2019/4/17 11:43
  * Description:
@@ -10,7 +10,7 @@
  */
 package com.yiwei.ywt.businessProcess.residentChange.service;
 
-import com.yiwei.ywt.businessProcess.residentChange.model.Change;
+import com.yiwei.ywt.businessProcess.residentChange.model.ResidentChange;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -20,6 +20,6 @@ import com.yiwei.ywt.businessProcess.residentChange.model.Change;
  * @create 2019/4/17
  * @since 1.0.0
  */
-public interface ChangeService {
-    Change addEntity(Change change);
+public interface ResidentChangeService {
+    ResidentChange addEntity(ResidentChange change);
 }

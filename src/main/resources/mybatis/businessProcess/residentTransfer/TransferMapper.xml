@@ -54,7 +54,7 @@
       )
   </insert>
 
-  <select id="selectByIdCard" resultType="com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer">
+  <select id="selectByIdCard" resultMap="BaseResultMap">
         select OLD_FAMILY_NUMBER,NEW_FAMILY_NUMBER,NEW_FAMILY_NAME,ID_CARD from t_resident_transfer where ID_CARD = #{idCard,jdbcType=VARCHAR} and DEL_FLAG = 0
   </select>
 </mapper>

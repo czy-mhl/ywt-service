@@ -32,7 +32,7 @@ public class BusinessWaterApplicationTests {
         businessWater.setAddress("易维科技");
         businessWater.setOwnerMobile("18972642658");
         businessWater.setCompanyType("身份证");
-        businessWater.setCreditCode("420984199603111013");
+        businessWater.setCreditCode("420984199603111010");
         businessWater.setWaterType("居民生活用水");
         businessWater.setManagerName("蔡芝勇");
         businessWater.setManagerMobile("18888888888");

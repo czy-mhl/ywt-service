@@ -1,9 +1,7 @@
 package com.yiwei.ywt.businessProcess.residentChange.controller;
 
-import com.yiwei.ywt.businessProcess.residentChange.model.Change;
-import com.yiwei.ywt.businessProcess.residentChange.service.ChangeService;
-import com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer;
-import com.yiwei.ywt.businessProcess.residentTransfer.service.TransferService;
+import com.yiwei.ywt.businessProcess.residentChange.model.ResidentChange;
+import com.yiwei.ywt.businessProcess.residentChange.service.ResidentChangeService;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,21 +16,21 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/residentchange")
 @Slf4j
-public class ChangeController {
+public class ResidentChangeController {
 
     @Resource
-    private ChangeService changeService;
+    private ResidentChangeService residentChangeService;
 
     /**
      * 居民用水改移装
      */
 //    @LogAop(menuName = "居民用水改移装",operationDesc = "新增",operationType = "1")
     @RequestMapping(value = "/addEntity", method = RequestMethod.POST)
-     public AjaxResponse getChange(Change change) {
+     public AjaxResponse getResidentChange(ResidentChange change) {
         try {
-            return null == this.changeService.addEntity(change)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
+            return null == this.residentChangeService.addEntity(change)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
         } catch (Exception e) {
-            log.error("add Change error",e);
+            log.error("add ResidentChange error",e);
             return AjaxResponse.error(e.getMessage(),change);
         }
     }

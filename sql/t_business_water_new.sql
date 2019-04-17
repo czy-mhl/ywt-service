@@ -11,7 +11,7 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 17/04/2019 11:52:17
+ Date: 17/04/2019 15:37:23
 */
 
 SET NAMES utf8mb4;
@@ -49,6 +49,6 @@ CREATE TABLE `t_business_water_new`  (
   `ENABLED` int(10) NOT NULL COMMENT '是否启用（1=启用，0=禁用）',
   `DEL_FLAG` int(10) NOT NULL COMMENT '删除标记',
   PRIMARY KEY (`ID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
