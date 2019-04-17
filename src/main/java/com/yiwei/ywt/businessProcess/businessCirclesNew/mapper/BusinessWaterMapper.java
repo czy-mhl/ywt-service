@@ -26,4 +26,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface BusinessWaterMapper extends CRUDMapper<BusinessWater> {
 
+    BusinessWater selectByCreditCode(String creditCode);
+
+
 }

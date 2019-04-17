@@ -11,6 +11,7 @@
 
 package com.yiwei.ywt.businessProcess.temporaryWater.mapper;
 
+import com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater;
 import com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater;
 import com.yiwei.ywt.framework.dao.CRUDMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -25,4 +26,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface TemporaryWaterMapper extends CRUDMapper<TemporaryWater> {
+    TemporaryWater selectByCreditCode(String creditCode);
 }

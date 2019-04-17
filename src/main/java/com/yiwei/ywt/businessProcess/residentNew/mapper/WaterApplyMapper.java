@@ -26,4 +26,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface WaterApplyMapper extends CRUDMapper<WaterApply> {
+    WaterApply selectByIdCard(String IdCard);
 }

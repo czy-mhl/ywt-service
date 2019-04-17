@@ -16,13 +16,14 @@ import com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater;
 import com.yiwei.ywt.businessProcess.temporaryWater.mapper.TemporaryWaterMapper;
 import com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater;
 import com.yiwei.ywt.businessProcess.temporaryWater.service.TemporaryWaterService;
+import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈〉
  *
  * @author XXXXXXX
@@ -37,11 +38,16 @@ public class TemporaryWaterServiceImpl implements TemporaryWaterService {
 
     /**
      * 临时施工用水
+     *
      * @param temporaryWater
      * @return BusinessWater
      */
     @Transactional(rollbackFor = Exception.class)
     public TemporaryWater addEntity(TemporaryWater temporaryWater) {
-        return 0 < temporaryWaterMapper.insert(temporaryWater) ? temporaryWater : null;
+        if (null == temporaryWaterMapper.selectByCreditCode(temporaryWater.getCreditCode())) {
+            return 0 < temporaryWaterMapper.insert(temporaryWater) ? temporaryWater : null;
+        } else {
+            throw new RuntimeException(AjaxResponse.ERROR_INFO);
+        }
     }
 }

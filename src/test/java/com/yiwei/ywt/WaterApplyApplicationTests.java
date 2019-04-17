@@ -33,7 +33,7 @@ public class WaterApplyApplicationTests {
         waterApply.setAddress("易维科技");
         waterApply.setOwnerMobile("18972642658");
         waterApply.setIdType("身份证");
-        waterApply.setIdCard("420984199603111013");
+        waterApply.setIdCard("420984199603111012");
         waterApply.setWaterType("居民生活用水");
         waterApply.setManagerName("蔡芝勇");
         waterApply.setManagerMobile("18888888888");

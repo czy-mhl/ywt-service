@@ -14,13 +14,14 @@ package com.yiwei.ywt.businessProcess.residentNew.service.impl;
 import com.yiwei.ywt.businessProcess.residentNew.mapper.WaterApplyMapper;
 import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
 import com.yiwei.ywt.businessProcess.residentNew.service.WaterApplyService;
+import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈〉
  *
  * @author XXXXXXX
@@ -35,11 +36,16 @@ public class WaterApplyServiceImpl implements WaterApplyService {
 
     /**
      * 居民用水新装申请
+     *
      * @param waterApply
      * @return waterApply
      */
     @Transactional(rollbackFor = Exception.class)
     public WaterApply addEntity(WaterApply waterApply) {
-        return 0 < waterApplyMapper.insert(waterApply) ? waterApply : null;
+        if (null == waterApplyMapper.selectByIdCard(waterApply.getIdCard())) {
+            return 0 < waterApplyMapper.insert(waterApply) ? waterApply : null;
+        }else {
+            throw new RuntimeException(AjaxResponse.ERROR_INFO);
+        }
     }
 }

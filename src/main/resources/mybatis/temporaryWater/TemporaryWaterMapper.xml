@@ -72,5 +72,7 @@
           )
     </insert>
 
-
+    <select id="selectByCreditCode" resultType="com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater">
+        select OWNER_NAME,CREDIT_CODE,OWNER_MOBILE from t_temporary_water where CREDIT_CODE = #{creditCode,jdbcType=VARCHAR} and DEL_FLAG = 0
+    </select>
 </mapper>

@@ -14,6 +14,7 @@ package com.yiwei.ywt.businessProcess.businessCirclesNew.service.impl;
 import com.yiwei.ywt.businessProcess.businessCirclesNew.mapper.BusinessWaterMapper;
 import com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater;
 import com.yiwei.ywt.businessProcess.businessCirclesNew.service.BusinessWaterService;
+import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +42,10 @@ public class BusinessWaterServiceImpl implements BusinessWaterService {
      */
     @Transactional(rollbackFor = Exception.class)
     public BusinessWater addEntity(BusinessWater businessWater) {
-        return 0 < businessWaterMapper.insert(businessWater) ? businessWater : null;
+        if (null == businessWaterMapper.selectByCreditCode(businessWater.getCreditCode())) {
+            return 0 < businessWaterMapper.insert(businessWater) ? businessWater : null;
+        } else {
+            throw new RuntimeException(AjaxResponse.ERROR_INFO);
+        }
     }
 }

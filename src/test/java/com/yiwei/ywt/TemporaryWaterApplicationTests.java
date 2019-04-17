@@ -32,7 +32,7 @@ public class TemporaryWaterApplicationTests {
         temporaryWater.setAddress("易维科技");
         temporaryWater.setOwnerMobile("18972642658");
         temporaryWater.setCompanyType("营业执照");
-        temporaryWater.setCreditCode("统一社会信用代码");
+        temporaryWater.setCreditCode("420984199603111013");
         temporaryWater.setCorporateRepresenName("李四");
         temporaryWater.setCorporateRepresenIdCard("444333222211112111");
         TemporaryWater temporaryWater1 = temporaryWaterService.addEntity(temporaryWater);

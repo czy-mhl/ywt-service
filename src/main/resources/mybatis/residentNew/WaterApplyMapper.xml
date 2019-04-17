@@ -53,5 +53,8 @@
           now(),now(), #{description,jdbcType=VARCHAR},1,0)
     </insert>
 
+    <select id="selectByIdCard" resultType="com.yiwei.ywt.businessProcess.residentNew.model.WaterApply">
+        select OWNER_NAME,ID_CARD,OWNER_MOBILE from t_resident_water_new where ID_CARD = #{idCard,jdbcType=VARCHAR} and DEL_FLAG = 0
+    </select>
 
 </mapper>
