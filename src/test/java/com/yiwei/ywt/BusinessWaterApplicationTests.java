@@ -27,8 +27,8 @@ public class BusinessWaterApplicationTests {
         BusinessWater businessWater = new BusinessWater();
         businessWater.setCustomerType("工商客户");
         businessWater.setBusinessType("工商用水新装");
-        businessWater.setOwnerName("向珂");
-        businessWater.setArea("洪山区");
+        businessWater.setOwnerName("张三");
+        businessWater.setArea("武昌区");
         businessWater.setAddress("易维科技");
         businessWater.setOwnerMobile("18972642658");
         businessWater.setCompanyType("身份证");

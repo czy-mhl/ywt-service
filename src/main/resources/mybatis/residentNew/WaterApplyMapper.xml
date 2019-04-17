@@ -20,6 +20,11 @@
         <result column="OWNER_CERTIFICATE_IMAGE" property="ownerCertificateImage" jdbcType="VARCHAR" />
         <result column="MANAGER_IMAGE" property="managerImage" jdbcType="VARCHAR" />
         <result column="MOBILE_CODE" property="mobileCode" jdbcType="VARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+        <result column="ENABLED" property="enabled" jdbcType="INTEGER"/>
+        <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER"/>
     </resultMap>
     <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.residentNew.model.WaterApply">
         insert into

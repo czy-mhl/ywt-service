@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yiwei.ywt.businessProcess.businessCirclesNew.mapper.BusinessWaterMapper">
-    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater">
+<mapper namespace="com.yiwei.ywt.businessProcess.temporaryWater.mapper.TemporaryWaterMapper">
+    <resultMap id="BaseResultMap"
+               type="com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater">
         <id column="ID" property="id" jdbcType="BIGINT"/>
         <result column="CUSTOMER_TYPE" property="customerType" jdbcType="VARCHAR"/>
-        <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR"/>
         <result column="OWNER_NAME" property="ownerName" jdbcType="VARCHAR"/>
+        <result column="OWNER_MOBILE" property="ownerMobile" jdbcType="VARCHAR"/>
         <result column="AREA" property="area" jdbcType="VARCHAR"/>
         <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
-        <result column="OWNER_MOBILE" property="ownerMobile" jdbcType="VARCHAR"/>
         <result column="COMPANY_TYPE" property="companyType" jdbcType="VARCHAR"/>
         <result column="CREDIT_CODE" property="creditCode" jdbcType="VARCHAR"/>
         <result column="CORPORATE_REPRESEN_NAME" property="corporateRepresenName" jdbcType="VARCHAR"/>
         <result column="CORPORATE_REPRESEN_ID_CARD" property="corporateRepresenIdCard" jdbcType="VARCHAR"/>
-        <result column="WATER_TYPE" property="waterType" jdbcType="VARCHAR"/>
         <result column="MANAGER_NAME" property="managerName" jdbcType="VARCHAR"/>
-        <result column="MANAGER_EMAIL" property="managerEmail" jdbcType="VARCHAR"/>
         <result column="MANAGER_MOBILE" property="managerMobile" jdbcType="VARCHAR"/>
+        <result column="MANAGER_EMAIL" property="managerEmail" jdbcType="VARCHAR"/>
         <result column="INVOICE_TYPE" property="invoiceType" jdbcType="VARCHAR"/>
-        <result column="BUSINESS_LICENSE_IMAGE" property="businessLicenseImage" jdbcType="VARCHAR"/>
+        <result column="BUSINESSLICENSE_IMAGE" property="businessLicenseImage" jdbcType="VARCHAR"/>
         <result column="CORPORATE_REPRESEN_ID_CARD_IMAGE" property="corporateRepresenIdCardImage" jdbcType="VARCHAR"/>
+        <result column="LAND_OWNERSHIP_IMAGE" property="landOwnershipImage" jdbcType="VARCHAR"/>
         <result column="MANAGER_ID_CARD_IMAGE" property="managerIdCardImage" jdbcType="VARCHAR"/>
         <result column="OTHER_IMAGE" property="otherImage" jdbcType="VARCHAR"/>
         <result column="MOBILE_CODE" property="mobileCode" jdbcType="VARCHAR"/>
@@ -31,32 +31,40 @@
         <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER"/>
     </resultMap>
 
-    <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater">
+    <sql id="Base_Column_List">
+    ID, CUSTOMER_TYPE, OWNER_NAME, OWNER_MOBILE, AREA, ADDRESS, COMPANY_TYPE, CREDIT_CODE,
+    CORPORATE_REPRESEN_NAME, CORPORATE_REPRESEN_ID_CARD, MANAGER_NAME, MANAGER_MOBILE,
+    MANAGER_EMAIL, INVOICE_TYPE, BUSINESSLICENSE_IMAGE, CORPORATE_REPRESEN_ID_CARD_IMAGE,
+    LAND_OWNERSHIP_IMAGE, MANAGER_ID_CARD_IMAGE, OTHER_IMAGE, MOBILE_CODE, CREATE_TIME,
+    LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+    </sql>
+
+    <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater">
         insert into
-        `t_business_water_new`
-        (CUSTOMER_TYPE, BUSINESS_TYPE, OWNER_NAME, AREA, ADDRESS, OWNER_MOBILE,
-         COMPANY_TYPE, CREDIT_CODE, CORPORATE_REPRESEN_NAME, CORPORATE_REPRESEN_ID_CARD,
-         WATER_TYPE, MANAGER_NAME, MANAGER_EMAIL, MANAGER_MOBILE, INVOICE_TYPE,
-         BUSINESS_LICENSE_IMAGE, CORPORATE_REPRESEN_ID_CARD_IMAGE, MANAGER_ID_CARD_IMAGE,
-         OTHER_IMAGE, MOBILE_CODE,CREATE_TIME,LAST_UPDATE_TIME, DESCRIPTION, ENABLED,DEL_FLAG)
+        `t_temporary_water`
+        (CUSTOMER_TYPE, OWNER_NAME, OWNER_MOBILE, AREA, ADDRESS, COMPANY_TYPE, CREDIT_CODE,
+         CORPORATE_REPRESEN_NAME, CORPORATE_REPRESEN_ID_CARD, MANAGER_NAME, MANAGER_MOBILE,
+         MANAGER_EMAIL, INVOICE_TYPE, BUSINESSLICENSE_IMAGE, CORPORATE_REPRESEN_ID_CARD_IMAGE,
+         LAND_OWNERSHIP_IMAGE, MANAGER_ID_CARD_IMAGE, OTHER_IMAGE, MOBILE_CODE, CREATE_TIME,
+         LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+         )
          values
          (#{customerType,jdbcType=VARCHAR},
-          #{businessType,jdbcType=VARCHAR},
           #{ownerName,jdbcType=VARCHAR},
+          #{ownerMobile,jdbcType=VARCHAR},
           #{area,jdbcType=VARCHAR},
           #{address,jdbcType=VARCHAR},
-          #{ownerMobile,jdbcType=VARCHAR},
           #{companyType,jdbcType=VARCHAR},
           #{creditCode,jdbcType=VARCHAR},
           #{corporateRepresenName,jdbcType=VARCHAR},
           #{corporateRepresenIdCard,jdbcType=VARCHAR},
-          #{waterType,jdbcType=VARCHAR},
           #{managerName,jdbcType=VARCHAR},
-          #{managerEmail,jdbcType=VARCHAR},
           #{managerMobile,jdbcType=VARCHAR},
+          #{managerEmail,jdbcType=VARCHAR},
           #{invoiceType,jdbcType=VARCHAR},
           #{businessLicenseImage,jdbcType=VARCHAR},
           #{corporateRepresenIdCardImage,jdbcType=VARCHAR},
+          #{landOwnershipImage,jdbcType=VARCHAR},
           #{managerIdCardImage,jdbcType=VARCHAR},
           #{otherImage,jdbcType=VARCHAR},
           #{mobileCode,jdbcType=VARCHAR},
