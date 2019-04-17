@@ -13,7 +13,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class WaterApplyApplicationTests {
+public class ResidentNewApplicationTests {
     @Resource
     private WaterApplyMapper waterApplyMapper;
 
