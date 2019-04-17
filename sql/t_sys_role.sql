@@ -1,5 +1,5 @@
 /*
-Navicat MySQL Data Transfer
+Navicat MySQL Data ResidentTransfer
 
 Source Server         : 本地mysql
 Source Server Version : 80015

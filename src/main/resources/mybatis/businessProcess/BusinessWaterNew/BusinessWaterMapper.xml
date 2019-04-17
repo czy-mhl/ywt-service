@@ -8,7 +8,7 @@
         <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR"/>
         <result column="OWNER_NAME" property="ownerName" jdbcType="VARCHAR"/>
         <result column="AREA" property="area" jdbcType="VARCHAR"/>
-        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="WATER_ADDRESS" property="waterAddress" jdbcType="VARCHAR"/>
         <result column="OWNER_MOBILE" property="ownerMobile" jdbcType="VARCHAR"/>
         <result column="COMPANY_TYPE" property="companyType" jdbcType="VARCHAR"/>
         <result column="CREDIT_CODE" property="creditCode" jdbcType="VARCHAR"/>
@@ -34,7 +34,7 @@
     <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater">
         insert into
         `t_business_water_new`
-        (CUSTOMER_TYPE, BUSINESS_TYPE, OWNER_NAME, AREA, ADDRESS, OWNER_MOBILE,
+        (CUSTOMER_TYPE, BUSINESS_TYPE, OWNER_NAME, AREA, WATER_ADDRESS, OWNER_MOBILE,
          COMPANY_TYPE, CREDIT_CODE, CORPORATE_REPRESEN_NAME, CORPORATE_REPRESEN_ID_CARD,
          WATER_TYPE, MANAGER_NAME, MANAGER_EMAIL, MANAGER_MOBILE, INVOICE_TYPE,
          BUSINESS_LICENSE_IMAGE, CORPORATE_REPRESEN_ID_CARD_IMAGE, MANAGER_ID_CARD_IMAGE,
@@ -44,7 +44,7 @@
           #{businessType,jdbcType=VARCHAR},
           #{ownerName,jdbcType=VARCHAR},
           #{area,jdbcType=VARCHAR},
-          #{address,jdbcType=VARCHAR},
+          #{waterAddress,jdbcType=VARCHAR},
           #{ownerMobile,jdbcType=VARCHAR},
           #{companyType,jdbcType=VARCHAR},
           #{creditCode,jdbcType=VARCHAR},

@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2015-2019, XXX有限公司
- * FileName: WaterApplyService
+ * FileName: ResidentWaterService
  * Author:   XXXXXXX
  * Date:     2019/4/16 14:33
  * Description:
@@ -9,9 +9,9 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-package com.yiwei.ywt.businessProcess.residentNew.service;
+package com.yiwei.ywt.businessProcess.residentWaterNew.service;
 
-import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
+import com.yiwei.ywt.businessProcess.residentWaterNew.model.ResidentWater;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -21,8 +21,8 @@ import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
  * @create 2019/4/16
  * @since 1.0.0
  */
-public interface WaterApplyService {
+public interface ResidentWaterService {
 
-    WaterApply addEntity(WaterApply waterApply);
+    ResidentWater addEntity(ResidentWater waterApply);
 
 }

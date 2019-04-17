@@ -11,11 +11,9 @@
 
 package com.yiwei.ywt.businessProcess.residentTransfer.service.impl;
 
-import com.yiwei.ywt.businessProcess.residentNew.mapper.WaterApplyMapper;
-import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
-import com.yiwei.ywt.businessProcess.residentTransfer.mapper.TransferMapper;
-import com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer;
-import com.yiwei.ywt.businessProcess.residentTransfer.service.TransferService;
+import com.yiwei.ywt.businessProcess.residentTransfer.mapper.ResidentTransferMapper;
+import com.yiwei.ywt.businessProcess.residentTransfer.model.ResidentTransfer;
+import com.yiwei.ywt.businessProcess.residentTransfer.service.ResidentTransferService;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,21 +29,21 @@ import javax.annotation.Resource;
  * @since 1.0.0
  */
 @Service
-public class TransferServiceImpl implements TransferService {
+public class ResidentTransferServiceImpl implements ResidentTransferService {
 
     @Resource
-    private TransferMapper transferMapper;
+    private ResidentTransferMapper residentTransferMapper;
 
     /**
      * 居民用水过户申请
      *
      * @param transfer
-     * @return Transfer
+     * @return ResidentTransfer
      */
     @Transactional(rollbackFor = Exception.class)
-    public Transfer addEntity(Transfer transfer) {
-        if (null == transferMapper.selectByIdCard(transfer.getIdCard())) {
-            return 0 < transferMapper.insert(transfer) ? transfer : null;
+    public ResidentTransfer addEntity(ResidentTransfer transfer) {
+        if (null == residentTransferMapper.selectByIdCard(transfer.getIdCard())) {
+            return 0 < residentTransferMapper.insert(transfer) ? transfer : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);
         }

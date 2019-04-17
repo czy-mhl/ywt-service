@@ -1,5 +1,5 @@
 /*
- Navicat Premium Data Transfer
+ Navicat Premium Data ResidentTransfer
 
  Source Server         : 向珂的mysql
  Source Server Type    : MySQL

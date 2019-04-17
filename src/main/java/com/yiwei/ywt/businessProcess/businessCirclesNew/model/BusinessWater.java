@@ -44,7 +44,7 @@ public class BusinessWater extends BaseEntity {
     /**
      * 用水地址
      */
-    private String address;
+    private String waterAddress;
     /**
      * 业主手机
      */

@@ -31,10 +31,10 @@ public class BusinessChangeApplicationTests {
         BusinessChange businessChange = new BusinessChange();
         businessChange.setFamilyNumber("户号");
         businessChange.setFamilyName("户名");
-        businessChange.setAddress("用水地址");
+        businessChange.setWaterAddress("用水地址");
         businessChange.setChangeReason("改移原因");
         businessChange.setIdType("证件类型");
-        businessChange.setIdCard("420982");
+        businessChange.setIdCard("420989");
         businessChange.setManagerName("经办人姓名");
         businessChange.setManagerMobile("18972642658");
 

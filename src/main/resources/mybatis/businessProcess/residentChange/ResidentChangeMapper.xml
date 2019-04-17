@@ -5,7 +5,7 @@
         <id column="ID" property="id" jdbcType="BIGINT"/>
         <result column="FAMILY_NUMBER" property="familyNumber" jdbcType="VARCHAR"/>
         <result column="FAMILY_NAME" property="familyName" jdbcType="VARCHAR"/>
-        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="WATER_ADDRESS" property="waterAddress" jdbcType="VARCHAR"/>
         <result column="CHANGE_REASON" property="changeReason" jdbcType="VARCHAR"/>
         <result column="ID_TYPE" property="idType" jdbcType="VARCHAR"/>
         <result column="ID_CARD" property="idCard" jdbcType="VARCHAR"/>
@@ -22,13 +22,13 @@
         <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, FAMILY_NUMBER, FAMILY_NAME, ADDRESS, CHANGE_REASON, ID_TYPE, ID_CARD, MANAGER_NAME, 
+    ID, FAMILY_NUMBER, FAMILY_NAME, WATER_ADDRESS, CHANGE_REASON, ID_TYPE, ID_CARD, MANAGER_NAME,
     MANAGER_MOBILE, ID_CARD_IMAGE, OWNER_CERTIFICATE_IMAGE, MANAGER_ID_CARD_IMAGE, MOBILE_CODE, 
     CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
   </sql>
     <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.residentChange.model.ResidentChange">
     insert into t_resident_change (FAMILY_NUMBER, FAMILY_NAME,
-      ADDRESS, CHANGE_REASON, ID_TYPE, 
+      WATER_ADDRESS, CHANGE_REASON, ID_TYPE,
       ID_CARD, MANAGER_NAME, MANAGER_MOBILE, 
       ID_CARD_IMAGE, OWNER_CERTIFICATE_IMAGE, MANAGER_ID_CARD_IMAGE, 
       MOBILE_CODE, CREATE_TIME, LAST_UPDATE_TIME, 
@@ -37,7 +37,7 @@
     values
     (#{familyNumber,jdbcType=VARCHAR},
      #{familyName,jdbcType=VARCHAR},
-     #{address,jdbcType=VARCHAR},
+     #{waterAddress,jdbcType=VARCHAR},
      #{changeReason,jdbcType=VARCHAR},
      #{idType,jdbcType=VARCHAR},
      #{idCard,jdbcType=VARCHAR},

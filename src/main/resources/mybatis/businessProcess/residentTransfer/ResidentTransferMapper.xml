@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiwei.ywt.businessProcess.residentTransfer.mapper.TransferMapper" >
-  <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer" >
+<mapper namespace="com.yiwei.ywt.businessProcess.residentTransfer.mapper.ResidentTransferMapper" >
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.residentTransfer.model.ResidentTransfer" >
     <id column="ID" property="id" jdbcType="BIGINT" />
-    <result column="OLD_FAMILY_NUMBER" property="oldFamilyNumber" jdbcType="VARCHAR" />
-    <result column="NEW_FAMILY_NUMBER" property="newFamilyNumber" jdbcType="VARCHAR" />
+    <result column="FAMILY_NUMBER" property="familyNumber" jdbcType="VARCHAR" />
+    <result column="WATER_ADDRESS" property="waterAddress" jdbcType="VARCHAR" />
     <result column="NEW_FAMILY_NAME" property="newFamilyName" jdbcType="VARCHAR" />
     <result column="PROPERTY_ADDRESS" property="propertyAddress" jdbcType="VARCHAR" />
     <result column="NEW_OWNER_MOBILE" property="newOwnerMobile" jdbcType="VARCHAR" />
@@ -23,22 +23,22 @@
     <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, OLD_FAMILY_NUMBER, NEW_FAMILY_NUMBER, NEW_FAMILY_NAME, PROPERTY_ADDRESS, NEW_OWNER_MOBILE, 
+    ID, FAMILY_NUMBER, WATER_ADDRESS,NEW_FAMILY_NAME,PROPERTY_ADDRESS, NEW_OWNER_MOBILE,
     ID_TYPE, ID_CARD, OWNER_CERTIFICATENO, OTHER, ID_CARD_IMAGE, OWNER_CERTIFICATE_IMAGE, 
     MANAGER_ID_CARD_IMAGE, MOBILE_CODE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
     DEL_FLAG
   </sql>
-  <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer" >
-    insert into `t_resident_transfer` (OLD_FAMILY_NUMBER, NEW_FAMILY_NUMBER,
-      NEW_FAMILY_NAME, PROPERTY_ADDRESS, NEW_OWNER_MOBILE, 
+  <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.residentTransfer.model.ResidentTransfer" >
+    insert into `t_resident_transfer` (FAMILY_NUMBER,WATER_ADDRESS,NEW_FAMILY_NAME,
+      PROPERTY_ADDRESS, NEW_OWNER_MOBILE,
       ID_TYPE, ID_CARD, OWNER_CERTIFICATENO, 
       OTHER, ID_CARD_IMAGE, OWNER_CERTIFICATE_IMAGE, 
       MANAGER_ID_CARD_IMAGE, MOBILE_CODE, CREATE_TIME, 
       LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
       DEL_FLAG)
     values (
-      #{oldFamilyNumber,jdbcType=VARCHAR},
-      #{newFamilyNumber,jdbcType=VARCHAR},
+      #{familyNumber,jdbcType=VARCHAR},
+      #{waterAddress,jdbcType=VARCHAR},
       #{newFamilyName,jdbcType=VARCHAR},
       #{propertyAddress,jdbcType=VARCHAR},
       #{newOwnerMobile,jdbcType=VARCHAR},
@@ -55,6 +55,6 @@
   </insert>
 
   <select id="selectByIdCard" resultMap="BaseResultMap">
-        select OLD_FAMILY_NUMBER,NEW_FAMILY_NUMBER,NEW_FAMILY_NAME,ID_CARD from t_resident_transfer where ID_CARD = #{idCard,jdbcType=VARCHAR} and DEL_FLAG = 0
+        select FAMILY_NUMBER,NEW_FAMILY_NAME,ID_CARD from t_resident_transfer where ID_CARD = #{idCard,jdbcType=VARCHAR} and DEL_FLAG = 0
   </select>
 </mapper>

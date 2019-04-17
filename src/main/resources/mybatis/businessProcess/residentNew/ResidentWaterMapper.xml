@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yiwei.ywt.businessProcess.residentNew.mapper.WaterApplyMapper">
-    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.residentNew.model.WaterApply" >
+<mapper namespace="com.yiwei.ywt.businessProcess.residentWaterNew.mapper.ResidentWaterMapper">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.residentWaterNew.model.ResidentWater" >
         <id column="ID" property="id" jdbcType="BIGINT" />
         <result column="CUSTOMER_TYPE" property="customerType" jdbcType="VARCHAR" />
         <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
         <result column="OWNER_NAME" property="ownerName" jdbcType="VARCHAR" />
         <result column="AREA" property="area" jdbcType="VARCHAR" />
-        <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+        <result column="WATER_ADDRESS" property="waterAddress" jdbcType="VARCHAR" />
         <result column="OWNER_MOBILE" property="ownerMobile" jdbcType="VARCHAR" />
         <result column="ID_TYPE" property="idType" jdbcType="VARCHAR" />
         <result column="ID_CARD" property="idCard" jdbcType="VARCHAR" />
@@ -26,10 +26,10 @@
         <result column="ENABLED" property="enabled" jdbcType="INTEGER"/>
         <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER"/>
     </resultMap>
-    <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.residentNew.model.WaterApply">
+    <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.residentWaterNew.model.ResidentWater">
         insert into
         `t_resident_water_new`
-        (CUSTOMER_TYPE,BUSINESS_TYPE,OWNER_NAME,AREA,ADDRESS,OWNER_MOBILE,ID_TYPE,
+        (CUSTOMER_TYPE,BUSINESS_TYPE,OWNER_NAME,AREA,WATER_ADDRESS,OWNER_MOBILE,ID_TYPE,
          ID_CARD,OWNER_CERTIFICATENO,WATER_TYPE,MANAGER_NAME,MANAGER_MOBILE,
          ID_CARD_IMAGE,OWNER_CERTIFICATE_IMAGE,MANAGER_IMAGE,MOBILE_CODE,
          CREATE_TIME,LAST_UPDATE_TIME, DESCRIPTION, ENABLED,DEL_FLAG
@@ -38,7 +38,7 @@
           #{businessType,jdbcType=VARCHAR},
           #{ownerName,jdbcType=VARCHAR},
           #{area,jdbcType=VARCHAR},
-          #{address,jdbcType=VARCHAR},
+          #{waterAddress,jdbcType=VARCHAR},
           #{ownerMobile,jdbcType=VARCHAR},
           #{idType,jdbcType=VARCHAR},
           #{idCard,jdbcType=VARCHAR},

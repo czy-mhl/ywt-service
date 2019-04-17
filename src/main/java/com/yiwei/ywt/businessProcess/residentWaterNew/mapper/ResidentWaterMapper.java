@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2015-2019, XXX有限公司
- * FileName: WaterApplyMapper
+ * FileName: ResidentWaterMapper
  * Author:   XXXXXXX
  * Date:     2019/4/16 14:37
  * Description:
@@ -9,10 +9,9 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-package com.yiwei.ywt.businessProcess.residentNew.mapper;
+package com.yiwei.ywt.businessProcess.residentWaterNew.mapper;
 
-import com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater;
-import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
+import com.yiwei.ywt.businessProcess.residentWaterNew.model.ResidentWater;
 import com.yiwei.ywt.framework.dao.CRUDMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -25,6 +24,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 1.0.0
  */
 @Mapper
-public interface WaterApplyMapper extends CRUDMapper<WaterApply> {
-    WaterApply selectByIdCard(String IdCard);
+public interface ResidentWaterMapper extends CRUDMapper<ResidentWater> {
+    ResidentWater selectByIdCard(String IdCard);
 }

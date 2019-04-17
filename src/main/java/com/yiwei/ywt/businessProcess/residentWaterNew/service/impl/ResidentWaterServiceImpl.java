@@ -9,11 +9,11 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-package com.yiwei.ywt.businessProcess.residentNew.service.impl;
+package com.yiwei.ywt.businessProcess.residentWaterNew.service.impl;
 
-import com.yiwei.ywt.businessProcess.residentNew.mapper.WaterApplyMapper;
-import com.yiwei.ywt.businessProcess.residentNew.model.WaterApply;
-import com.yiwei.ywt.businessProcess.residentNew.service.WaterApplyService;
+import com.yiwei.ywt.businessProcess.residentWaterNew.mapper.ResidentWaterMapper;
+import com.yiwei.ywt.businessProcess.residentWaterNew.model.ResidentWater;
+import com.yiwei.ywt.businessProcess.residentWaterNew.service.ResidentWaterService;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,21 +29,21 @@ import javax.annotation.Resource;
  * @since 1.0.0
  */
 @Service
-public class WaterApplyServiceImpl implements WaterApplyService {
+public class ResidentWaterServiceImpl implements ResidentWaterService {
 
     @Resource
-    private WaterApplyMapper waterApplyMapper;
+    private ResidentWaterMapper waterApplyMapper;
 
     /**
      * 居民用水新装申请
      *
-     * @param waterApply
-     * @return waterApply
+     * @param residentWater
+     * @return ResidentWater
      */
     @Transactional(rollbackFor = Exception.class)
-    public WaterApply addEntity(WaterApply waterApply) {
-        if (null == waterApplyMapper.selectByIdCard(waterApply.getIdCard())) {
-            return 0 < waterApplyMapper.insert(waterApply) ? waterApply : null;
+    public ResidentWater addEntity(ResidentWater residentWater) {
+        if (null == waterApplyMapper.selectByIdCard(residentWater.getIdCard())) {
+            return 0 < waterApplyMapper.insert(residentWater) ? residentWater : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);
         }

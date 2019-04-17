@@ -5,15 +5,15 @@ import lombok.Data;
 
 
 @Data
-public class Transfer extends BaseEntity {
+public class ResidentTransfer extends BaseEntity {
     /**
-     * 旧户号
+     * 户号
      */
-    private String oldFamilyNumber;
+    private String familyNumber;
     /**
-     * 新户号
+     * 用水地址
      */
-    private String newFamilyNumber;
+    private String waterAddress;
     /**
      * 新户名
      */

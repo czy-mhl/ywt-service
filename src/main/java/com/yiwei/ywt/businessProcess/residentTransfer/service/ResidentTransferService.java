@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2015-2019, XXX有限公司
- * FileName: TransferService
+ * FileName: ResidentTransferService
  * Author:   XXXXXXX
  * Date:     2019/4/17 11:01
  * Description:
@@ -10,7 +10,7 @@
  */
 package com.yiwei.ywt.businessProcess.residentTransfer.service;
 
-import com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer;
+import com.yiwei.ywt.businessProcess.residentTransfer.model.ResidentTransfer;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -21,6 +21,6 @@ import com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer;
  * @since 1.0.0
  */
 
-public interface TransferService {
-    Transfer addEntity(Transfer transfer);
+public interface ResidentTransferService {
+    ResidentTransfer addEntity(ResidentTransfer transfer);
 }

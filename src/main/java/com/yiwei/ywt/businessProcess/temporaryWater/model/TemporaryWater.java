@@ -44,7 +44,7 @@ public class TemporaryWater extends BaseEntity {
     /**
      * 用水地址
      */
-    private String address;
+    private String waterAddress;
     /**
      * 单位证件类型
      */

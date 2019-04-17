@@ -9,7 +9,7 @@
         <result column="OWNER_NAME" property="ownerName" jdbcType="VARCHAR"/>
         <result column="OWNER_MOBILE" property="ownerMobile" jdbcType="VARCHAR"/>
         <result column="AREA" property="area" jdbcType="VARCHAR"/>
-        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="WATER_ADDRESS" property="waterAddress" jdbcType="VARCHAR"/>
         <result column="COMPANY_TYPE" property="companyType" jdbcType="VARCHAR"/>
         <result column="CREDIT_CODE" property="creditCode" jdbcType="VARCHAR"/>
         <result column="CORPORATE_REPRESEN_NAME" property="corporateRepresenName" jdbcType="VARCHAR"/>
@@ -32,7 +32,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-    ID, CUSTOMER_TYPE, OWNER_NAME, OWNER_MOBILE, AREA, ADDRESS, COMPANY_TYPE, CREDIT_CODE,
+    ID, CUSTOMER_TYPE, OWNER_NAME, OWNER_MOBILE, AREA, WATER_ADDRESS, COMPANY_TYPE, CREDIT_CODE,
     CORPORATE_REPRESEN_NAME, CORPORATE_REPRESEN_ID_CARD, MANAGER_NAME, MANAGER_MOBILE,
     MANAGER_EMAIL, INVOICE_TYPE, BUSINESSLICENSE_IMAGE, CORPORATE_REPRESEN_ID_CARD_IMAGE,
     LAND_OWNERSHIP_IMAGE, MANAGER_ID_CARD_IMAGE, OTHER_IMAGE, MOBILE_CODE, CREATE_TIME,
@@ -42,7 +42,7 @@
     <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater">
         insert into
         `t_temporary_water`
-        (CUSTOMER_TYPE, OWNER_NAME, OWNER_MOBILE, AREA, ADDRESS, COMPANY_TYPE, CREDIT_CODE,
+        (CUSTOMER_TYPE, OWNER_NAME, OWNER_MOBILE, AREA, WATER_ADDRESS, COMPANY_TYPE, CREDIT_CODE,
          CORPORATE_REPRESEN_NAME, CORPORATE_REPRESEN_ID_CARD, MANAGER_NAME, MANAGER_MOBILE,
          MANAGER_EMAIL, INVOICE_TYPE, BUSINESSLICENSE_IMAGE, CORPORATE_REPRESEN_ID_CARD_IMAGE,
          LAND_OWNERSHIP_IMAGE, MANAGER_ID_CARD_IMAGE, OTHER_IMAGE, MOBILE_CODE, CREATE_TIME,
@@ -53,7 +53,7 @@
           #{ownerName,jdbcType=VARCHAR},
           #{ownerMobile,jdbcType=VARCHAR},
           #{area,jdbcType=VARCHAR},
-          #{address,jdbcType=VARCHAR},
+          #{waterAddress,jdbcType=VARCHAR},
           #{companyType,jdbcType=VARCHAR},
           #{creditCode,jdbcType=VARCHAR},
           #{corporateRepresenName,jdbcType=VARCHAR},

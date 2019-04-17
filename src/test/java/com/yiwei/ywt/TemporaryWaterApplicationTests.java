@@ -29,7 +29,7 @@ public class TemporaryWaterApplicationTests {
         temporaryWater.setCustomerType("临时施工用水");
         temporaryWater.setOwnerName("张三");
         temporaryWater.setArea("武昌区");
-        temporaryWater.setAddress("易维科技");
+        temporaryWater.setWaterAddress("易维科技");
         temporaryWater.setOwnerMobile("18972642658");
         temporaryWater.setCompanyType("营业执照");
         temporaryWater.setCreditCode("420984199603111013");

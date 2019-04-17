@@ -1,7 +1,7 @@
 package com.yiwei.ywt.businessProcess.residentTransfer.controller;
 
-import com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer;
-import com.yiwei.ywt.businessProcess.residentTransfer.service.TransferService;
+import com.yiwei.ywt.businessProcess.residentTransfer.model.ResidentTransfer;
+import com.yiwei.ywt.businessProcess.residentTransfer.service.ResidentTransferService;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,21 +16,21 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/residenttransfer")
 @Slf4j
-public class TransferController {
+public class ResidentTransferController {
 
     @Resource
-    private TransferService transferService;
+    private ResidentTransferService residentTransferService;
 
     /**
      * 居民用水过户申请
      */
 //    @LogAop(menuName = "居民用水过户申请",operationDesc = "新增",operationType = "1")
     @RequestMapping(value = "/addEntity", method = RequestMethod.POST)
-     public AjaxResponse getTransfer(Transfer transfer) {
+     public AjaxResponse getResidentTransfer(ResidentTransfer transfer) {
         try {
-            return null == this.transferService.addEntity(transfer)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
+            return null == this.residentTransferService.addEntity(transfer)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
         } catch (Exception e) {
-            log.error("add Transfer error",e);
+            log.error("add ResidentTransfer error",e);
             return AjaxResponse.error(e.getMessage(),transfer);
         }
     }

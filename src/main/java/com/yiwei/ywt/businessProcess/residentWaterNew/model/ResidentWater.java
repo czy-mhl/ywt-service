@@ -1,18 +1,18 @@
-package com.yiwei.ywt.businessProcess.residentNew.model;
+package com.yiwei.ywt.businessProcess.residentWaterNew.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Description:
+ * Description:居民用水新装
  *
  * @author xiang
  * @since 2019.04.16
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class WaterApply extends BaseEntity {
+public class ResidentWater extends BaseEntity {
     /**
      * 用户类型
      */
@@ -32,7 +32,7 @@ public class WaterApply extends BaseEntity {
     /**
      * 用水地址
      */
-    private String address;
+    private String waterAddress;
     /**
      * 业主手机
      */

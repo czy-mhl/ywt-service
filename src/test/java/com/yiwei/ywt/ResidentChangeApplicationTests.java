@@ -27,10 +27,11 @@ public class ResidentChangeApplicationTests {
         ResidentChange change = new ResidentChange();
         change.setFamilyNumber("户号");
         change.setFamilyName("户名");
-        change.setAddress("用水地址");
+        change.setNewFamilyName("新户名");
+        change.setWaterAddress("用水地址");
         change.setChangeReason("改移原因");
         change.setIdType("证件类型");
-        change.setIdCard("420983");
+        change.setIdCard("420988");
         change.setManagerName("经办人姓名");
         change.setManagerMobile("18972642658");
         System.out.println(change.getIdCard());

@@ -19,7 +19,7 @@ public class ResidentChange extends BaseEntity {
     /**
      *用水地址
      */
-    private String address;
+    private String waterAddress;
     /**
      *改移原因
      */
