@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiwei.ywt.businessProcess.businessTransfer.mapper.BusinessTransferMapper" >
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.businessTransfer.model.BusinessTransfer" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="FAMILY_NUMBER" property="familyNumber" jdbcType="VARCHAR" />
+    <result column="WATER_ADDRESS" property="waterAddress" jdbcType="VARCHAR" />
+    <result column="NEW_FAMILY_NAME" property="newFamilyName" jdbcType="VARCHAR" />
+    <result column="PROPERTY_ADDRESS" property="propertyAddress" jdbcType="VARCHAR" />
+    <result column="NEW_OWNER_MOBILE" property="newOwnerMobile" jdbcType="VARCHAR" />
+    <result column="INVOICE_NAME" property="invoiceName" jdbcType="VARCHAR" />
+    <result column="INVOICE_TYPE" property="invoiceType" jdbcType="VARCHAR" />
+    <result column="TAX_IDENTIFIFATION_NUMBER" property="taxIdentififationNumber" jdbcType="VARCHAR" />
+    <result column="COMPANY_REGISTRATION_ADDRESS" property="companyRegistrationAddress" jdbcType="VARCHAR" />
+    <result column="TAX_PHONE" property="taxPhone" jdbcType="VARCHAR" />
+    <result column="OPEN_ACCOUNT_BANK" property="openAccountBank" jdbcType="VARCHAR" />
+    <result column="BANK_ACCOUNT" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="COLLECT_TICKETS_EMAIL" property="collectTicketsEmail" jdbcType="VARCHAR" />
+    <result column="OTHER" property="other" jdbcType="VARCHAR" />
+    <result column="COMPANY_TYPE" property="companyType" jdbcType="VARCHAR" />
+    <result column="COMPANY_CARD" property="companyCard" jdbcType="VARCHAR" />
+    <result column="OWNER_CERTIFICATENO" property="ownerCertificateno" jdbcType="VARCHAR" />
+    <result column="MANAGER_NAME" property="managerName" jdbcType="VARCHAR" />
+    <result column="MANAGER_MOBILE" property="managerMobile" jdbcType="VARCHAR" />
+    <result column="TEMPLATE_ADDRESS" property="templateAddress" jdbcType="VARCHAR" />
+    <result column="BUSINESS_LICENSE_IMAGE" property="businessLicenseImage" jdbcType="VARCHAR" />
+    <result column="TRANSFER_REGISTRATION" property="transferRegistration" jdbcType="VARCHAR" />
+    <result column="CORPORATE_REPRESEN_ID_CARD_IMAGE" property="corporateRepresenIdCardImage" jdbcType="VARCHAR" />
+    <result column="MANAGER_ID_CARD_IMAGE" property="managerIdCardImage" jdbcType="VARCHAR" />
+    <result column="MOBILE_CODE" property="mobileCode" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="ENABLED" property="enabled" jdbcType="INTEGER" />
+    <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, FAMILY_NUMBER, WATER_ADDRESS, NEW_FAMILY_NAME, PROPERTY_ADDRESS, NEW_OWNER_MOBILE, 
+    INVOICE_NAME, INVOICE_TYPE, TAX_IDENTIFIFATION_NUMBER, COMPANY_REGISTRATION_ADDRESS, 
+    TAX_PHONE, OPEN_ACCOUNT_BANK, BANK_ACCOUNT, COLLECT_TICKETS_EMAIL, OTHER, COMPANY_TYPE, 
+    COMPANY_CARD,OWNER_CERTIFICATENO, MANAGER_NAME, MANAGER_MOBILE, TEMPLATE_ADDRESS, BUSINESS_LICENSE_IMAGE,
+    TRANSFER_REGISTRATION, CORPORATE_REPRESEN_ID_CARD_IMAGE, MANAGER_ID_CARD_IMAGE, MOBILE_CODE, 
+    CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+  </sql>
+  <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.businessTransfer.model.BusinessTransfer" >
+    insert into t_business_transfer (FAMILY_NUMBER, WATER_ADDRESS,
+      NEW_FAMILY_NAME, PROPERTY_ADDRESS, NEW_OWNER_MOBILE, 
+      INVOICE_NAME, INVOICE_TYPE, TAX_IDENTIFIFATION_NUMBER, 
+      COMPANY_REGISTRATION_ADDRESS, TAX_PHONE, OPEN_ACCOUNT_BANK, 
+      BANK_ACCOUNT, COLLECT_TICKETS_EMAIL, OTHER, 
+      COMPANY_TYPE, COMPANY_CARD, OWNER_CERTIFICATENO,MANAGER_NAME,
+      MANAGER_MOBILE, TEMPLATE_ADDRESS, BUSINESS_LICENSE_IMAGE, 
+      TRANSFER_REGISTRATION, CORPORATE_REPRESEN_ID_CARD_IMAGE, 
+      MANAGER_ID_CARD_IMAGE, MOBILE_CODE, CREATE_TIME, 
+      LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
+      DEL_FLAG)
+    values (#{familyNumber,jdbcType=VARCHAR},
+      #{waterAddress,jdbcType=VARCHAR},
+      #{newFamilyName,jdbcType=VARCHAR},
+      #{propertyAddress,jdbcType=VARCHAR},
+      #{newOwnerMobile,jdbcType=VARCHAR},
+      #{invoiceName,jdbcType=VARCHAR},
+      #{invoiceType,jdbcType=VARCHAR}, #{taxIdentififationNumber,jdbcType=VARCHAR},
+      #{companyRegistrationAddress,jdbcType=VARCHAR},
+      #{taxPhone,jdbcType=VARCHAR},
+      #{openAccountBank,jdbcType=VARCHAR},
+      #{bankAccount,jdbcType=VARCHAR},
+      #{collectTicketsEmail,jdbcType=VARCHAR},
+      #{other,jdbcType=VARCHAR},
+      #{companyType,jdbcType=VARCHAR},
+      #{companyCard,jdbcType=VARCHAR},
+      #{ownerCertificateno,jdbcType=VARCHAR},
+      #{managerName,jdbcType=VARCHAR},
+      #{managerMobile,jdbcType=VARCHAR},
+      #{templateAddress,jdbcType=VARCHAR},
+      #{businessLicenseImage,jdbcType=VARCHAR},
+      #{transferRegistration,jdbcType=VARCHAR},
+      #{corporateRepresenIdCardImage,jdbcType=VARCHAR},
+      #{managerIdCardImage,jdbcType=VARCHAR},
+      #{mobileCode,jdbcType=VARCHAR},
+      now(),now(), #{description,jdbcType=VARCHAR},1,0)
+  </insert>
+  <select id="selectByCompanyCard" resultMap="BaseResultMap">
+        select FAMILY_NUMBER,NEW_FAMILY_NAME,COMPANY_CARD from t_business_transfer where COMPANY_CARD = #{companyCard,jdbcType=VARCHAR} and DEL_FLAG = 0
+  </select>
+
+</mapper>
