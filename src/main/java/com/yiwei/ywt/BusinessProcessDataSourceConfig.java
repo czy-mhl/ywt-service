@@ -12,7 +12,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
-
+/**
+ * 业务办理数据源配置
+ * @author czy
+ * @version 1.0.0
+ * @date 2019/04/10 18:24
+ */
 @Configuration
 @MapperScan(basePackages = "com.yiwei.ywt.businessProcess.*.mapper", sqlSessionFactoryRef = "businessProcessSqlSessionFactory")
 public class BusinessProcessDataSourceConfig {

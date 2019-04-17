@@ -16,7 +16,12 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
-
+/**
+ * 系统数据源配置
+ * @author czy
+ * @version 1.0.0
+ * @date 2019/04/10 18:24
+ */
 @Configuration
 @MapperScan(basePackages = "com.yiwei.ywt.sys.*.mapper", sqlSessionFactoryRef = "sysSqlSessionFactory")
 public class SysDataSourceConfig {
