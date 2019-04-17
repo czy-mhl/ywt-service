@@ -30,7 +30,7 @@ public class BusinessWaterController {
         try {
             return null == this.businessWaterService.addEntity(businessWater)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
         } catch (Exception e) {
-            log.error("add WaterApply error",e);
+            log.error("add BusinessWater error",e);
             return AjaxResponse.error(e.getMessage(),businessWater);
         }
     }

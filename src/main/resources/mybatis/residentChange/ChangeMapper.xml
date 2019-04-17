@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiwei.ywt.businessProcess.residentChange.mapper.ChangeMapper">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.residentChange.model.Change">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="FAMILY_NUMBER" property="familyNumber" jdbcType="VARCHAR"/>
+        <result column="FAMILY_NAME" property="familyName" jdbcType="VARCHAR"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="CHANGE_REASON" property="changeReason" jdbcType="VARCHAR"/>
+        <result column="ID_TYPE" property="idType" jdbcType="VARCHAR"/>
+        <result column="ID_CARD" property="idCard" jdbcType="VARCHAR"/>
+        <result column="MANAGER_NAME" property="managerName" jdbcType="VARCHAR"/>
+        <result column="MANAGER_MOBILE" property="managerMobile" jdbcType="VARCHAR"/>
+        <result column="ID_CARD_IMAGE" property="idCardImage" jdbcType="VARCHAR"/>
+        <result column="OWNER_CERTIFICATE_IMAGE" property="ownerCertificateImage" jdbcType="VARCHAR"/>
+        <result column="MANAGER_ID_CARD_IMAGE" property="managerIdCardImage" jdbcType="VARCHAR"/>
+        <result column="MOBILE_CODE" property="mobileCode" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+        <result column="ENABLED" property="enabled" jdbcType="INTEGER"/>
+        <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, FAMILY_NUMBER, FAMILY_NAME, ADDRESS, CHANGE_REASON, ID_TYPE, ID_CARD, MANAGER_NAME, 
+    MANAGER_MOBILE, ID_CARD_IMAGE, OWNER_CERTIFICATE_IMAGE, MANAGER_ID_CARD_IMAGE, MOBILE_CODE, 
+    CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+  </sql>
+    <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.residentChange.model.Change">
+    insert into t_resident_change (FAMILY_NUMBER, FAMILY_NAME,
+      ADDRESS, CHANGE_REASON, ID_TYPE, 
+      ID_CARD, MANAGER_NAME, MANAGER_MOBILE, 
+      ID_CARD_IMAGE, OWNER_CERTIFICATE_IMAGE, MANAGER_ID_CARD_IMAGE, 
+      MOBILE_CODE, CREATE_TIME, LAST_UPDATE_TIME, 
+      DESCRIPTION, ENABLED, DEL_FLAG
+      )
+    values
+    (#{familyNumber,jdbcType=VARCHAR},
+     #{familyName,jdbcType=VARCHAR},
+     #{address,jdbcType=VARCHAR},
+     #{changeReason,jdbcType=VARCHAR},
+     #{idType,jdbcType=VARCHAR},
+     #{idCard,jdbcType=VARCHAR},
+     #{managerName,jdbcType=VARCHAR},
+     #{managerMobile,jdbcType=VARCHAR},
+     #{idCardImage,jdbcType=VARCHAR},
+     #{ownerCertificateImage,jdbcType=VARCHAR},
+     #{managerIdCardImage,jdbcType=VARCHAR},
+     #{mobileCode,jdbcType=VARCHAR},
+      now(),now(), #{description,jdbcType=VARCHAR},1,0
+      )
+  </insert>
+
+    <select id="selectByIdCard" resultType="com.yiwei.ywt.businessProcess.residentChange.model.Change">
+        select FAMILY_NUMBER,FAMILY_NAME,CHANGE_REASON,ID_CARD from t_resident_change where ID_CARD = #{idCard,jdbcType=VARCHAR} and DEL_FLAG = 0
+  </select>
+</mapper>

@@ -1,10 +1,7 @@
 package com.yiwei.ywt.businessProcess.residentTransfer.controller;
 
-import com.yiwei.ywt.businessProcess.residentTransfer.mapper.TransferMapper;
 import com.yiwei.ywt.businessProcess.residentTransfer.model.Transfer;
 import com.yiwei.ywt.businessProcess.residentTransfer.service.TransferService;
-import com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater;
-import com.yiwei.ywt.businessProcess.temporaryWater.service.TemporaryWaterService;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +30,7 @@ public class TransferController {
         try {
             return null == this.transferService.addEntity(transfer)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
         } catch (Exception e) {
-            log.error("add transfer error",e);
+            log.error("add Transfer error",e);
             return AjaxResponse.error(e.getMessage(),transfer);
         }
     }

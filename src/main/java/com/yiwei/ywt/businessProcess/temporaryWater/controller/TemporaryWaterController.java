@@ -32,7 +32,7 @@ public class TemporaryWaterController {
         try {
             return null == this.temporaryWaterService.addEntity(temporaryWater)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
         } catch (Exception e) {
-            log.error("add Temporarywater error",e);
+            log.error("add TemporaryWater error",e);
             return AjaxResponse.error(e.getMessage(),temporaryWater);
         }
     }
