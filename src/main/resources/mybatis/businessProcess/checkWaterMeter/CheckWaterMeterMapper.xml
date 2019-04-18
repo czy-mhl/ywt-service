@@ -19,12 +19,11 @@
     CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
   </sql>
   <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.checkWaterMeter.model.CheckWaterMeter" >
-    insert into t_check_water_meter (ID, FAMILY_NUMBER, CHECK_WATER_METER_REASON,
+    insert into t_check_water_meter (FAMILY_NUMBER, CHECK_WATER_METER_REASON,
       TRANSACTOR, TRANSACTOR_MOBILE, ID_CARD_IMAGE, 
       CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, 
       ENABLED, DEL_FLAG)
     values (
-    #{id,jdbcType=BIGINT},
     #{familyNumber,jdbcType=VARCHAR},
     #{checkWaterMeterReason,jdbcType=VARCHAR},
     #{transactor,jdbcType=VARCHAR},
@@ -35,5 +34,4 @@
   <select id="selectByTransactorMobile" resultMap="BaseResultMap">
         select FAMILY_NUMBER,TRANSACTOR,TRANSACTOR_MOBILE from t_check_water_meter where TRANSACTOR_MOBILE = #{transactorMobile,jdbcType=VARCHAR} and DEL_FLAG = 0
   </select>
-
 </mapper>
