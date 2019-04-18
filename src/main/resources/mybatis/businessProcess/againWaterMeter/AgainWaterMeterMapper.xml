@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiwei.ywt.businessProcess.againWaterMeter.mapper.AgainWaterMeterMapper" >
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.againWaterMeter.model.AgainWaterMeter" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="FAMILY_NUMBER" property="familyNumber" jdbcType="VARCHAR" />
+    <result column="OWNER_MOBILE" property="ownerMobile" jdbcType="VARCHAR" />
+    <result column="TRANSACTOR" property="transactor" jdbcType="VARCHAR" />
+    <result column="TRANSACTOR_ID_CARD" property="transactorIdCard" jdbcType="VARCHAR" />
+    <result column="TRANSACTOR_MOBILE" property="transactorMobile" jdbcType="VARCHAR" />
+    <result column="APPLY_REASON" property="applyReason" jdbcType="VARCHAR" />
+    <result column="ID_CARD_IMAGE" property="idCardImage" jdbcType="VARCHAR" />
+    <result column="TRANSACTOR_ID_CARD_IMAGE" property="transactorIdCardImage" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="ENABLED" property="enabled" jdbcType="INTEGER" />
+    <result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, FAMILY_NUMBER, OWNER_MOBILE, TRANSACTOR,TRANSACTOR_ID_CARD, TRANSACTOR_MOBILE, APPLY_REASON, ID_CARD_IMAGE,
+    TRANSACTOR_ID_CARD_IMAGE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+  </sql>
+  <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.againWaterMeter.model.AgainWaterMeter" >
+    insert into t_again_water_meter (FAMILY_NUMBER, OWNER_MOBILE,
+      TRANSACTOR, TRANSACTOR_ID_CARD,TRANSACTOR_MOBILE, APPLY_REASON,
+      ID_CARD_IMAGE, TRANSACTOR_ID_CARD_IMAGE, CREATE_TIME, 
+      LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
+      DEL_FLAG)
+    values (#{familyNumber,jdbcType=VARCHAR}, #{ownerMobile,jdbcType=VARCHAR},
+      #{transactor,jdbcType=VARCHAR},#{transactorIdCard,jdbcType=VARCHAR},
+      #{transactorMobile,jdbcType=VARCHAR}, #{applyReason,jdbcType=VARCHAR},
+      #{idCardImage,jdbcType=VARCHAR}, #{transactorIdCardImage,jdbcType=VARCHAR},
+      now(),now(), #{description,jdbcType=VARCHAR},1,0)
+  </insert>
+  <select id="selectByOwnerMobile" resultMap="BaseResultMap">
+        select FAMILY_NUMBER,TRANSACTOR,TRANSACTOR_MOBILE,OWNER_MOBILE from t_again_water_meter where OWNER_MOBILE = #{ownerMobile,jdbcType=VARCHAR} and DEL_FLAG = 0
+  </select>
+</mapper>

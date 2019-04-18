@@ -11,17 +11,17 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 18/04/2019 10:56:13
+ Date: 18/04/2019 10:56:09
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for t_stop_water_meter
+-- Table structure for t_again_water_meter
 -- ----------------------------
-DROP TABLE IF EXISTS `t_stop_water_meter`;
-CREATE TABLE `t_stop_water_meter`  (
+DROP TABLE IF EXISTS `t_again_water_meter`;
+CREATE TABLE `t_again_water_meter`  (
   `ID` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `FAMILY_NUMBER` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '户号',
   `OWNER_MOBILE` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '户主手机号码',

@@ -10,8 +10,6 @@
  */
 package com.yiwei.ywt.businessProcess.stopWaterMeter.service.impl;
 
-import com.yiwei.ywt.businessProcess.checkWaterMeter.mapper.CheckWaterMeterMapper;
-import com.yiwei.ywt.businessProcess.checkWaterMeter.model.CheckWaterMeter;
 import com.yiwei.ywt.businessProcess.stopWaterMeter.mapper.StopWaterMeterMapper;
 import com.yiwei.ywt.businessProcess.stopWaterMeter.model.StopWaterMeter;
 import com.yiwei.ywt.businessProcess.stopWaterMeter.service.StopWaterService;
