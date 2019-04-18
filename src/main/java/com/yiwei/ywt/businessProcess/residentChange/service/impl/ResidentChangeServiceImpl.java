@@ -37,13 +37,14 @@ public class ResidentChangeServiceImpl implements ResidentChangeService {
     /**
      * 居民用水改移装
      *
-     * @param change
+     * @param residentChange
      * @return ResidentChange
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResidentChange addEntity(ResidentChange change) {
-        if (null == residentChangeMapper.selectByIdCard(change.getIdCard())) {
-            return 0 < residentChangeMapper.insert(change) ? change : null;
+    public ResidentChange addEntity(ResidentChange residentChange) {
+        //todo 需要短信验证
+        if (null == residentChangeMapper.selectByIdCard(residentChange.getIdCard())) {
+            return 0 < residentChangeMapper.insert(residentChange) ? residentChange : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);
         }
