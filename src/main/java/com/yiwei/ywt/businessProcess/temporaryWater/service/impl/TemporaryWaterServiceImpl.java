@@ -11,8 +11,6 @@
 
 package com.yiwei.ywt.businessProcess.temporaryWater.service.impl;
 
-import com.yiwei.ywt.businessProcess.businessCirclesNew.mapper.BusinessWaterMapper;
-import com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater;
 import com.yiwei.ywt.businessProcess.temporaryWater.mapper.TemporaryWaterMapper;
 import com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater;
 import com.yiwei.ywt.businessProcess.temporaryWater.service.TemporaryWaterService;
@@ -22,14 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-/**
- * 〈一句话功能简述〉<br>
- * 〈〉
- *
- * @author XXXXXXX
- * @create 2019/4/16
- * @since 1.0.0
- */
 @Service
 public class TemporaryWaterServiceImpl implements TemporaryWaterService {
 
@@ -44,6 +34,7 @@ public class TemporaryWaterServiceImpl implements TemporaryWaterService {
      */
     @Transactional(rollbackFor = Exception.class)
     public TemporaryWater addEntity(TemporaryWater temporaryWater) {
+        //todo 需要短信验证
         if (null == temporaryWaterMapper.selectByCreditCode(temporaryWater.getCreditCode())) {
             return 0 < temporaryWaterMapper.insert(temporaryWater) ? temporaryWater : null;
         } else {

@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈〉
  *
  * @author XXXXXXX
@@ -42,6 +42,7 @@ public class BusinessChangeServiceImpl implements BusinessChangeService {
      */
     @Transactional(rollbackFor = Exception.class)
     public BusinessChange addEntity(BusinessChange businessChange) {
+        //todo 需要短信验证
         if (null == businessChangeMapper.selectByIdCard(businessChange.getIdCard())) {
             return 0 < businessChangeMapper.insert(businessChange) ? businessChange : null;
         }else {
