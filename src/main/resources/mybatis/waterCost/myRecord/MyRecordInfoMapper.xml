@@ -27,13 +27,13 @@
     <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
   </resultMap>
   <sql id="Base_Column_List">
-    ID, FAMILT_NAME, FAMILY_CODE, USER_WATER_ADDRESS, WATER_METER_DIAMETER, READ_METER_PERIOD, 
+    ID, FAMILY_NAME, FAMILY_CODE, USER_WATER_ADDRESS, WATER_METER_DIAMETER, READ_METER_PERIOD,
     USE_WATER_TYPE, WATER_UNIT_PRICE, DIRT_WATER_TYPE, DIRT_WATER_UNIT_PRICE, PROPORTION, 
     GARBAGE_COST, AGENCY_DEDUCT_BACK, AGENCY_DEDUCT_ACCOUNT, MOBILE_PHONE, SERVICE_STRUCTURE, 
     SALESMAN, SALESMAN_PHONE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
   </sql>
 
-  <select id="gitEntityByFamilyCode" parameterType="com.yiwei.ywt.waterCost.myRecord.model.MyRecordInfo">
+  <select id="gitEntityByFamilyCode" parameterType="com.yiwei.ywt.waterCost.myRecord.model.MyRecordInfo" resultMap="BaseResultMap">
     select <include refid="Base_Column_List"/>
     from t_my_record_info
     where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR}

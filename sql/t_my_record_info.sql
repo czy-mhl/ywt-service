@@ -42,6 +42,6 @@ CREATE TABLE `t_my_record_info` (
   `LAST_UPDATE_TIME` datetime DEFAULT NULL COMMENT '数据的最后修改时间.',
   `DESCRIPTION` varchar(50) DEFAULT NULL COMMENT '描述',
   `ENABLED` int(10) NOT NULL DEFAULT '1' COMMENT '是否启用(1=启用，0=禁用)',
-  `DEL_FLAG` int(10) NOT NULL COMMENT '删除标记',
+  `DEL_FLAG` int(10) NOT '0' COMMENT '删除标记',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='我的档案';

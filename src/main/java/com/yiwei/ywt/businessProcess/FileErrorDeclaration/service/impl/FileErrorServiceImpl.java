@@ -25,6 +25,7 @@ public class FileErrorServiceImpl implements FileErrorService {
      * @return
      */
     public FileErrorInfo addEntity(FileErrorInfo fileErrorInfo) throws RuntimeException{
+        // todo 短信验证
         if(null==this.fileErrorMapper.checkFamilyCode(fileErrorInfo.getFamilyCode()))
             return 0<this.fileErrorMapper.insert(fileErrorInfo)?fileErrorInfo:null;
         else throw new RuntimeException(AjaxResponse.ERROR_INFO);
