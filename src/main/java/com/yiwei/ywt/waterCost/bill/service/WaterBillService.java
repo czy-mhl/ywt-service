@@ -1,6 +1,6 @@
 package com.yiwei.ywt.waterCost.bill.service;
 
-import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 
 import java.util.List;
 
@@ -16,6 +16,6 @@ public interface WaterBillService {
      * @param waterBill
      * @return
      */
-    List<WaterBill> waterBillList(WaterBill waterBill);
+    List<WaterBillInfo> waterBillList(WaterBillInfo waterBill);
 
 }

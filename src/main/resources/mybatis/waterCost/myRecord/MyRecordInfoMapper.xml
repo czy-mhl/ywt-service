@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiwei.ywt.waterCost.myRecord.mapper.MyRecordMapper">
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.waterCost.myRecord.model.MyRecordInfo">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="FAMILY_NAME" jdbcType="VARCHAR" property="familyName" />
+    <result column="FAMILY_CODE" jdbcType="VARCHAR" property="familyCode" />
+    <result column="USER_WATER_ADDRESS" jdbcType="VARCHAR" property="userWaterAddress" />
+    <result column="WATER_METER_DIAMETER" jdbcType="VARCHAR" property="waterMeterDiameter" />
+    <result column="READ_METER_PERIOD" jdbcType="VARCHAR" property="readMeterPeriod" />
+    <result column="USE_WATER_TYPE" jdbcType="VARCHAR" property="useWaterType" />
+    <result column="WATER_UNIT_PRICE" jdbcType="DECIMAL" property="waterUnitPrice" />
+    <result column="DIRT_WATER_TYPE" jdbcType="VARCHAR" property="dirtWaterType" />
+    <result column="DIRT_WATER_UNIT_PRICE" jdbcType="DECIMAL" property="dirtWaterUnitPrice" />
+    <result column="PROPORTION" jdbcType="VARCHAR" property="proportion" />
+    <result column="GARBAGE_COST" jdbcType="DECIMAL" property="garbageCost" />
+    <result column="AGENCY_DEDUCT_BACK" jdbcType="VARCHAR" property="agencyDeductBack" />
+    <result column="AGENCY_DEDUCT_ACCOUNT" jdbcType="VARCHAR" property="agencyDeductAccount" />
+    <result column="MOBILE_PHONE" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="SERVICE_STRUCTURE" jdbcType="VARCHAR" property="serviceStructure" />
+    <result column="SALESMAN" jdbcType="VARCHAR" property="salesman" />
+    <result column="SALESMAN_PHONE" jdbcType="VARCHAR" property="salesmanPhone" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+    <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, FAMILT_NAME, FAMILY_CODE, USER_WATER_ADDRESS, WATER_METER_DIAMETER, READ_METER_PERIOD, 
+    USE_WATER_TYPE, WATER_UNIT_PRICE, DIRT_WATER_TYPE, DIRT_WATER_UNIT_PRICE, PROPORTION, 
+    GARBAGE_COST, AGENCY_DEDUCT_BACK, AGENCY_DEDUCT_ACCOUNT, MOBILE_PHONE, SERVICE_STRUCTURE, 
+    SALESMAN, SALESMAN_PHONE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+  </sql>
+
+  <select id="gitEntityByFamilyCode" parameterType="com.yiwei.ywt.waterCost.myRecord.model.MyRecordInfo">
+    select <include refid="Base_Column_List"/>
+    from t_my_record_info
+    where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR}
+  </select>
+</mapper>

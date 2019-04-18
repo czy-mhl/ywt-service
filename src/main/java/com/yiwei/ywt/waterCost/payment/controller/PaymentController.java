@@ -1,8 +1,7 @@
 package com.yiwei.ywt.waterCost.payment.controller;
 
-import com.yiwei.ywt.framework.aop.LogAop;
 import com.yiwei.ywt.framework.web.AjaxResponse;
-import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 import com.yiwei.ywt.waterCost.payment.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +32,9 @@ public class PaymentController {
      */
 //    @LogAop(menuName = "查询代缴费账单",operationDesc = "查询",operationType = "3")
     @RequestMapping(value = "/todoCost", method = RequestMethod.POST)
-    public AjaxResponse selectTodoCostBillList(WaterBill waterBill){
+    public AjaxResponse selectTodoCostBillList(WaterBillInfo waterBill){
         try {
-            List<WaterBill> todoWaterBillList= paymentService.selectTodoList(waterBill);
+            List<WaterBillInfo> todoWaterBillList= paymentService.selectTodoList(waterBill);
             return null != todoWaterBillList && todoWaterBillList.size()>0 ? AjaxResponse.success("ok",todoWaterBillList):new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,"查询数据为空");
         } catch (Exception e) {
             log.error("select waterBill error!", e);

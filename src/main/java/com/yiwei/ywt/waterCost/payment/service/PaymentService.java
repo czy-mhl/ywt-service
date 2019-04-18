@@ -1,6 +1,6 @@
 package com.yiwei.ywt.waterCost.payment.service;
 
-import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 
 import java.util.List;
 
@@ -16,5 +16,5 @@ public interface PaymentService {
      * @param waterBill
      * @return
      */
-    List<WaterBill> selectTodoList(WaterBill waterBill);
+    List<WaterBillInfo> selectTodoList(WaterBillInfo waterBill);
 }

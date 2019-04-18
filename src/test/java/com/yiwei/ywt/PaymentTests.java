@@ -1,7 +1,7 @@
 package com.yiwei.ywt;
 
 
-import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 import com.yiwei.ywt.waterCost.payment.controller.PaymentController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ public class PaymentTests {
     private PaymentController paymentController;
     @Test
     public void select(){
-        WaterBill waterBill = new WaterBill();
+        WaterBillInfo waterBill = new WaterBillInfo();
         waterBill.setFamilyCode("1800908647");
         System.out.println(this.paymentController.selectTodoCostBillList(waterBill));
 

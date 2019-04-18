@@ -2,7 +2,7 @@ package com.yiwei.ywt.waterCost.bill.contorller;
 
 import com.yiwei.ywt.framework.aop.LogAop;
 import com.yiwei.ywt.framework.web.AjaxResponse;
-import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 import com.yiwei.ywt.waterCost.bill.service.WaterBillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +31,9 @@ public class WaterBillController {
      */
     @LogAop(menuName = "水费账单列表",operationDesc = "查询",operationType = "3")
     @RequestMapping(value = "/waterBillList", method = RequestMethod.GET)
-    public AjaxResponse waterBillList(WaterBill waterBill) {
+    public AjaxResponse waterBillList(WaterBillInfo waterBill) {
         try {
-            List<WaterBill> waterBillList = this.waterBillService.waterBillList(waterBill);
+            List<WaterBillInfo> waterBillList = this.waterBillService.waterBillList(waterBill);
             return null != waterBillList && 0 < waterBillList.size()? AjaxResponse.success("ok",waterBillList): new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,"查询数据为空");
         }catch(Exception e) {
             log.error("select waterBill error!", e);

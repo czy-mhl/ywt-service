@@ -1,7 +1,7 @@
 package com.yiwei.ywt.waterCost.payment.service.impl;
 
 import com.yiwei.ywt.waterCost.bill.mapper.WaterBillMapper;
-import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 import com.yiwei.ywt.waterCost.payment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class PaymentServiceImpl implements PaymentService {
      * @param waterBill
      * @return
      */
-    public List<WaterBill> selectTodoList(WaterBill waterBill) {
+    public List<WaterBillInfo> selectTodoList(WaterBillInfo waterBill) {
         waterBill.setPaymentStatus("欠费");
         return waterBillMapper.selectListByEntity(waterBill);
     }

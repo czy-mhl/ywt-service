@@ -2,7 +2,7 @@ package com.yiwei.ywt.waterCost.bill.service.impl;
 
 import com.yiwei.ywt.framework.utils.DateUtils;
 import com.yiwei.ywt.waterCost.bill.mapper.WaterBillMapper;
-import com.yiwei.ywt.waterCost.bill.model.WaterBill;
+import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 import com.yiwei.ywt.waterCost.bill.service.WaterBillService;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +28,7 @@ public class WaterBillServiceImpl implements WaterBillService {
      * @param waterBill == null 默认查
      * @return
      */
-    public List<WaterBill> waterBillList(WaterBill waterBill) {
+    public List<WaterBillInfo> waterBillList(WaterBillInfo waterBill) {
         if(waterBill.getBillMonth() == null){
             SimpleDateFormat sdf = new SimpleDateFormat( "yyyyMM");
             Date nowDate = DateUtils.getNow();

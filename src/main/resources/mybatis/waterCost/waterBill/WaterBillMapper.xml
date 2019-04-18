@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yiwei.ywt.waterCost.bill.mapper.WaterBillMapper">
-    <resultMap id="BaseResultMap" type="com.yiwei.ywt.waterCost.bill.model.WaterBill">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.waterCost.bill.model.WaterBillInfo">
         <id column="ID" jdbcType="BIGINT" property="id" />
         <result column="FAMILY_CODE" jdbcType="VARCHAR" property="familyCode" />
         <result column="BILL_MONTH" jdbcType="INTEGER" property="billMonth" />
@@ -38,7 +38,7 @@
         TOTAL_MONEY,PAYMENT_STATUS,PAYMENT_DATE,PAYMENT_URL,PAYMENT_WAY,USE_WATER_TYPE,WATER_UNIT_PRICE,
         DIRT_WATER_TYPE,DIRT_WATER_UNIT_PRICE, CREATE_TIME,LAST_UPDATE_TIME, DESCRIPTION, ENABLED,DEL_FLAG
     </sql>
-    <select id="selectListByEntity" parameterType="com.yiwei.ywt.waterCost.bill.model.WaterBill" resultMap="BaseResultMap">
+    <select id="selectListByEntity" parameterType="com.yiwei.ywt.waterCost.bill.model.WaterBillInfo" resultMap="BaseResultMap">
         select <include refid="Base_Column_List"/>
         from T_WATER_BILL
         where

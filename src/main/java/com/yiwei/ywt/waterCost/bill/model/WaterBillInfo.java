@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @Data
 @ToString
-public class WaterBill extends BaseEntity {
+public class WaterBillInfo extends BaseEntity {
     /**
      * 户号
      */
