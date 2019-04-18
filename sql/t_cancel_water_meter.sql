@@ -11,17 +11,17 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 18/04/2019 13:57:15
+ Date: 18/04/2019 13:57:01
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for t_stop_water_meter
+-- Table structure for t_cancel_water_meter
 -- ----------------------------
-DROP TABLE IF EXISTS `t_stop_water_meter`;
-CREATE TABLE `t_stop_water_meter`  (
+DROP TABLE IF EXISTS `t_cancel_water_meter`;
+CREATE TABLE `t_cancel_water_meter`  (
   `ID` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `FAMILY_NUMBER` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '户号',
   `OWNER_MOBILE` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '户主手机号码',
@@ -37,6 +37,6 @@ CREATE TABLE `t_stop_water_meter`  (
   `ENABLED` int(10) NOT NULL COMMENT '是否启用（1=启用，0=禁用）',
   `DEL_FLAG` int(10) NOT NULL COMMENT '删除标记',
   PRIMARY KEY (`ID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -25,10 +25,10 @@ public class AgainWaterMeterApplicationTests {
     public void insert() {
         AgainWaterMeter againWaterMeter = new AgainWaterMeter();
         againWaterMeter.setFamilyNumber("户号");
-        againWaterMeter.setOwnerMobile("户主手机号码");
+        againWaterMeter.setOwnerMobile("户主手机号");
         againWaterMeter.setTransactor("办理人");
         againWaterMeter.setTransactorIdCard("420984");
-        againWaterMeter.setTransactorMobile("办理人手机");
+        againWaterMeter.setTransactorMobile("189726426583");
         againWaterMeter.setDescription("定制服务（其他说明）");
 
 
