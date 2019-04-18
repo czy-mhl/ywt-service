@@ -25,7 +25,7 @@ public class CheckWaterMeterApplicationTests {
     @Test
     public void insert() {
         CheckWaterMeter checkWaterMeter = new CheckWaterMeter();
-        checkWaterMeter.setFamilyNumber("户号");
+        checkWaterMeter.setFamilyNumber("户号(校验)");
         checkWaterMeter.setCheckWaterMeterReason("验表原因");
         checkWaterMeter.setTransactor("办理人");
         checkWaterMeter.setTransactorMobile("办理人手机");

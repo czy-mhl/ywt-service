@@ -24,7 +24,7 @@ public class AgainWaterMeterApplicationTests {
     @Test
     public void insert() {
         AgainWaterMeter againWaterMeter = new AgainWaterMeter();
-        againWaterMeter.setFamilyNumber("户号");
+        againWaterMeter.setFamilyNumber("户号(校验)");
         againWaterMeter.setOwnerMobile("户主手机号");
         againWaterMeter.setTransactor("办理人");
         againWaterMeter.setTransactorIdCard("420984");

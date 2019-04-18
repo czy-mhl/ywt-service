@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CheckWaterMeterMapper extends CRUDMapper<CheckWaterMeter> {
-    CheckWaterMeter selectByTransactorMobile(String transactorMobile);
+    CheckWaterMeter selectByFamilyNumber(String familyNumber);
 }

@@ -35,7 +35,7 @@ public class AgainWaterServiceImpl implements AgainWaterService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AgainWaterMeter addEntity(AgainWaterMeter againWaterMeter) {
-        if (null == againWaterMeterMapper.selectByOwnerMobile(againWaterMeter.getOwnerMobile())) {
+        if (null == againWaterMeterMapper.selectByFamilyNumber(againWaterMeter.getFamilyNumber())) {
             return 0 < againWaterMeterMapper.insert(againWaterMeter) ? againWaterMeter : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);

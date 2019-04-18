@@ -33,7 +33,7 @@ public class WaterPeopleChangeServiceImpl implements WaterPeopleChangeService {
      */
     @Transactional(rollbackFor = Exception.class)
     public WaterPeopleChange addEntity(WaterPeopleChange waterPeopleChange) {
-        if (null == waterPeopleChangeMapper.selectByTransactorMobile(waterPeopleChange.getTransactorMobile())) {
+        if (null == waterPeopleChangeMapper.selectByFamilyNumber(waterPeopleChange.getFamilyNumber())) {
             return 0 < waterPeopleChangeMapper.insert(waterPeopleChange) ? waterPeopleChange : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);

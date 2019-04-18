@@ -33,7 +33,7 @@
       #{idCardImage,jdbcType=VARCHAR}, #{transactorIdCardImage,jdbcType=VARCHAR},
       now(),now(), #{description,jdbcType=VARCHAR},1,0)
   </insert>
-  <select id="selectByOwnerMobile" resultMap="BaseResultMap">
-        select FAMILY_NUMBER,TRANSACTOR,TRANSACTOR_MOBILE,OWNER_MOBILE from t_stop_water_meter where OWNER_MOBILE = #{ownerMobile,jdbcType=VARCHAR} and DEL_FLAG = 0
+  <select id="selectByFamilyNumber" resultMap="BaseResultMap">
+        select FAMILY_NUMBER,TRANSACTOR,TRANSACTOR_MOBILE,OWNER_MOBILE from t_stop_water_meter where FAMILY_NUMBER = #{familyNumber,jdbcType=VARCHAR} and DEL_FLAG = 0
   </select>
 </mapper>

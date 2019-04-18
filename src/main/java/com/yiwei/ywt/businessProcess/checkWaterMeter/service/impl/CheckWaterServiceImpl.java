@@ -33,7 +33,7 @@ public class CheckWaterServiceImpl implements CheckWaterService {
      */
     @Transactional(rollbackFor = Exception.class)
     public CheckWaterMeter addEntity(CheckWaterMeter checkWaterMeter) {
-        if (null == checkWaterMeterMapper.selectByTransactorMobile(checkWaterMeter.getTransactorMobile())) {
+        if (null == checkWaterMeterMapper.selectByFamilyNumber(checkWaterMeter.getFamilyNumber())) {
             return 0 < checkWaterMeterMapper.insert(checkWaterMeter) ? checkWaterMeter : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);

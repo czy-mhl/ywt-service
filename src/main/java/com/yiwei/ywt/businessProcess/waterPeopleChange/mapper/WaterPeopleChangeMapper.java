@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface WaterPeopleChangeMapper extends CRUDMapper<WaterPeopleChange> {
-    WaterPeopleChange selectByTransactorMobile(String transactorMobile);
+    WaterPeopleChange selectByFamilyNumber(String familyNumber);
 }

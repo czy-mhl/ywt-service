@@ -31,7 +31,7 @@
       #{idCard,jdbcType=VARCHAR}, #{documentUpload,jdbcType=VARCHAR},
       now(),now(), #{description,jdbcType=VARCHAR},1,0)
   </insert>
-  <select id="selectByTransactorMobile" resultMap="BaseResultMap">
-        select FAMILY_NUMBER,APPLY_PEOPLE_NUMBER,TRANSACTOR_MOBILE,ID_CARD from t_water_people_change where TRANSACTOR_MOBILE = #{transactorMobile,jdbcType=VARCHAR} and DEL_FLAG = 0
+  <select id="selectByFamilyNumber" resultMap="BaseResultMap">
+        select FAMILY_NUMBER,APPLY_PEOPLE_NUMBER,TRANSACTOR_MOBILE,ID_CARD from t_water_people_change where FAMILY_NUMBER = #{familyNumber,jdbcType=VARCHAR} and DEL_FLAG = 0
   </select>
 </mapper>

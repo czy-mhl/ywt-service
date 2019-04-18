@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface StopWaterMeterMapper extends CRUDMapper<StopWaterMeter> {
-    StopWaterMeter selectByOwnerMobile(String ownerMobile);
+    StopWaterMeter selectByFamilyNumber(String familyNumber);
 }

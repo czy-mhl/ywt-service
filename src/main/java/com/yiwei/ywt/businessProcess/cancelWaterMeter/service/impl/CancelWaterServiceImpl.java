@@ -33,7 +33,7 @@ public class CancelWaterServiceImpl implements CancelWaterService {
      */
     @Transactional(rollbackFor = Exception.class)
     public CancelWaterMeter addEntity(CancelWaterMeter cancelWaterMeter) {
-        if (null == cancelWaterMeterMapper.selectByOwnerMobile(cancelWaterMeter.getOwnerMobile())) {
+        if (null == cancelWaterMeterMapper.selectByFamilyNumber(cancelWaterMeter.getFamilyNumber())) {
             return 0 < cancelWaterMeterMapper.insert(cancelWaterMeter) ? cancelWaterMeter : null;
         }else {
             throw new RuntimeException(AjaxResponse.ERROR_INFO);
