@@ -2,6 +2,7 @@ package com.yiwei.ywt.waterCost.bill.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -13,6 +14,7 @@ import java.util.Date;
  * @date 2019/04/16 15:54
  */
 @Data
+@ToString
 public class WaterBill extends BaseEntity {
     /**
      * 户号

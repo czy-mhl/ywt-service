@@ -69,8 +69,8 @@
         OPERATE_RESULT,OPERATE_TIME ,OPERATE_TYPE,  CREATE_TIME,OPERATION_DESC,MENU_NAME,
         DEL_FLAG)   values (
         #{requestIp,jdbcType=VARCHAR},
-        #{sysUserId,jdbcType=BIGINT},
-        #{sysUserAccount,jdbcType=VARCHAR},
+        2,
+        '普通用户',
         #{moduleContent,jdbcType=VARCHAR},
         #{operateResult,jdbcType=TINYINT},
         NOW(),

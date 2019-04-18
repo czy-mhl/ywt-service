@@ -2,7 +2,6 @@ package com.yiwei.ywt.sys.weixin.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.yiwei.ywt.framework.config.WeiXinConfig;
 import com.yiwei.ywt.framework.utils.HttpClientUtils;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -36,8 +35,8 @@ public class WeixinController {
     public void getWeiXinCode(HttpServletResponse response) {
         log.info("收到获取微信信息请求");
         // todo 获取项目应用域名
-        String redirectUri = projectUrl + "/wx/openid";
-        String codeUrl = WeiXinConfig.CODE_URL + "appid=" + WeiXinConfig.APP_ID +
+        String redirectUri = "http://wze2rz.natappfree.cc/yiwei" + "/wx/openid";
+        String codeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?" + "appid=" + "wxd09a54fe38cedf42" +
                 "&redirect_uri=" + redirectUri + "&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
         try {
             response.sendRedirect(codeUrl);
@@ -58,8 +57,8 @@ public class WeixinController {
         if (StringUtils.isEmpty(code)) {
             return AjaxResponse.error("未找到微信code");
         }
-        String tokenUrl = WeiXinConfig.ACCESS_TOKEN_URL + "appid=" + WeiXinConfig.APP_ID +
-                "&secret=" + WeiXinConfig.APP_SECRET + "&code=" + code + "&grant_type=authorization_code";
+        String tokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?" + "appid=" + "wxd09a54fe38cedf42" +
+                "&secret=" + "57948a6783c6f65c2c2c98aa38cd5c0d" + "&code=" + code + "&grant_type=authorization_code";
         String responseText = HttpClientUtils.httpPostRequest(tokenUrl);
         if (StringUtils.isEmpty(responseText)) {
             return AjaxResponse.error("微信返回信息为空");

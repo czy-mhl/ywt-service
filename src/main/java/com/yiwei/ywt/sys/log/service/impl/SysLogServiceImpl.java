@@ -67,8 +67,8 @@ public class SysLogServiceImpl  extends BaseService<SysLog> implements SysLogSer
         SysLog sysLog = new SysLog();
         sysLog.setRequestUri(requestUri);
         sysLog.setRequestIp(requestIp);
-        sysLog.setSysUserId(sysUser.getId());
-        sysLog.setSysUserAccount(sysUser.getMobile());
+//        sysLog.setSysUserId(sysUser.getId());
+//        sysLog.setSysUserAccount(sysUser.getMobile());
         sysLog.setOperateType(operateType);
         sysLog.setModuleName(moduleName);
         sysLog.setModuleContent(moduleContent);

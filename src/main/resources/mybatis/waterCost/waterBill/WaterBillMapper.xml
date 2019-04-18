@@ -43,6 +43,9 @@
         from T_WATER_BILL
         where
         FAMILY_CODE = #{searchParams.familyCode} and DEL_FLAG = 0
+        <if test="searchParams.paymentStatus != null and searchParams.paymentStatus != ''">
+            and PAYMENT_STATUS = #{searchParams.paymentStatus}
+        </if>
         <if test="searchParams.startBillMonth != null and searchParams.endBillMonth != null">
             and (BILL_MONTH between #{searchParams.startBillMonth} and #{searchParams.endBillMonth})
         </if>

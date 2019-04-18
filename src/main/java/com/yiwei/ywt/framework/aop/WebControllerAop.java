@@ -40,11 +40,10 @@ public class WebControllerAop {
     @Autowired
     private SysLogService sysLogService;
 
-
     /**
      * 匹配com.mass.api.security.controller包及其子包下的所有类的所有方法
      */
-    @Pointcut("execution(* com.yiwei.ywt..*.controller..*.*(..))")
+    @Pointcut("@annotation( com.yiwei.ywt.framework.aop.LogAop)")
     public void executeService(){
 
     }
@@ -238,11 +237,11 @@ public class WebControllerAop {
             	 //*========控制台输出=========*//
                 System.out.println("=====controller后置通知开始=====");
                 //*========数据库日志=========*//
-                SysUser sysUser = WebHelper.getSessionAttribute(session, LOGIN_USER_KEY, SysUser.class);
-                if (null != sysUser){
-                    this.sysLogService.createSysLog(request.getRequestURL().toString(), CusAccessObjectUtil.getIpAddress(request),sysUser,
+//                SysUser sysUser = WebHelper.getSessionAttribute(session, LOGIN_USER_KEY, SysUser.class);
+//                if (null != sysUser){
+                    this.sysLogService.createSysLog(request.getRequestURL().toString(), CusAccessObjectUtil.getIpAddress(request),null,
                             operationType,operationDesc, signature.getDeclaringTypeName(), parameterStr, 1, "",menuName);
-                }
+//                }
             }
         }  catch (Exception e) {
             //记录本地异常日志

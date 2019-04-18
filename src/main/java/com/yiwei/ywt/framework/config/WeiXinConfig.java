@@ -6,14 +6,14 @@ package com.yiwei.ywt.framework.config;
  public final class WeiXinConfig {
 
     /**
-     * 开发者ID
+     * 开发者ID  wxd09a54fe38cedf42
      */
-    public static final String APP_ID = "wx6c588707277a04d8";
+    public static final String APP_ID = "wxd09a54fe38cedf42";
 
     /**
-     * 密钥
+     * 密钥  57948a6783c6f65c2c2c98aa38cd5c0d
      */
-    public static final String APP_SECRET = "7f0c6091e7682eea1ec6fbbc25f78cad";
+    public static final String APP_SECRET = "57948a6783c6f65c2c2c98aa38cd5c0d";
 
     /**
      * 微信获取code地址
