@@ -3,10 +3,15 @@ package com.yiwei.ywt.businessProcess.stopWaterMeter.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
-
+/**
+ * 暂停申请业务 实体类
+ * 数据库表：t_stop_water_meter
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
+ */
 @Data
 public class StopWaterMeter extends BaseEntity {
-
     /**
      * 户号
      */

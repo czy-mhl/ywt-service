@@ -1,7 +1,5 @@
 package com.yiwei.ywt.businessProcess.cancelWaterMeter.controller;
 
-import com.yiwei.ywt.businessProcess.againWaterMeter.model.AgainWaterMeter;
-import com.yiwei.ywt.businessProcess.againWaterMeter.service.AgainWaterService;
 import com.yiwei.ywt.businessProcess.cancelWaterMeter.model.CancelWaterMeter;
 import com.yiwei.ywt.businessProcess.cancelWaterMeter.service.CancelWaterService;
 import com.yiwei.ywt.framework.web.AjaxResponse;

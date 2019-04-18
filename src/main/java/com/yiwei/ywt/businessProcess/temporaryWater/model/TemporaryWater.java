@@ -15,12 +15,11 @@ import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 
 /**
- * 〈一句话功能简述〉<br> 
- * 〈〉
- *
- * @author XXXXXXX
- * @create 2019/4/16
- * @since 1.0.0
+ * 临时施工用水业务 实体类
+ * 数据库表：t_temporary_water
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
  */
 @Data
 public class TemporaryWater extends BaseEntity {

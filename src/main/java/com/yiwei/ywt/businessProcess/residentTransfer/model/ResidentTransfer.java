@@ -2,8 +2,13 @@ package com.yiwei.ywt.businessProcess.residentTransfer.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
-
-
+/**
+ * 居民过户业务 实体类
+ * 数据库表：t_resident_transfer
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
+ */
 @Data
 public class ResidentTransfer extends BaseEntity {
     /**

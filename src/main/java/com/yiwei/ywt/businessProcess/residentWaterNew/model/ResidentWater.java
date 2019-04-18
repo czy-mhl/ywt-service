@@ -5,10 +5,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Description:居民用水新装
- *
- * @author xiang
- * @since 2019.04.16
+ * 居民用水新装业务 实体类
+ * 数据库表：t_resident_water_new
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

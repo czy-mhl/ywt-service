@@ -3,7 +3,13 @@ package com.yiwei.ywt.businessProcess.waterNatureChange.model;
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 
-
+/**
+ * 用水性质变更业务 实体类
+ * 数据库表：t_water_nature_change
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
+ */
 @Data
 public class WaterNatureChange extends BaseEntity {
     /**

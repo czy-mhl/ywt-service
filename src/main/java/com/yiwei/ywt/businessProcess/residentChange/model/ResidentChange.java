@@ -4,7 +4,11 @@ import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 
 /**
- * 居民用水改移装
+ * 居民用水改移装业务 实体类
+ * 数据库表：t_resident_change
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
  */
 @Data
 public class ResidentChange extends BaseEntity {

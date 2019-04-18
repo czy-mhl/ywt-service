@@ -3,7 +3,12 @@ package com.yiwei.ywt.businessProcess.businessChange.model;
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 /**
- * 工商用水改移装
+ * 工商用水改移装业务 实体类
+ * 数据库表：t_business_change
+ *
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
  */
 @Data
 public class BusinessChange extends BaseEntity {

@@ -1,7 +1,5 @@
 package com.yiwei.ywt.businessProcess.temporaryWater.controller;
 
-import com.yiwei.ywt.businessProcess.businessCirclesNew.model.BusinessWater;
-import com.yiwei.ywt.businessProcess.businessCirclesNew.service.BusinessWaterService;
 import com.yiwei.ywt.businessProcess.temporaryWater.model.TemporaryWater;
 import com.yiwei.ywt.businessProcess.temporaryWater.service.TemporaryWaterService;
 import com.yiwei.ywt.framework.web.AjaxResponse;

@@ -2,8 +2,13 @@ package com.yiwei.ywt.businessProcess.checkWaterMeter.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
-
-
+/**
+ * 水表验表申请业务 实体类
+ * 数据库表：t_check_water_meter
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
+ */
 @Data
 public class CheckWaterMeter extends BaseEntity {
     /**

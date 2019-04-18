@@ -13,16 +13,14 @@ package com.yiwei.ywt.businessProcess.businessCirclesNew.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
-
 /**
- * 〈一句话功能简述〉<br> 
- * 〈〉
+ * 工商用水新装业务 实体类
+ * 数据库表：t_business_water_new
  *
- * @author XXXXXXX
- * @create 2019/4/16
- * @since 1.0.0
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
  */
-
 @Data
 public class BusinessWater extends BaseEntity {
     /**

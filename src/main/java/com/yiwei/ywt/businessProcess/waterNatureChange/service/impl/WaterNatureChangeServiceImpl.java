@@ -13,8 +13,6 @@ package com.yiwei.ywt.businessProcess.waterNatureChange.service.impl;
 import com.yiwei.ywt.businessProcess.waterNatureChange.mapper.WaterNatureChangeMapper;
 import com.yiwei.ywt.businessProcess.waterNatureChange.model.WaterNatureChange;
 import com.yiwei.ywt.businessProcess.waterNatureChange.service.WaterNatureChangeService;
-import com.yiwei.ywt.businessProcess.waterPeopleChange.mapper.WaterPeopleChangeMapper;
-import com.yiwei.ywt.businessProcess.waterPeopleChange.model.WaterPeopleChange;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

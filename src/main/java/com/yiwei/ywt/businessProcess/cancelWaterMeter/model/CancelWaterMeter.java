@@ -3,7 +3,14 @@ package com.yiwei.ywt.businessProcess.cancelWaterMeter.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
-
+/**
+ * 销户申请业务 实体类
+ * 数据库表：t_cancel_water_meter
+ *
+ * @author xk
+ * @version 1.0.0
+ * @date 2019/04/18
+ */
 @Data
 public class CancelWaterMeter extends BaseEntity {
 
