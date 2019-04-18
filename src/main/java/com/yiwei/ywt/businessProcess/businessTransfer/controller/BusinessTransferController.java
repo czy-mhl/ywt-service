@@ -1,10 +1,7 @@
 package com.yiwei.ywt.businessProcess.businessTransfer.controller;
 
-import com.yiwei.ywt.businessProcess.businessTransfer.mapper.BusinessTransferMapper;
 import com.yiwei.ywt.businessProcess.businessTransfer.model.BusinessTransfer;
 import com.yiwei.ywt.businessProcess.businessTransfer.service.BusinessTransferService;
-import com.yiwei.ywt.businessProcess.residentTransfer.model.ResidentTransfer;
-import com.yiwei.ywt.businessProcess.residentTransfer.service.ResidentTransferService;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -2,7 +2,6 @@ package com.yiwei.ywt.businessProcess.businessChange.controller;
 
 import com.yiwei.ywt.businessProcess.businessChange.model.BusinessChange;
 import com.yiwei.ywt.businessProcess.businessChange.service.BusinessChangeService;
-import com.yiwei.ywt.businessProcess.residentChange.model.ResidentChange;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
