@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiwei.ywt.businessProcess.waterPeopleChange.mapper.WaterPeopleChangeMapper">
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.waterPeopleChange.model.WaterPeopleChange">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="FAMILY_NUMBER" jdbcType="VARCHAR" property="familyNumber" />
+    <result column="APPLY_PEOPLE_NUMBER" jdbcType="INTEGER" property="applyPeopleNumber" />
+    <result column="TRANSACTOR_MOBILE" jdbcType="VARCHAR" property="transactorMobile" />
+    <result column="ID_CARD_IMAGE" jdbcType="VARCHAR" property="idCardImage" />
+    <result column="ID_TYPE" jdbcType="VARCHAR" property="idType" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="DOCUMENT_UPLOAD" jdbcType="VARCHAR" property="documentUpload" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+    <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, FAMILY_NUMBER, APPLY_PEOPLE_NUMBER, TRANSACTOR_MOBILE, ID_CARD_IMAGE, ID_TYPE, 
+    ID_CARD, DOCUMENT_UPLOAD, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
+  </sql>
+  <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.waterPeopleChange.model.WaterPeopleChange">
+    insert into t_water_people_change (FAMILY_NUMBER, APPLY_PEOPLE_NUMBER,
+      TRANSACTOR_MOBILE, ID_CARD_IMAGE, ID_TYPE, 
+      ID_CARD, DOCUMENT_UPLOAD, CREATE_TIME, 
+      LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
+      DEL_FLAG)
+    values (#{familyNumber,jdbcType=VARCHAR}, #{applyPeopleNumber,jdbcType=INTEGER},
+      #{transactorMobile,jdbcType=VARCHAR}, #{idCardImage,jdbcType=VARCHAR}, #{idType,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{documentUpload,jdbcType=VARCHAR},
+      now(),now(), #{description,jdbcType=VARCHAR},1,0)
+  </insert>
+  <select id="selectByTransactorMobile" resultMap="BaseResultMap">
+        select FAMILY_NUMBER,APPLY_PEOPLE_NUMBER,TRANSACTOR_MOBILE,ID_CARD from t_water_people_change where TRANSACTOR_MOBILE = #{transactorMobile,jdbcType=VARCHAR} and DEL_FLAG = 0
+  </select>
+</mapper>
