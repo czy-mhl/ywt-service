@@ -22,7 +22,7 @@ public class StopWaterMeterApplicationTests {
     @Test
     public void insert() {
         StopWaterMeter stopWaterMeter = new StopWaterMeter();
-        stopWaterMeter.setFamilyNumber("户号(校验)");
+        stopWaterMeter.setFamilyNumber("户号(校验)2");
         stopWaterMeter.setOwnerMobile("户主手机号码");
         stopWaterMeter.setTransactor("办理人");
         stopWaterMeter.setTransactorIdCard("420984");

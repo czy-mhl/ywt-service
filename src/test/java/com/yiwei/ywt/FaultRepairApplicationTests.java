@@ -1,7 +1,5 @@
 package com.yiwei.ywt;
 
-import com.yiwei.ywt.businessProcess.againWaterMeter.model.AgainWaterMeter;
-import com.yiwei.ywt.businessProcess.againWaterMeter.service.AgainWaterService;
 import com.yiwei.ywt.businessProcess.faultRepair.model.FaultRepair;
 import com.yiwei.ywt.businessProcess.faultRepair.service.FaultRepairService;
 import org.junit.Test;

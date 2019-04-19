@@ -44,4 +44,8 @@ public class StopWaterMeter extends BaseEntity {
      * 办理人身份证
      */
     private String transactorIdCardImage;
+    /**
+     * 本业务名称
+     */
+    public static final String BUSINESS_NAME = "暂停申请";
 }

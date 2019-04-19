@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiwei.ywt.businessProcess.handleState.mapper.HandleStateMapper">
+    <resultMap id="BaseResultMap" type="com.yiwei.ywt.businessProcess.handleState.model.HandleState">
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="FAMILY_NUMBER" jdbcType="VARCHAR" property="familyNumber"/>
+        <result column="BUSINESS_NAME" jdbcType="VARCHAR" property="businessName"/>
+        <result column="BUSINESS_STATE" jdbcType="INTEGER" property="businessState"/>
+        <result column="APPLY_NAME" jdbcType="VARCHAR" property="applyName"/>
+        <result column="APPLY_MOBILE" jdbcType="VARCHAR" property="applyMobile"/>
+        <result column="APPLY_ID_TYPE" jdbcType="VARCHAR" property="applyIdType"/>
+        <result column="APPLY_ID_CARD" jdbcType="VARCHAR" property="applyIdCard"/>
+        <result column="APPLY_REASON" jdbcType="VARCHAR" property="applyReason"/>
+        <result column="APPLY_AREA" jdbcType="VARCHAR" property="applyArea"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+        <result column="ENABLED" jdbcType="INTEGER" property="enabled"/>
+        <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, FAMILY_NUMBER, BUSINESS_NAME, BUSINESS_STATE, APPLY_NAME, APPLY_MOBILE, APPLY_ID_TYPE, 
+    APPLY_ID_CARD, APPLY_REASON, APPLY_AREA, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, 
+    ENABLED, DEL_FLAG
+  </sql>
+    <select id="selectByApplyMobile" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_handle_state
+        where
+            APPLY_MOBILE = #{applyMobile,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByFamilyNumber" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_handle_state
+        where
+        FAMILY_NUMBER = #{familyNumber,jdbcType=VARCHAR}
+    </select>
+    <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.handleState.model.HandleState">
+        insert into t_handle_state
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="familyNumber != null">
+                FAMILY_NUMBER,
+            </if>
+            <if test="businessName != null">
+                BUSINESS_NAME,
+            </if>
+            <if test="businessState != null">
+                BUSINESS_STATE,
+            </if>
+            <if test="applyName != null">
+                APPLY_NAME,
+            </if>
+            <if test="applyMobile != null">
+                APPLY_MOBILE,
+            </if>
+            <if test="applyIdType != null">
+                APPLY_ID_TYPE,
+            </if>
+            <if test="applyIdCard != null">
+                APPLY_ID_CARD,
+            </if>
+            <if test="applyReason != null">
+                APPLY_REASON,
+            </if>
+            <if test="applyArea != null">
+                APPLY_AREA,
+            </if>
+                CREATE_TIME,
+                LAST_UPDATE_TIME,
+                DESCRIPTION,
+                ENABLED,
+                DEL_FLAG
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="familyNumber != null">
+                #{familyNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="businessName != null">
+                #{businessName,jdbcType=VARCHAR},
+            </if>
+            <if test="businessState != null">
+                #{businessState,jdbcType=INTEGER},
+            </if>
+            <if test="applyName != null">
+                #{applyName,jdbcType=VARCHAR},
+            </if>
+            <if test="applyMobile != null">
+                #{applyMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="applyIdType != null">
+                #{applyIdType,jdbcType=VARCHAR},
+            </if>
+            <if test="applyIdCard != null">
+                #{applyIdCard,jdbcType=VARCHAR},
+            </if>
+            <if test="applyReason != null">
+                #{applyReason,jdbcType=VARCHAR},
+            </if>
+            <if test="applyArea != null">
+                #{applyArea,jdbcType=VARCHAR},
+            </if>
+            now(),now(),#{description,jdbcType=VARCHAR},1,0
+        </trim>
+    </insert>
+    <update id="update"
+            parameterType="com.yiwei.ywt.businessProcess.handleState.model.HandleState">
+        update t_handle_state
+        <set>
+            <if test="familyNumber != null and familyNumber != '' ">
+                FAMILY_NUMBER = #{familyNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="businessName != null and businessName != '' ">
+                BUSINESS_NAME = #{businessName,jdbcType=VARCHAR},
+            </if>
+            <if test="businessState != null and businessState != '' ">
+                BUSINESS_STATE = #{businessState,jdbcType=INTEGER},
+            </if>
+            <if test="applyName != null and applyName != '' ">
+                APPLY_NAME = #{applyName,jdbcType=VARCHAR},
+            </if>
+            <if test="applyMobile != null and applyMobile != '' ">
+                APPLY_MOBILE = #{applyMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="applyIdType != null and applyIdType != '' ">
+                APPLY_ID_TYPE = #{applyIdType,jdbcType=VARCHAR},
+            </if>
+            <if test="applyIdCard != null and applyIdCard != '' ">
+                APPLY_ID_CARD = #{applyIdCard,jdbcType=VARCHAR},
+            </if>
+            <if test="applyReason != null and applyReason != '' ">
+                APPLY_REASON = #{applyReason,jdbcType=VARCHAR},
+            </if>
+            <if test="applyArea != null and applyArea != '' ">
+                APPLY_AREA = #{applyArea,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="description != null and description != '' ">
+                DESCRIPTION = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="enabled != null and enabled != '' ">
+                ENABLED = #{enabled,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null and delFlag != '' ">
+                DEL_FLAG = #{delFlag,jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE DEL_FLAG = 0
+        AND ENABLED = 1
+        AND ID = #{id, jdbcType=BIGINT}
+    </update>
+    <update id="delete">
+        UPDATE
+          t_handle_state
+        SET
+          DEL_FLAG = 1
+        WHERE DEL_FLAG = 0
+          AND ID = #{id, jdbcType=BIGINT}
+    </update>
+</mapper>

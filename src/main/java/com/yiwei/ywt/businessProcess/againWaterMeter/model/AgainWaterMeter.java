@@ -14,7 +14,6 @@ import lombok.Data;
  */
 @Data
 public class AgainWaterMeter extends BaseEntity {
-
     /**
      * 户号
      */
@@ -44,7 +43,11 @@ public class AgainWaterMeter extends BaseEntity {
      */
     private String idCardImage;
     /**
-     * 办理人身份证
+     * 办理人身份证图片
      */
     private String transactorIdCardImage;
+    /**
+     * 本业务名称
+     */
+    public static final String BUSINESS_NAME = "复接申请";
 }
