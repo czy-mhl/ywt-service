@@ -28,4 +28,12 @@ public class PaymentServiceImpl implements PaymentService {
         waterBill.setPaymentStatus("欠费");
         return waterBillMapper.selectListByEntity(waterBill);
     }
+    /**
+     * 结算成功 修改账单状态
+     */
+    @Override
+    public WaterBillInfo updateTodoList(WaterBillInfo waterBillInfo) {
+
+        return 0<this.waterBillMapper.updateTodoCostBill(waterBillInfo)?waterBillInfo:null;
+    }
 }

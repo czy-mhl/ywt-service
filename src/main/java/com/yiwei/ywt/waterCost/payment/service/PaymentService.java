@@ -17,4 +17,8 @@ public interface PaymentService {
      * @return
      */
     List<WaterBillInfo> selectTodoList(WaterBillInfo waterBill);
+    /**
+     * 结算成功 修改账单状态
+     */
+    WaterBillInfo updateTodoList(WaterBillInfo waterBillInfo);
 }

@@ -1,5 +1,6 @@
 package com.yiwei.ywt.waterCost.payment.controller;
 
+import com.yiwei.ywt.framework.aop.LogAop;
 import com.yiwei.ywt.framework.web.AjaxResponse;
 import com.yiwei.ywt.waterCost.bill.model.WaterBillInfo;
 import com.yiwei.ywt.waterCost.payment.service.PaymentService;
@@ -30,7 +31,7 @@ public class PaymentController {
      * @param waterBill
      * @return
      */
-//    @LogAop(menuName = "查询代缴费账单",operationDesc = "查询",operationType = "3")
+    //@LogAop(menuName = "查询代缴费账单",operationDesc = "查询",operationType = "3")
     @RequestMapping(value = "/todoCost", method = RequestMethod.POST)
     public AjaxResponse selectTodoCostBillList(WaterBillInfo waterBill){
         try {
@@ -39,6 +40,23 @@ public class PaymentController {
         } catch (Exception e) {
             log.error("select waterBill error!", e);
             return AjaxResponse.error("error",waterBill);
+        }
+    }
+
+    /**
+     * 去结算
+     * @param
+     * @return
+     */
+//    @LogAop(menuName = "去结算",operationDesc = "结算",operationType = "2")
+    @RequestMapping(value = "/settleAccounts", method = RequestMethod.POST)
+    public AjaxResponse settleAccounts(WaterBillInfo waterBill){
+        try {
+            // todo 调用微信支付
+            return true ? null == this.paymentService.updateTodoList(waterBill)?new AjaxResponse(AjaxResponse.FAILURE_EDIT_ENTITY,"error"): AjaxResponse.success("ok"):AjaxResponse.error("支付失败");
+        } catch (Exception e) {
+            log.error("settleAccounts error!", e);
+            return AjaxResponse.error("error");
         }
     }
 

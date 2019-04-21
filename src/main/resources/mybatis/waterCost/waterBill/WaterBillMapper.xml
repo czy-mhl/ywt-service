@@ -54,6 +54,15 @@
         </if>
     </select>
 
+    <update id="updateTodoCostBill" parameterType="com.yiwei.ywt.waterCost.bill.model.WaterBillInfo">
+        update T_WATER_BILL
+        <set>
+            LAST_UPDATE_TIME = now() ,
+            PAYMENT_STATUS = '已结清'
+        </set>
+        where FAMILY_CODE = #{familyCode,jdbcType=VARCHAR} and DEL_FLAG = 0 and PAYMENT_STATUS = '欠费'
+    </update>
+
     <!--<insert id="insertUserBill" parameterType="com.yiwei.ywt.waterCost.bill.model.waterBill">
         insert INTO
         t_user_bill(

@@ -11,6 +11,9 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface WaterBillMapper extends CRUDMapper<WaterBillInfo> {
-
+    /**
+     * 结算成功 修改账单状态
+     */
+    int  updateTodoCostBill(WaterBillInfo waterBillInfo);
 
 }
