@@ -15,7 +15,6 @@ public class StopWaterMeterApplicationTests {
 
     @Resource
     private StopWaterService stopWaterService;
-
     /**
      * 暂停申请
      */
@@ -28,7 +27,6 @@ public class StopWaterMeterApplicationTests {
         stopWaterMeter.setTransactorIdCard("420984");
         stopWaterMeter.setTransactorMobile("办理人手机");
         stopWaterMeter.setDescription("定制服务（其他说明）");
-
 
         System.out.println(stopWaterService.addEntity(stopWaterMeter));
     }

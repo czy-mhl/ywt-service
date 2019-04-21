@@ -17,4 +17,8 @@ public interface WaterPriceStandarService {
     WaterPriceStandar addEntity(WaterPriceStandar waterPriceStandar);
 
     WaterPriceStandar selectByTitle(String title);
+
+    boolean editEntity(WaterPriceStandar waterPriceStandar);
+
+    boolean deleteEntity(Long id);
 }

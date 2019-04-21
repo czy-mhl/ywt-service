@@ -6,6 +6,7 @@ import com.yiwei.ywt.sys.serviceInformation.service.WaterPriceStandarService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -46,6 +47,34 @@ public class WaterPriceStandarController {
             return null == priceStandar ? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY, "error") : AjaxResponse.success("ok",priceStandar);
         } catch (RuntimeException e) {
             log.error("select WaterPriceStandar error",e);
+            return AjaxResponse.error("error");
+        }
+    }
+
+    /**
+     * 水价标准修改
+     */
+//    @LogAop(menuName = "水价标准",operationDesc = "修改",operationType = "2")
+    @RequestMapping(value = "/updateEntity", method = RequestMethod.POST)
+    public AjaxResponse updateWaterPriceStandar(WaterPriceStandar waterPriceStandar) {
+        try {
+            return !this.waterPriceStandarService.editEntity(waterPriceStandar)? new AjaxResponse(AjaxResponse.FAILURE_EDIT_ENTITY,"error") : AjaxResponse.success("ok");
+        } catch (RuntimeException e) {
+            log.error("update WaterPriceStandar error",e);
+            return AjaxResponse.error("error");
+        }
+    }
+
+    /**
+     * 水价标准删除
+     */
+//    @LogAop(menuName = "水价标准",operationDesc = "删除",operationType = "4")
+    @RequestMapping(value = "/deleteEntity", method = RequestMethod.POST)
+    public AjaxResponse deleteWaterPriceStandar(@RequestParam("ID") Long id) {
+        try {
+            return !this.waterPriceStandarService.deleteEntity(id)? new AjaxResponse(AjaxResponse.FAILURE_DEL_ENTITY,"error") : AjaxResponse.success("ok");
+        } catch (RuntimeException e) {
+            log.error("delete WaterPriceStandar error",e);
             return AjaxResponse.error("error");
         }
     }

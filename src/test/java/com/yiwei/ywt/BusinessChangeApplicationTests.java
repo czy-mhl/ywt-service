@@ -34,7 +34,7 @@ public class BusinessChangeApplicationTests {
         businessChange.setWaterAddress("用水地址");
         businessChange.setChangeReason("改移原因");
         businessChange.setIdType("证件类型");
-        businessChange.setIdCard("420989");
+        businessChange.setIdCard("4209890");
         businessChange.setManagerName("经办人姓名");
         businessChange.setManagerMobile("18972642658");
 

@@ -24,7 +24,7 @@ public class WaterPriceStandarServiceImpl implements WaterPriceStandarService {
     private WaterPriceStandarMapper waterPriceStandarMapper;
 
     /**
-     * 水价标准
+     * 水价标准新增
      *
      * @param waterPriceStandar
      * @return WaterPriceStandar
@@ -34,8 +34,36 @@ public class WaterPriceStandarServiceImpl implements WaterPriceStandarService {
         return 0 < waterPriceStandarMapper.insert(waterPriceStandar) ? waterPriceStandar : null;
     }
 
+    /**
+     * 水价标准查询
+     *
+     * @param title
+     * @return WaterPriceStandar
+     */
     @Override
     public WaterPriceStandar selectByTitle(String title) {
         return waterPriceStandarMapper.selectByTitle(title);
+    }
+
+    /**
+     * 水价标准修改
+     *
+     * @param waterPriceStandar
+     * @return boolean
+     */
+    @Override
+    public boolean editEntity(WaterPriceStandar waterPriceStandar) {
+        return 0 < this.waterPriceStandarMapper.update(waterPriceStandar);
+    }
+
+    /**
+     * 水价标准删除
+     *
+     * @param id
+     * @return boolean
+     */
+    @Override
+    public boolean deleteEntity(Long id) {
+        return 0 < this.waterPriceStandarMapper.delete(id);
     }
 }

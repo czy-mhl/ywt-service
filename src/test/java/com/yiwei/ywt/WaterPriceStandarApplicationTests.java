@@ -40,7 +40,7 @@ public class WaterPriceStandarApplicationTests {
     @Test
     public void insert() {
         WaterPriceStandar waterPriceStandar = new WaterPriceStandar();
-        waterPriceStandar.setTitle("测试Title2");
+        waterPriceStandar.setTitle("测试Title");
         waterPriceStandar.setContent("测试Content2");
         waterPriceStandar.setPicture("http://img5.imgtn.bdimg.com/it/u=1638695478,3359394321&fm=26&gp=0.jpg");
 //        waterPriceStandarMapper.insert(waterPriceStandar);
@@ -51,9 +51,9 @@ public class WaterPriceStandarApplicationTests {
      */
     @Test
     public void update() {
-        WaterPriceStandar waterPriceStandar = waterPriceStandarMapper.selectByTitle("测试Title2");
+        WaterPriceStandar waterPriceStandar = waterPriceStandarMapper.selectByTitle("测试Title");
         waterPriceStandar.setTitle("测试Title3(update)");
-        waterPriceStandarMapper.update(waterPriceStandar);
+        waterPriceStandarService.editEntity(waterPriceStandar);
     }
     /**
      * 水价标准删除

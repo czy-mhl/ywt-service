@@ -1,8 +1,5 @@
 package com.yiwei.ywt;
 
-import com.yiwei.ywt.businessProcess.businessTransfer.mapper.BusinessTransferMapper;
-import com.yiwei.ywt.businessProcess.businessTransfer.model.BusinessTransfer;
-import com.yiwei.ywt.businessProcess.businessTransfer.service.BusinessTransferService;
 import com.yiwei.ywt.businessProcess.checkWaterMeter.model.CheckWaterMeter;
 import com.yiwei.ywt.businessProcess.checkWaterMeter.service.CheckWaterService;
 import org.junit.Test;

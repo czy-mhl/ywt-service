@@ -22,7 +22,7 @@ public class WaterPeopleChangeApplicationTests {
     @Test
     public void insert() {
         WaterPeopleChange waterPeopleChange = new WaterPeopleChange();
-        waterPeopleChange.setFamilyNumber("户号（校验）");
+        waterPeopleChange.setFamilyNumber("户号(8)");
         waterPeopleChange.setApplyPeopleNumber(4);
         waterPeopleChange.setTransactorMobile("办理人手机");
 
