@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiwei.ywt.sys.repair.mapper.RepairMapper">
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.repair.model.Repair">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="FAMILY_NUMBER" jdbcType="VARCHAR" property="familyNumber" />
+    <result column="REPORT_LEAK_AREA" jdbcType="VARCHAR" property="reportLeakArea" />
+    <result column="REPORT_LEAK_ADDRESS" jdbcType="VARCHAR" property="reportLeakAddress" />
+    <result column="TRANSACTOR_NAME" jdbcType="VARCHAR" property="transactorName" />
+    <result column="TRANSACTOR_MOBILE" jdbcType="VARCHAR" property="transactorMobile" />
+    <result column="TRANSACTOR_PHONE" jdbcType="VARCHAR" property="transactorPhone" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="ID_CARD_IMAGE" jdbcType="VARCHAR" property="idCardImage" />
+    <result column="PICTURE" jdbcType="VARCHAR" property="picture" />
+    <result column="REPAIR_TYPE" jdbcType="INTEGER" property="repairType" />
+    <result column="MOBILE_CODE" jdbcType="VARCHAR" property="mobileCode" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+    <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, FAMILY_NUMBER, REPORT_LEAK_AREA, REPORT_LEAK_ADDRESS, TRANSACTOR_NAME, TRANSACTOR_MOBILE, 
+    TRANSACTOR_PHONE, DESCRIPTION, ID_CARD_IMAGE, PICTURE, REPAIR_TYPE, MOBILE_CODE, CREATE_TIME,
+    LAST_UPDATE_TIME, ENABLED, DEL_FLAG
+  </sql>
+  <insert id="insert" parameterType="com.yiwei.ywt.sys.repair.model.Repair">
+    insert into t_repair
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="familyNumber != null">
+        FAMILY_NUMBER,
+      </if>
+      <if test="reportLeakArea != null">
+        REPORT_LEAK_AREA,
+      </if>
+      <if test="reportLeakAddress != null">
+        REPORT_LEAK_ADDRESS,
+      </if>
+      <if test="transactorName != null">
+        TRANSACTOR_NAME,
+      </if>
+      <if test="transactorMobile != null">
+        TRANSACTOR_MOBILE,
+      </if>
+      <if test="transactorPhone != null">
+        TRANSACTOR_PHONE,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="idCardImage != null">
+        ID_CARD_IMAGE,
+      </if>
+      <if test="picture != null">
+        PICTURE,
+      </if>
+      <if test="repairType != null">
+        REPAIR_TYPE,
+      </if>
+      <if test="mobileCode != null">
+        MOBILE_CODE,
+      </if>
+        CREATE_TIME,
+        LAST_UPDATE_TIME,
+        ENABLED,
+        DEL_FLAG,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="familyNumber != null">
+        #{familyNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="reportLeakArea != null">
+        #{reportLeakArea,jdbcType=VARCHAR},
+      </if>
+      <if test="reportLeakAddress != null">
+        #{reportLeakAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorName != null">
+        #{transactorName,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorMobile != null">
+        #{transactorMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorPhone != null">
+        #{transactorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardImage != null">
+        #{idCardImage,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="repairType != null">
+        #{repairType,jdbcType=INTEGER},
+      </if>
+      <if test="mobileCode != null">
+        #{mobileCode,jdbcType=VARCHAR},
+      </if>
+        now(),
+        now(),
+        1,
+        0
+    </trim>
+  </insert>
+</mapper>

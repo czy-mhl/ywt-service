@@ -10,6 +10,7 @@
         <result column="APPLY_MOBILE" jdbcType="VARCHAR" property="applyMobile"/>
         <result column="APPLY_ID_TYPE" jdbcType="VARCHAR" property="applyIdType"/>
         <result column="APPLY_ID_CARD" jdbcType="VARCHAR" property="applyIdCard"/>
+        <result column="APPLY_TYPE" jdbcType="INTEGER" property="applyType"/>
         <result column="APPLY_REASON" jdbcType="VARCHAR" property="applyReason"/>
         <result column="APPLY_AREA" jdbcType="VARCHAR" property="applyArea"/>
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
@@ -20,7 +21,7 @@
     </resultMap>
     <sql id="Base_Column_List">
     ID, FAMILY_NUMBER, BUSINESS_NAME, BUSINESS_STATE, APPLY_NAME, APPLY_MOBILE, APPLY_ID_TYPE, 
-    APPLY_ID_CARD, APPLY_REASON, APPLY_AREA, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, 
+    APPLY_ID_CARD,APPLY_TYPE, APPLY_REASON, APPLY_AREA, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION,
     ENABLED, DEL_FLAG
   </sql>
     <select id="selectByApplyMobile" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -40,9 +41,6 @@
     <insert id="insert" parameterType="com.yiwei.ywt.businessProcess.handleState.model.HandleState">
         insert into t_handle_state
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                ID,
-            </if>
             <if test="familyNumber != null">
                 FAMILY_NUMBER,
             </if>
@@ -63,6 +61,9 @@
             </if>
             <if test="applyIdCard != null">
                 APPLY_ID_CARD,
+            </if>
+            <if test="applyType != null">
+                APPLY_TYPE,
             </if>
             <if test="applyReason != null">
                 APPLY_REASON,
@@ -101,6 +102,9 @@
             <if test="applyIdCard != null">
                 #{applyIdCard,jdbcType=VARCHAR},
             </if>
+            <if test="applyType != null">
+                #{applyType,jdbcType=INTEGER},
+            </if>
             <if test="applyReason != null">
                 #{applyReason,jdbcType=VARCHAR},
             </if>
@@ -135,6 +139,9 @@
             <if test="applyIdCard != null and applyIdCard != '' ">
                 APPLY_ID_CARD = #{applyIdCard,jdbcType=VARCHAR},
             </if>
+            <if test="applyType != null and applyType != '' ">
+                APPLY_TYPE = #{applyType,jdbcType=INTEGER},
+            </if>
             <if test="applyReason != null and applyReason != '' ">
                 APPLY_REASON = #{applyReason,jdbcType=VARCHAR},
             </if>
@@ -144,9 +151,7 @@
             <if test="createTime != null">
                 CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="lastUpdateTime != null">
-                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
-            </if>
+                LAST_UPDATE_TIME = now(),
             <if test="description != null and description != '' ">
                 DESCRIPTION = #{description,jdbcType=VARCHAR},
             </if>
@@ -162,11 +167,8 @@
         AND ID = #{id, jdbcType=BIGINT}
     </update>
     <update id="delete">
-        UPDATE
+        delete from
           t_handle_state
-        SET
-          DEL_FLAG = 1
-        WHERE DEL_FLAG = 0
-          AND ID = #{id, jdbcType=BIGINT}
+        WHERE ID = #{id, jdbcType=BIGINT}
     </update>
 </mapper>
