@@ -52,7 +52,7 @@ public class WaterPriceStandarApplicationTests {
     @Test
     public void update() {
         WaterPriceStandar waterPriceStandar = waterPriceStandarMapper.selectByTitle("测试Title");
-        waterPriceStandar.setTitle("测试Title3(update)");
+        waterPriceStandar.setTitle("测试Title(update)");
         waterPriceStandarService.editEntity(waterPriceStandar);
     }
     /**

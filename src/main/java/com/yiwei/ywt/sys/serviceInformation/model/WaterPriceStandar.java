@@ -4,7 +4,7 @@ import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
 
 /**
- * 水价标准 实体类
+ * 水价标准业务 实体类
  * 数据库表：t_water_price_standar
  *
  * @author xk

@@ -32,12 +32,12 @@ public class WaterPriceStandarController {
             return null == this.waterPriceStandarService.addEntity(waterPriceStandar)? new AjaxResponse(AjaxResponse.FAILURE_ADD_ENTITY,"error") : AjaxResponse.success("ok");
         } catch (Exception e) {
             log.error("add WaterPriceStandar error",e);
-            return AjaxResponse.error(e.getMessage(),waterPriceStandar);
+            return AjaxResponse.error(e.getMessage());
         }
     }
 
     /**
-     * 水价标准查询
+     * 水价标准查询（Title）
      */
 //    @LogAop(menuName = "水价标准",operationDesc = "查询",operationType = "3")
     @RequestMapping(value = "/selectEntity", method = RequestMethod.GET)

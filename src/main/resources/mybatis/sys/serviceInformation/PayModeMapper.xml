@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yiwei.ywt.sys.serviceInformation.mapper.WaterPriceStandarMapper">
-  <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.serviceInformation.model.WaterPriceStandar">
+<mapper namespace="com.yiwei.ywt.sys.serviceInformation.mapper.PayModeMapper">
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.serviceInformation.model.PayMode">
     <id column="ID" jdbcType="BIGINT" property="id" />
     <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="BUSINESS_HALL_NAME" jdbcType="VARCHAR" property="businessHallName" />
+    <result column="BUSINESS_HALL_ADDRESS" jdbcType="VARCHAR" property="businessHallAddress" />
+    <result column="BUSINESS_HALL_TELEPHONE" jdbcType="VARCHAR" property="businessHallTelephone" />
     <result column="PICTURE" jdbcType="VARCHAR" property="picture" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
@@ -13,21 +16,21 @@
     <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
   </resultMap>
   <sql id="Base_Column_List">
-    ID, TITLE, CONTENT, PICTURE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
-    DEL_FLAG
+    ID, TITLE, CONTENT, BUSINESS_HALL_NAME, BUSINESS_HALL_ADDRESS, BUSINESS_HALL_TELEPHONE, 
+    PICTURE, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, DEL_FLAG
   </sql>
   <select id="selectByTitle" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_water_price_standar
+    from t_pay_mode
     where TITLE = #{title,jdbcType=VARCHAR}
   </select>
   <delete id="delete" parameterType="java.lang.Long">
-    delete from t_water_price_standar
+    delete from t_pay_mode
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yiwei.ywt.sys.serviceInformation.model.WaterPriceStandar">
-    insert into t_water_price_standar
+  <insert id="insert" parameterType="com.yiwei.ywt.sys.serviceInformation.model.PayMode">
+    insert into t_pay_mode
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="title != null">
         TITLE,
@@ -35,10 +38,25 @@
       <if test="content != null">
         CONTENT,
       </if>
+      <if test="businessHallName != null">
+        BUSINESS_HALL_NAME,
+      </if>
+      <if test="businessHallAddress != null">
+        BUSINESS_HALL_ADDRESS,
+      </if>
+      <if test="businessHallTelephone != null">
+        BUSINESS_HALL_TELEPHONE,
+      </if>
       <if test="picture != null">
         PICTURE,
       </if>
-      CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED,DEL_FLAG
+        CREATE_TIME,
+        LAST_UPDATE_TIME,
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+        ENABLED,
+        DEL_FLAG,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="title != null">
@@ -47,20 +65,43 @@
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
       </if>
+      <if test="businessHallName != null">
+        #{businessHallName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessHallAddress != null">
+        #{businessHallAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessHallTelephone != null">
+        #{businessHallTelephone,jdbcType=VARCHAR},
+      </if>
       <if test="picture != null">
         #{picture,jdbcType=VARCHAR},
       </if>
-      now(),now(), #{description,jdbcType=VARCHAR},1,0
+      now(),
+      now(),
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      1,0
     </trim>
   </insert>
-  <update id="update" parameterType="com.yiwei.ywt.sys.serviceInformation.model.WaterPriceStandar">
-    update t_water_price_standar
+  <update id="update" parameterType="com.yiwei.ywt.sys.serviceInformation.model.PayMode">
+    update t_pay_mode
     <set>
       <if test="title != null">
         TITLE = #{title,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="businessHallName != null">
+        BUSINESS_HALL_NAME = #{businessHallName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessHallAddress != null">
+        BUSINESS_HALL_ADDRESS = #{businessHallAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessHallTelephone != null">
+        BUSINESS_HALL_TELEPHONE = #{businessHallTelephone,jdbcType=VARCHAR},
       </if>
       <if test="picture != null">
         PICTURE = #{picture,jdbcType=VARCHAR},
