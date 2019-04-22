@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiwei.ywt.sys.publicity.mapper.PublicityInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yiwei.ywt.sys.publicity.model.PublicityInfo">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="INFO" jdbcType="VARCHAR" property="info" />
+    <result column="PICTURE_URL" jdbcType="VARCHAR" property="pictureUrl" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+    <result column="DEL_FLAG" jdbcType="INTEGER" property="delFlag" />
+    <result column="SORT" jdbcType="VARCHAR" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TYPE, TITLE, INFO, PICTURE_URL, CREATE_TIME, LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
+    DEL_FLAG,SORT
+  </sql>
+  <select id="getEntityByType" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_publicity_info
+    where TYPE = #{type,jdbcType=VARCHAR}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from t_publicity_info
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yiwei.ywt.sys.publicity.model.PublicityInfo">
+    insert into t_publicity_info (TYPE, TITLE,
+      INFO, PICTURE_URL, CREATE_TIME, 
+      LAST_UPDATE_TIME, DESCRIPTION, ENABLED, 
+      DEL_FLAG,SORT)
+    values ( #{type,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+      #{info,jdbcType=VARCHAR}, #{pictureUrl,jdbcType=VARCHAR}, now(),
+      now(), #{description,jdbcType=VARCHAR}, #{enabled,jdbcType=INTEGER},
+      #{delFlag,jdbcType=INTEGER},#{sort,jdbcType=VARCHAR})
+  </insert>
+  <update id="update" parameterType="com.yiwei.ywt.sys.publicity.model.PublicityInfo">
+    update t_publicity_info
+    <set>
+      LAST_UPDATE_TIME = now(),
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null">
+        INFO = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null">
+        PICTURE_URL = #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        ENABLED = #{enabled,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        SORT = #{sort,jdbcType=VARCHAR}
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

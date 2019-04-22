@@ -34,7 +34,7 @@ public class WaterBillController {
     public AjaxResponse waterBillList(WaterBillInfo waterBill) {
         try {
             List<WaterBillInfo> waterBillList = this.waterBillService.waterBillList(waterBill);
-            return null != waterBillList && 0 < waterBillList.size()? AjaxResponse.success("ok",waterBillList): new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,"查询数据为空");
+            return waterBillList.isEmpty()? new AjaxResponse(AjaxResponse.FAILURE_SELECT_ENTITY,"查询数据为空"):AjaxResponse.success("ok",waterBillList);
         }catch(Exception e) {
             log.error("select waterBill error!", e);
             return AjaxResponse.error("error", waterBill);
