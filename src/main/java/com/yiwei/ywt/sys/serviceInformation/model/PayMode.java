@@ -8,7 +8,7 @@ import lombok.Data;
  *
  * @author xk
  * @version 1.0.0
- * @date 2019/04/21
+ * @date 2019/04/22
  */
 @Data
 public class PayMode extends BaseEntity {

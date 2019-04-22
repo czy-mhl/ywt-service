@@ -1,12 +1,12 @@
 package com.yiwei.ywt.sys.serviceInformation.mapper;
 
 import com.yiwei.ywt.framework.dao.CRUDMapper;
-import com.yiwei.ywt.sys.serviceInformation.model.PayMode;
+import com.yiwei.ywt.sys.serviceInformation.model.Notice;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface PayModeMapper extends CRUDMapper<PayMode> {
-    List<PayMode> selectAll();
+public interface NoticeMapper extends CRUDMapper<Notice> {
+    List<Notice> selectAll();
 }
