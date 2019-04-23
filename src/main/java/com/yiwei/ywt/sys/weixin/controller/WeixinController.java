@@ -4,13 +4,14 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.yiwei.ywt.framework.utils.HttpClientUtils;
 import com.yiwei.ywt.framework.web.AjaxResponse;
+import com.yiwei.ywt.sys.weixin.TokenThread;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ import java.io.IOException;
 /**
  * 微信工具类
  */
-@Controller
+@RestController
 @Slf4j
 @RequestMapping("/wx")
 public class WeixinController {
@@ -79,4 +80,10 @@ public class WeixinController {
         mv.addAllObjects(model);
         return mv;
     }
+
+    @RequestMapping(value = "/token")
+    public AjaxResponse token() {
+        return null!=TokenThread.token?AjaxResponse.success("OK",TokenThread.token):AjaxResponse.error("error");
+    }
 }
+

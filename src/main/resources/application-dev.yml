@@ -21,6 +21,6 @@ spring:
 #    username: guest
 #    password: guest
 
-# 应用的完整访问地址
+# 应用的完整访问地址 natapp内网映射地址
 project:
-  url: http://xxx.8077/yiwei
+  url: http://wze2rz.natappfree.cc/yiwei

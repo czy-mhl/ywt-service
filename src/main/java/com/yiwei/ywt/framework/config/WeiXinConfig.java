@@ -6,12 +6,12 @@ package com.yiwei.ywt.framework.config;
  public final class WeiXinConfig {
 
     /**
-     * 开发者ID  wxd09a54fe38cedf42
+     * 开发者ID
      */
     public static final String APP_ID = "wx6c588707277a04d8";
 
     /**
-     * 密钥  57948a6783c6f65c2c2c98aa38cd5c0d
+     * 密钥
      */
     public static final String APP_SECRET = "7f0c6091e7682eea1ec6fbbc25f78cad";
 
