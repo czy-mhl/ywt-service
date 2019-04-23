@@ -31,4 +31,8 @@ public class CheckWaterMeter extends BaseEntity {
      * 户主身份证
      */
     private String idCardImage;
+    /**
+     * 本业务名称
+     */
+    public static final String BUSINESS_NAME = "水表验表申请";
 }

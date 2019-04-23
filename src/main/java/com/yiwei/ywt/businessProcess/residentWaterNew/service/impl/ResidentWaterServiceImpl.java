@@ -40,7 +40,7 @@ public class ResidentWaterServiceImpl implements ResidentWaterService {
      * @param residentWater
      * @return ResidentWater
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public ResidentWater addEntity(ResidentWater residentWater) {
         //todo 需要短信验证
         if (null == waterApplyMapper.selectByIdCard(residentWater.getIdCard())) {

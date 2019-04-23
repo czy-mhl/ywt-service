@@ -42,6 +42,10 @@ public class HandleState extends BaseEntity {
      */
     private String applyIdCard;
     /**
+     *申请人类别（户主）or（非户主） 0 => 非户主 1 => 户主
+     */
+    private Integer applyType;
+    /**
      *申请原因
      */
     private String applyReason;
@@ -49,4 +53,5 @@ public class HandleState extends BaseEntity {
      *申请区域
      */
     private String applyArea;
+
 }

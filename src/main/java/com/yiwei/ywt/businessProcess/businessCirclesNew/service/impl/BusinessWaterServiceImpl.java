@@ -40,7 +40,7 @@ public class BusinessWaterServiceImpl implements BusinessWaterService {
      * @param businessWater
      * @return BusinessWater
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public BusinessWater addEntity(BusinessWater businessWater) {
         //todo 需要短信验证
         if (null == businessWaterMapper.selectByCreditCode(businessWater.getCreditCode())) {

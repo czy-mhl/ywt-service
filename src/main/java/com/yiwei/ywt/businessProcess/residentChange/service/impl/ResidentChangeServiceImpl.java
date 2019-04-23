@@ -40,7 +40,7 @@ public class ResidentChangeServiceImpl implements ResidentChangeService {
      * @param residentChange
      * @return ResidentChange
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public ResidentChange addEntity(ResidentChange residentChange) {
         //todo 需要短信验证
         if (null == residentChangeMapper.selectByIdCard(residentChange.getIdCard())) {

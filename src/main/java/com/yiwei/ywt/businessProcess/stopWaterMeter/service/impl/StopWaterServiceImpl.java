@@ -37,10 +37,11 @@ public class StopWaterServiceImpl implements StopWaterService {
      * @param stopWaterMeter
      * @return StopWaterMeter
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public StopWaterMeter addEntity(StopWaterMeter stopWaterMeter) {
+        //todo 必须要绑定户号
         if (null == stopWaterMeterMapper.selectByFamilyNumber(stopWaterMeter.getFamilyNumber())) {
-            //暂停申请 想要插入办理进度业务表 只能存在唯一户号
+            //暂停申请 想要插入办理进度业务表 只能存在唯一户号(本业务)
             //按户号校验，不允许重复提交申请
             //todo 添加到办理进度
             HandleState handleState = new HandleState();

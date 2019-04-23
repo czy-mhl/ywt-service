@@ -2,6 +2,8 @@ package com.yiwei.ywt.businessProcess.businessChange.model;
 
 import com.yiwei.ywt.framework.model.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * 工商用水改移装业务 实体类
  * 数据库表：t_business_change
@@ -10,6 +12,7 @@ import lombok.Data;
  * @version 1.0.0
  * @date 2019/04/18
  */
+//@EqualsAndHashCode(callSuper = true)
 @Data
 public class BusinessChange extends BaseEntity {
     /**

@@ -40,4 +40,8 @@ public class WaterPeopleChange extends BaseEntity {
      * 证件上传
      */
     private String documentUpload;
+    /**
+     * 本业务名称
+     */
+    public static final String BUSINESS_NAME = "用水人口变更";
 }

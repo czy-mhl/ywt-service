@@ -8,11 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface HandleStateMapper extends CRUDMapper<HandleState> {
-    int insertSelective(HandleState handleState);
-
     List<HandleState> selectByApplyMobile(String applyMobile);
 
     List<HandleState> selectByFamilyNumber(String familyNumber);
-
-    int updateByPrimaryKeySelective(HandleState handleState);
 }

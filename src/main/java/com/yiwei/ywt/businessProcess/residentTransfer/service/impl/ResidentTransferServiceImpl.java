@@ -40,7 +40,7 @@ public class ResidentTransferServiceImpl implements ResidentTransferService {
      * @param transfer
      * @return ResidentTransfer
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public ResidentTransfer addEntity(ResidentTransfer transfer) {
         //todo 需要短信验证
         if (null == residentTransferMapper.selectByIdCard(transfer.getIdCard())) {

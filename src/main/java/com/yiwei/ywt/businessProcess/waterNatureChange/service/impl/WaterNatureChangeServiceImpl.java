@@ -31,7 +31,7 @@ public class WaterNatureChangeServiceImpl implements WaterNatureChangeService {
      * @param waterNatureChange
      * @return WaterNatureChange
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public WaterNatureChange addEntity(WaterNatureChange waterNatureChange) {
         if (null == waterNatureChangeMapper.selectByFamilyNumber(waterNatureChange.getFamilyNumber())) {
             return 0 < waterNatureChangeMapper.insert(waterNatureChange) ? waterNatureChange : null;

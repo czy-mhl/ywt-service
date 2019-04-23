@@ -36,10 +36,11 @@ public class AgainWaterServiceImpl implements AgainWaterService {
      * @param againWaterMeter
      * @return AgainWaterMeter
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public AgainWaterMeter addEntity(AgainWaterMeter againWaterMeter) {
+        //todo 必须要绑定户号
         if (null == againWaterMeterMapper.selectByFamilyNumber(againWaterMeter.getFamilyNumber())) {
-            //复接申请 想要插入办理进度业务表 只能存在唯一户号
+            //复接申请 想要插入办理进度业务表 只能存在唯一户号(本业务)
             //按户号校验，不允许重复提交申请
             //todo 添加到办理进度
             HandleState handleState = new HandleState();

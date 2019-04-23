@@ -40,7 +40,7 @@ public class BusinessChangeServiceImpl implements BusinessChangeService {
      * @param businessChange
      * @return BusinessChange
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public BusinessChange addEntity(BusinessChange businessChange) {
         //todo 需要短信验证
         if (null == businessChangeMapper.selectByIdCard(businessChange.getIdCard())) {

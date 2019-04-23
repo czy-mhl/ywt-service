@@ -31,7 +31,7 @@ public class CancelWaterServiceImpl implements CancelWaterService {
      * @param cancelWaterMeter
      * @return CancelWaterMeter
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public CancelWaterMeter addEntity(CancelWaterMeter cancelWaterMeter) {
         if (null == cancelWaterMeterMapper.selectByFamilyNumber(cancelWaterMeter.getFamilyNumber())) {
             return 0 < cancelWaterMeterMapper.insert(cancelWaterMeter) ? cancelWaterMeter : null;

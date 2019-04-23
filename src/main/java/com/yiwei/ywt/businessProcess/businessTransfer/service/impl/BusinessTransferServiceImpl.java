@@ -42,7 +42,7 @@ public class BusinessTransferServiceImpl implements BusinessTransferService {
      * @param businessTransfer
      * @return BusinessTransfer
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public BusinessTransfer addEntity(BusinessTransfer businessTransfer) {
         //todo 需要短信验证
         if (null == businessTransferMapper.selectByCompanyCard(businessTransfer.getCompanyCard())) {

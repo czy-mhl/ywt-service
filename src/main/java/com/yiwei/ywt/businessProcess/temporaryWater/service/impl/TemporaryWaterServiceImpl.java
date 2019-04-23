@@ -32,7 +32,7 @@ public class TemporaryWaterServiceImpl implements TemporaryWaterService {
      * @param temporaryWater
      * @return BusinessWater
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Override
     public TemporaryWater addEntity(TemporaryWater temporaryWater) {
         //todo 需要短信验证
         if (null == temporaryWaterMapper.selectByCreditCode(temporaryWater.getCreditCode())) {
